@@ -5,3 +5,4 @@ __pycache__/
 
 .spyderproject
 log.txt
+*.dndcs
