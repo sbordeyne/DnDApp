@@ -83,7 +83,6 @@ class CharacterSheetTab(Frame):
         self.bonusLabel.grid(row=7,column=3)
         self.levelLabel=Label(self,textvariable=self.level,relief=SUNKEN,width=5)
         self.levelLabel.grid(row=9,column=2,columnspan=2)
-        Label(self,text="Freeze Chars").grid(row=10,column=5)
 
         Eplayer=Entry(self,textvariable=self.player)
         Eplayer.grid(row=0,column=2,columnspan=2)
@@ -118,28 +117,13 @@ class CharacterSheetTab(Frame):
         "Neutral Evil","Chaotic Good","Chaotic Neutral","Chaotic Evil").grid(row=3,column=7)
         OptionMenu(self,self.race,"Race","Human","Elf","Dwarf","Halfelin").grid(row=4,column=5)
 
-        Button(self,text="SAVE",command=self.save,width=6).grid(row=10,column=0)
-        Button(self,text="LOAD",command=self.load,width=6).grid(row=10,column=1)
-        Button(self,text="RESET",command=self.reset,width=6).grid(row=10,column=2)
         Button(self,text="Add XP",command=self.refresh,width=6).grid(row=10,column=3)
-
-
-        self.freezeCheck=Checkbutton(self,variable=self.freeze)
-        self.freezeCheck.grid(row=10,column=6)
-
-
-    def dummy(self):
-        self.update_idletasks()
-
+        self.refresh()
 
     def refresh(self):
         self.baseXP,self.mainCarRace,self.mainCarClass = self.classDifferenciation()
         self.remainingXP.set(self.getRemainingXP())
         self.bonusXP.set(self.getBonusXP())
-        if self.freeze.get():
-            Button(self,text="Roll",command=self.dummy,width=6).grid(row=10,column=4)
-        else:
-            Button(self,text="Roll",command=self.rollCharacteristics,width=6).grid(row=10,column=4)
         self.update_idletasks()
 
 
@@ -289,10 +273,11 @@ class CharacterSheetTab(Frame):
 
 
     def rollCharacteristics(self):
-        chars=[self.str,self.int,self.wis,self.dex,self.con,self.cha]
-        for char in chars:
-            char.set(str(rd.randint(1,6)+rd.randint(1,6)+rd.randint(1,6)))
-
+        if self.freeze.get()==0:        
+            chars=[self.str,self.int,self.wis,self.dex,self.con,self.cha]
+            for char in chars:
+                char.set(str(rd.randint(1,6)+rd.randint(1,6)+rd.randint(1,6)))
+        pass
     @method_once
     def init_once(self):
         self.level.set("1")

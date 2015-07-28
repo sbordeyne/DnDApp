@@ -27,8 +27,9 @@ class MainFrame(Frame):
         Frame.__init__(self, master)
         self.pack(fill=BOTH)
         self.window = master
-        self.init_menu_bar()
         self.init_tabs()
+        self.init_menu_bar()
+        
 
     def init_tabs(self):
         """Creating Tabs : Dice, Map, Encounters, Treasure"""
@@ -66,6 +67,14 @@ class MainFrame(Frame):
         menuConnect.add_command(label="Connect", command=self.connect)
         menuBar.add_cascade(label="Connect", menu=menuConnect)
 
+        menuCharacterSheet = Menu(menuBar, tearoff=0)
+        menuCharacterSheet.add_command(label="Save As...", command=self.tabCharacterSheet.save)
+        menuCharacterSheet.add_command(label="Load", command=self.tabCharacterSheet.load)
+        menuCharacterSheet.add_command(label="Reset", command=self.tabCharacterSheet.reset)
+        menuCharacterSheet.add_command(label="Roll Caracteristics", command=self.tabCharacterSheet.rollCharacteristics)
+        menuCharacterSheet.add_checkbutton(label="Freeze Caracteristics", variable=self.tabCharacterSheet.freeze)
+        menuBar.add_cascade(label="Character Sheet", menu=menuCharacterSheet)        
+        
         menuHelp = Menu(menuBar, tearoff=0)
         menuHelp.add_command(label="About", command=self.about)
         menuBar.add_cascade(label="Help", menu=menuHelp)
@@ -110,7 +119,7 @@ class MainFrame(Frame):
         messagebox.showinfo("About", """DnDApp by Dogeek\nFor
             http://www.reddit.com/r/DnD\n(C)/u/Dogeek\nLicense :
             Creative Commons\n--------------\nCredit To:\n\
-            Ori Peleg on activestate.com for a decorator recipe""")
+            Sinderella\nsolumos""")
 
     def _quit(self):
         """Quit procedure. unloads everything and quit"""
