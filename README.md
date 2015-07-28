@@ -1,6 +1,7 @@
 # DnDApp
 The GitHub repository for DnDApp 
 
+Teamspeak3 server to discuss it : IP: thor.evxv.net:10179, pass: phacodick
 https://www.reddit.com/r/Python/comments/3evsrz/hello_rpython_im_looking_for_willing_devs_to_work/
 # What is it ?
 
