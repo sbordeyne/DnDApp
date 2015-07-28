@@ -5,11 +5,7 @@ Created on Sat Apr  4 10:08:56 2015
 @author: Simon
 """
 
-import random as rd
-import socket as sk
-from tkinter import *
-from tkinter.ttk import *
-from functions import *
+from tkinter import Frame, Label, StringVar
 
 class EncountersTab(Frame):
     def __init__(self,master=None):
@@ -43,11 +39,14 @@ class EncountersTab(Frame):
         Label(self,text="ALIGN :").grid(row=9,column=7)
         Label(self,text="XP :").grid(row=10,column=7)
         
-        #Label(self,text=self.creatures_names_list[0]).grid(row=1,column=0,columnspan=3)
+
     def generate(self):
         print("generate")
+
+
     def encounter(self):
         print("encounter")
+
+
     def get_creatures_names(self):
-        creatures= readConfig("creatures_names")
-        
+        creatures = readConfig("creatures_names")

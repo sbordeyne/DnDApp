@@ -4,21 +4,19 @@ Created on Sat Apr  4 10:01:52 2015
 
 @author: Simon
 """
-
 import random as rd
 import socket as sk
-from tkinter import *
-from tkinter.ttk import *
+from tkinter import Frame, StringVar, IntVar, Label, SUNKEN, Entry, OptionMenu, Button, Checkbutton
 import tkinter.filedialog as filedialog
 
-from functions import *
-    
+from functions import method_once
+
+
 class CharacterSheetTab(Frame):
     #level=StringVar()
     #level.set("1")
     def __init__(self,master=None):
         Frame.__init__(self,master)
-        print(1)
         self.player=StringVar()
         self.character=StringVar()
         self.dm=StringVar()
@@ -43,17 +41,17 @@ class CharacterSheetTab(Frame):
         self.XPbonus=StringVar()
         self.XPtotal=IntVar()
         self.level=StringVar()
-        
+
         self.init_once()
         self.baseXP,self.mainCarRace,self.mainCarClass = self.classDifferenciation()
         self.remainingXP=StringVar()
         self.remainingXP.set(self.getRemainingXP())
         self.bonusXP=StringVar()
         self.bonusXP.set(self.getBonusXP())
-             
+
         self.freeze=IntVar()
         self.freeze.set(1)
-        
+
         Label(self,text="Player Name:").grid(row=0,column=0,columnspan=2)
         Label(self,text="Character Name :").grid(row=0,column=4,columnspan=2)
         Label(self,text="DM Name:").grid(row=0,column=8, columnspan=2)
@@ -84,16 +82,16 @@ class CharacterSheetTab(Frame):
         self.bonusLabel.grid(row=7,column=3)
         self.levelLabel=Label(self,textvariable=self.level,relief=SUNKEN,width=5)
         self.levelLabel.grid(row=9,column=2,columnspan=2)
-        Label(self,text="Freeze Chars").grid(row=10,column=5)        
-        
+        Label(self,text="Freeze Chars").grid(row=10,column=5)
+
         Eplayer=Entry(self,textvariable=self.player)
         Eplayer.grid(row=0,column=2,columnspan=2)
         Eplayer.bind(sequence='<KeyRelease>', func=self.refresh)
-        
+
         Echaracter=Entry(self,textvariable=self.character)
         Echaracter.grid(row=0,column=6,columnspan=2)
         Echaracter.bind(sequence='<KeyRelease>', func=self.refresh)
-        
+
         Entry(self,textvariable=self.dm).grid(row=0,column=10,columnspan=2)
         Entry(self,textvariable=self.str).grid(row=1,column=1)
         Entry(self,textvariable=self.int).grid(row=2,column=1)
@@ -109,46 +107,49 @@ class CharacterSheetTab(Frame):
         Entry(self,textvariable=self.AC).grid(row=2,column=4)
         Entry(self,textvariable=self.HP).grid(row=2,column=5)
         Entry(self,textvariable=self.maxHP).grid(row=2,column=7)
-        
+
         EXP=Entry(self,textvariable=self.XP_to_add)
         EXP.grid(row=7,column=1)
         EXP.bind(sequence='<KeyPress-Return>', func=self.addXP)
-        
+
         OptionMenu(self,self.class_,"Class","Warrior","Wizard","Thief","Cleric").grid(row=3,column=5)
         OptionMenu(self,self.align,"Alignment","Lawful Good","Lawful Neutral","Lawful Evil","Neutral Good","Neutral Neutral",\
         "Neutral Evil","Chaotic Good","Chaotic Neutral","Chaotic Evil").grid(row=3,column=7)
         OptionMenu(self,self.race,"Race","Human","Elf","Dwarf","Halfelin").grid(row=4,column=5)
-        
+
         Button(self,text="SAVE",command=self.save,width=6).grid(row=10,column=0)
         Button(self,text="LOAD",command=self.load,width=6).grid(row=10,column=1)
         Button(self,text="RESET",command=self.reset,width=6).grid(row=10,column=2)
         Button(self,text="Add XP",command=self.refresh,width=6).grid(row=10,column=3)
-        
-        
+
+
         self.freezeCheck=Checkbutton(self,variable=self.freeze)
         self.freezeCheck.grid(row=10,column=6)
-        
-        
+
+
     def dummy(self):
         self.update_idletasks()
-        pass
+
+
     def refresh(self):
         self.baseXP,self.mainCarRace,self.mainCarClass = self.classDifferenciation()
         self.remainingXP.set(self.getRemainingXP())
         self.bonusXP.set(self.getBonusXP())
-        if self.freeze.get():        
+        if self.freeze.get():
             Button(self,text="Roll",command=self.dummy,width=6).grid(row=10,column=4)
         else:
             Button(self,text="Roll",command=self.rollCharacteristics,width=6).grid(row=10,column=4)
         self.update_idletasks()
-        pass
+
+
     def addXP(self,event):
         self.baseXP,self.mainCarRace,self.mainCarClass = self.classDifferenciation()
         self.remainingXP.set(self.getRemainingXP())
         self.bonusXP.set(self.getBonusXP())
         self.addXPToTotal()
         self.update_idletasks()
-        pass
+
+
     def save(self):
         file_=filedialog.asksaveasfile(parent=self, mode="w",title="Save your Character Sheet",defaultextension=".dndcs",filetypes=[("Character Sheets", ".dndcs"), ("All Files", ".*")])
         string=""
@@ -160,7 +161,8 @@ class CharacterSheetTab(Frame):
         #string-="\n"
         file_.write(string)
         file_.close()
-        pass
+
+
     def load(self):
         self.reset()
         temp=StringVar()
@@ -173,7 +175,8 @@ class CharacterSheetTab(Frame):
             i+=1
         file_.close()
         self.refresh()
-        pass
+
+
     def reset(self):
         self.player.set("")
         self.character.set("")
@@ -199,7 +202,8 @@ class CharacterSheetTab(Frame):
         self.XPbonus.set("")
         self.XPtotal.set(0)
         self.level.set("1")
-        pass
+
+
     def classDifferenciation(self):
         XPToReturn=0
         mainCarClass=0
@@ -230,13 +234,14 @@ class CharacterSheetTab(Frame):
         elif self.race.get()=="Halfelin":
             XPToReturn+=800
             mainCarRace=int(self.dex.str.get())
-        
         return XPToReturn, mainCarClass, mainCarRace
-        
-        
+
+
     def getRemainingXP(self):
         remainingXP=int(self.baseXP)*int(self.level.get())-int(self.XPtotal.get())
         return str(remainingXP)
+
+
     def getBonusXP(self):
         bonusPercentage=0
         if 16<=self.mainCarClass<=18:
@@ -249,7 +254,7 @@ class CharacterSheetTab(Frame):
             bonusPercentage-=10
         else:
             bonusPercentage=0
-            
+
         if 16<=self.mainCarRace<=18:
             bonusPercentage+=5
         elif 13<=self.mainCarRace<=15:
@@ -262,6 +267,8 @@ class CharacterSheetTab(Frame):
             bonusPercentage=0
         self.bonus=bonusPercentage
         return str(bonusPercentage)+"%"
+
+
     def addXPToTotal(self):
         self.baseXP,self.mainCarRace,self.mainCarClass = self.classDifferenciation()
         self.remainingXP.set(self.getRemainingXP())
@@ -278,12 +285,13 @@ class CharacterSheetTab(Frame):
         self.XPtotal.set(total)
         if total>=remaining:
             self.level.set(str(int(self.level.get())+1))
-        pass
+
+
     def rollCharacteristics(self):
         chars=[self.str,self.int,self.wis,self.dex,self.con,self.cha]
         for char in chars:
             char.set(str(rd.randint(1,6)+rd.randint(1,6)+rd.randint(1,6)))
-        pass
+
     @method_once
     def init_once(self):
         self.level.set("1")
