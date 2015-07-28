@@ -5,8 +5,6 @@ https://www.reddit.com/r/Python/comments/3evsrz/hello_rpython_im_looking_for_wil
 
 # To Do List :
 
-[ ] You can't catch everything simultaneously
-
 [ ] "hide" checkbox to hide dice rolls from other players, but not the DM (host)
 
 [ ] network functions
@@ -34,4 +32,6 @@ https://www.reddit.com/r/Python/comments/3evsrz/hello_rpython_im_looking_for_wil
 [ ] Add translation support
 
 [ ] Add character sheet skins for other RPGs
+
+# Design of the map tab :
 
