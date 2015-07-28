@@ -6,7 +6,8 @@ Created on Sat Apr  4 10:01:52 2015
 """
 import random as rd
 import socket as sk
-from tkinter import Frame, StringVar, IntVar, Label, SUNKEN, Entry, OptionMenu, Button, Checkbutton
+from tkinter import Frame, StringVar, IntVar, SUNKEN
+from tkinter.ttk import Entry, Button, Checkbutton, Label, OptionMenu
 import tkinter.filedialog as filedialog
 
 from functions import method_once
