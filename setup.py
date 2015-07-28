@@ -8,7 +8,7 @@ if sys.platform == "win32":
     base = "Win32GUI"
 
 setup(
-    name = "DnDApp",
-    version = "0.13.0",
-    description = "A tool to play Dungeons and Dragons",
-    executables = [Executable("launch.py", base = base)])
+    name="DnDApp",
+    version="0.13.0",
+    description="A tool to play Dungeons and Dragons",
+    executables=[Executable("launch.py", base=base)])

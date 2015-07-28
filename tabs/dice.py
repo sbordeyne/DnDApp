@@ -5,9 +5,7 @@ Created on Sat Apr  4 10:04:46 2015
 @author: Simon
 """
 import random as rd
-import socket as sk
-from tkinter import *
-from tkinter.ttk import *
+from tkinter import Frame, Label, Button, StringVar, Spinbox, IntVar, Checkbutton, SUNKEN
 
 
 class DiceTab(Frame):
@@ -51,11 +49,11 @@ class DiceTab(Frame):
         labelResult1.grid(row=1, column=4)
         labelResult2=Label(self,text=self.result.get(),relief=SUNKEN,width=4)
         labelResult2.grid(row=1,column=5)
-        print(self.result.get())
         #Button to roll
         buttonRoll=Button(self,text="Roll!", command=self.roll)
         buttonRoll.grid(row=2,column=5)
         
+
     def roll(self):
         self.throws=[]
         numberOfDices=int(self.number.get())
@@ -67,9 +65,3 @@ class DiceTab(Frame):
         self.result.set(str(sum(self.throws)+modifierOfDice))
         labelResult2=Label(self,text=self.result.get(),relief=SUNKEN, width=4)
         labelResult2.grid(row=1,column=5)
-        print(self.result.get())
-        
-        if self.hide.get(): # The variable 'self.hide' = 1 if case is ticked, 0 if not.
-            print("Hide")
-        else:
-            print("Seen")
