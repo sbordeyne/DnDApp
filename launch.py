@@ -2,37 +2,10 @@
 """
 Created on Sat Mar 28 18:27:47 2015
 
-@author: Dogeek (reddit.com/u/Dogeek) a.k.a Simon Bordeyne for reddit.com/r/DnD
+@author: Dogeek
+@contributors: Sinderella, solumos
 
-Version : 0.13.0
-"""
-"""
---------------------
-Bug Section :
---------------------
-
-[ ] The host function blocks everything unless it catches something.
-[ ] You can't catch everything simultaneously
-[ ] The "hide" thing is a dummy for now
-[ ] The network functioons are not up yet
-[x] The level, xp, remaining xp features don't work for some reason
- | [ ] It now needs automatic refresh (clicking on the button is kind of a hassle)
-[ ] Sections not built yet : Encounters, Treasures, Connection to host, Help page,
-    load character sheet, display dices of others connected
----------------------
-Things to improve :
----------------------
-
-[ ] Simultaneous host/Clients connections
-[ ] Add a Stop button, to stop hosting
-[ ] Handle exceptions
-[x] Go modular, this single file becomes too heavy to read and work on
-[x] cx_freeze to distribute the program
-[ ] improve dice interface
-[ ] slightly improve character Sheet interface with some padding, and add
-    a Text Widget to keep track of treasures and inventory, maybe
-    add a button to roll caracteristics.
-
+Version : 0.0.1
 """
 import socket as sk
 from tkinter import Tk, Frame, BOTH, Menu, StringVar, Toplevel, Label, Entry, Button
