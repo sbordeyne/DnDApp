@@ -92,13 +92,34 @@ class CharacterSheetTab(Frame):
         Echaracter.grid(row=0,column=6,columnspan=2)
         Echaracter.bind(sequence='<KeyRelease>', func=self.refresh)
 
-        Entry(self,textvariable=self.dm).grid(row=0,column=10,columnspan=2)
-        Entry(self,textvariable=self.str).grid(row=1,column=1)
-        Entry(self,textvariable=self.int).grid(row=2,column=1)
-        Entry(self,textvariable=self.wis).grid(row=3,column=1)
-        Entry(self,textvariable=self.dex).grid(row=4,column=1)
-        Entry(self,textvariable=self.con).grid(row=5,column=1)
-        Entry(self,textvariable=self.cha).grid(row=6,column=1)
+        EDM=Entry(self,textvariable=self.dm)
+        EDM.grid(row=0,column=10,columnspan=2)
+        EDM.bind(sequence='<KeyRelease>', func=self.refresh)
+        
+        Estr=Entry(self,textvariable=self.str)
+        Estr.grid(row=1,column=1)
+        Estr.bind(sequence='<KeyRelease>', func=self.refresh)
+        
+        Eint=Entry(self,textvariable=self.int)
+        Eint.grid(row=2,column=1)
+        Eint.bind(sequence='<KeyRelease>', func=self.refresh)
+        
+        Ewis=Entry(self,textvariable=self.wis)
+        Ewis.grid(row=3,column=1)
+        Ewis.bind(sequence='<KeyRelease>', func=self.refresh)
+        
+        Edex=Entry(self,textvariable=self.dex)
+        Edex.grid(row=4,column=1)
+        Edex.bind(sequence='<KeyRelease>', func=self.refresh)
+        
+        Econ=Entry(self,textvariable=self.con)
+        Econ.grid(row=5,column=1)
+        Econ.bind(sequence='<KeyRelease>', func=self.refresh)
+        
+        Echa=Entry(self,textvariable=self.cha)
+        Echa.grid(row=6,column=1)
+        Echa.bind(sequence='<KeyRelease>', func=self.refresh)
+        
         Entry(self,textvariable=self.JPpoison).grid(row=1,column=3)
         Entry(self,textvariable=self.JPwands).grid(row=2,column=3)
         Entry(self,textvariable=self.JPparalysis).grid(row=3,column=3)
@@ -118,9 +139,8 @@ class CharacterSheetTab(Frame):
         OptionMenu(self,self.race,"Race","Human","Elf","Dwarf","Halfelin").grid(row=4,column=5)
 
         Button(self,text="Add XP",command=self.refresh,width=6).grid(row=10,column=3)
-        self.refresh()
 
-    def refresh(self):
+    def refresh(self,event):
         self.baseXP,self.mainCarRace,self.mainCarClass = self.classDifferenciation()
         self.remainingXP.set(self.getRemainingXP())
         self.bonusXP.set(self.getBonusXP())
