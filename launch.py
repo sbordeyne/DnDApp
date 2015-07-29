@@ -7,6 +7,11 @@ Created on Sat Mar 28 18:27:47 2015
 
 Version : 0.0.1
 """
+
+#CONVENTION : module_name, package_name, ClassName, method_name,
+#ExceptionName, function_name, GLOBAL_CONSTANT_NAME, global_var_name,
+#instance_var_name, function_parameter_name, local_var_name
+
 import socket as sk
 from tkinter import Tk, Frame, BOTH, Menu, StringVar, Toplevel, Label, Entry, Button
 from tkinter.ttk import Notebook
@@ -23,134 +28,144 @@ from functions import log, translate
 log('', True)
 
 class MainFrame(Frame):
+    """MainFrame class to hold every widget used by the app. Inherits from tkinter.Frame"""
     def __init__(self, master=None):
+        """Init method for the MainFrame class that contains every widget used"""
         Frame.__init__(self, master)
-        self.pack(fill=BOTH)
+        #Defining Attributes :
+        self.host_ip = str()
+        self.host_socket = sk.socket(sk.AF_INET, sk.SOCK_STREAM)
+        self.port = StringVar()       
+        self.max_connections = StringVar()
+        self.users = dict()
+        self.language = "EN-us"
         self.window = master
+        
+        self.pack(fill=BOTH)
         self.init_tabs()
         self.init_menu_bar()
-        self.language="EN-us"
-        self.loadOptions()
-        self.translation=translate()
-        
+        self.load_options()
+        self.translation = translate()  
+
 
     def init_tabs(self):
         """Creating Tabs : Dice, Map, Encounters, Treasure"""
-        tabBar = Notebook(self)
-        tabBar.pack(fill=BOTH, padx=2, pady=3)
+        tab_bar = Notebook(self)
+        tab_bar.pack(fill=BOTH, padx=2, pady=3)
         #Dice
-        self.tabDice = DiceTab(tabBar)
-        tabBar.add(self.tabDice, text="Dice")
+        self.tab_dice = DiceTab(tab_bar)
+        tab_bar.add(self.tab_dice, text="Dice")
         #Map
-        self.tabMap = MapTab(tabBar)
-        tabBar.add(self.tabMap, text="Map")
+        self.tab_map = MapTab(tab_bar)
+        tab_bar.add(self.tab_map, text="Map")
         #Encounters
-        self.tabEncounters = EncountersTab(tabBar)
-        tabBar.add(self.tabEncounters, text="Encounters")
+        self.tab_encounters = EncountersTab(tab_bar)
+        tab_bar.add(self.tab_encounters, text="Encounters")
         #Treasure
-        self.tabTreasure = TreasureTab(tabBar)
-        tabBar.add(self.tabTreasure, text="Treasure")
+        self.tab_treasure = TreasureTab(tab_bar)
+        tab_bar.add(self.tab_treasure, text="Treasure")
         #Character Sheet
-        self.tabCharacterSheet = CharacterSheetTab(tabBar)
-        tabBar.add(self.tabCharacterSheet, text="Character Sheet")
+        self.tab_character_sheet = CharacterSheetTab(tab_bar)
+        tab_bar.add(self.tab_character_sheet, text="Character Sheet")
         #Disease Generator
-        self.tabDisease = DiseaseTab(tabBar)
-        tabBar.add(self.tabDisease, text="Disease")
+        self.tab_disease = DiseaseTab(tab_bar)
+        tab_bar.add(self.tab_disease, text="Disease")
 
     def init_menu_bar(self):
         """Creating MenuBar : File, Connect, Help"""
-        menuBar = Menu(self)
+        menu_bar = Menu(self)
 
-        menuFile = Menu(menuBar, tearoff=0)
-        menuFile.add_command(label="Quit", command=self._quit)
-        menuBar.add_cascade(label="File", menu=menuFile)
+        menu_file = Menu(menu_bar, tearoff=0)
+        menu_file.add_command(label="Quit", command=self._quit)
+        menu_bar.add_cascade(label="File", menu=menu_file)
 
-        menuConnect = Menu(menuBar, tearoff=0)
-        menuConnect.add_command(label="Host", command=self.host)
-        menuConnect.add_command(label="Connect", command=self.connect)
-        menuBar.add_cascade(label="Connect", menu=menuConnect)
+        menu_connect = Menu(menu_bar, tearoff=0)
+        menu_connect.add_command(label="Host", command=self.host)
+        menu_connect.add_command(label="Connect", command=self.connect)
+        menu_bar.add_cascade(label="Connect", menu=menu_connect)
 
-        menuCharacterSheet = Menu(menuBar, tearoff=0)
-        menuCharacterSheet.add_command(label="Save As...", command=self.tabCharacterSheet.save)
-        menuCharacterSheet.add_command(label="Load", command=self.tabCharacterSheet.load)
-        menuCharacterSheet.add_command(label="Reset", command=self.tabCharacterSheet.reset)
-        menuCharacterSheet.add_command(label="Roll Characteristics", command=self.tabCharacterSheet.rollCharacteristics)
-        menuCharacterSheet.add_checkbutton(label="Freeze Characteristics", variable=self.tabCharacterSheet.freeze)
-        menuBar.add_cascade(label="Character Sheet", menu=menuCharacterSheet)        
+        menu_character_sheet = Menu(menu_bar, tearoff=0)
+        menu_character_sheet.add_command(label="Save As...", command=self.tab_character_sheet.save)
+        menu_character_sheet.add_command(label="Load", command=self.tab_character_sheet.load)
+        menu_character_sheet.add_command(label="Reset", command=self.tab_character_sheet.reset)
+        menu_character_sheet.add_command(label="Roll Characteristics", \
+                                        command=self.tab_character_sheet.rollCharacteristics)
+        menu_character_sheet.add_checkbutton(label="Freeze Characteristics", \
+                                        variable=self.tab_character_sheet.freeze)
+        menu_bar.add_cascade(label="Character Sheet", menu=menu_character_sheet)        
         
-        menuHelp = Menu(menuBar, tearoff=0)
-        menuHelp.add_command(label="About", command=self.about)
-        menuBar.add_cascade(label="Help", menu=menuHelp)
+        menu_help = Menu(menu_bar, tearoff=0)
+        menu_help.add_command(label="About", command=self.about)
+        menu_bar.add_cascade(label="Help", menu=menu_help)
 
-        self.window.config(menu=menuBar)
+        self.window.config(menu=menu_bar)
 
     def host(self):
-        """Procedure which host the server version of the app"""
-        self.port = StringVar()
+        """Creates a host window to input the vraible needed"""
         self.port.set("25665")
+        self.max_connections.set("5")
         
-        self.maxConnections = StringVar()
-        self.maxConnections.set("5")
-        
-        hostWindow = Toplevel()
-        hostWindow.title("Host Config")
-        hostWindow.geometry("256x144")
-        hostFrame = Frame(hostWindow)
-        hostFrame.pack(fill=BOTH)
+        host_window = Toplevel()
+        host_window.title("Host Config")
+        host_window.geometry("256x144")
+        host_frame = Frame(host_window)
+        host_frame.pack(fill=BOTH)
 
-        Label(hostFrame, text="Port :").grid(row=0, column=0)
-        Label(hostFrame, text="Maximum users").grid(row=1,column=0)
+        Label(host_frame, text="Port :").grid(row=0, column=0)
+        Label(host_frame, text="Maximum users").grid(row=1, column=0)
         
-        Entry(hostFrame, textvariable=self.port, width=30).grid(row=0, column=1)
-        Entry(hostFrame, textvariable=self.maxConnections, width=30).grid(row=1,column=1)
+        Entry(host_frame, textvariable=self.port, width=30).grid(row=0, column=1)
+        Entry(host_frame, textvariable=self.max_connections, width=30)\
+        .grid(row=1, column=1)
         
-        Button(hostFrame, text="Host", command=self.hostConnection).grid(row=2, column=1, columnspan=2)
+        Button(host_frame, text="Host", command=self.host_connection)\
+        .grid(row=2, column=1, columnspan=2)
 
-    def hostConnection(self):
-        listenPort = int(self.port.get())
-        maxUsers=int(self.maxConnections.get())
+    def host_connection(self):
+        """Procedure for the server side of the app"""
+        listen_port = int(self.port.get())
+        max_users = int(self.max_connections.get())
         host = ''
-        self.users=dict()
-        self.hostConnection = sk.socket(sk.AF_INET, sk.SOCK_STREAM)
-        self.hostConnection.bind((host, listenPort))
         
-        self.IP = self.hostConnection.getsockname()
-        messagebox.showinfo(title="IP Address", message=str(self.IP))
-        self.hostConnection.listen(maxUsers)
+        self.host_socket.bind((host, listen_port))
         
-        for i in range(maxUsers):
-            self.users["Player{}".format(i)]=self.hostConnection.accept()
-        pass
+        self.host_ip = self.host_socket.getsockname()
+        messagebox.showinfo(title="IP Address", message=str(self.host_ip))
+        self.host_socket.listen(max_users)
+        
+        for i in range(max_users):
+            self.users["Player{}".format(i)] = self.host_socket.accept()
 
     def connect(self):
-        connectWindow = Toplevel()
-        connectWindow.title("Connect to host")
-        connectWindow.geometry("256x144")
-        pass
+        """Displays a connect window to connect to the server"""
+        connect_window = Toplevel()
+        connect_window.title("Connect to host")
+        connect_window.geometry("256x144")
 
     def about(self):
+        """Displays information about the app"""
         messagebox.showinfo("About", """DnDApp by Dogeek\nFor
             http://www.reddit.com/r/DnD\n(C)/u/Dogeek\nLicense :
             Creative Commons\n--------------\nCredit To:\n\
             Sinderella\nsolumos""")
-        pass
-    
+
+
     def _quit(self):
-        """Quit procedure. unloads everything and quit"""
+        """Quit procedure. Unloads everything and quit"""
         self.destroy()
         self.master.destroy()
-        pass
-    
-    def loadOptions(self):
-        with open("options.cfg","r") as options:
+
+    def load_options(self):
+        """Method to load every option from the option.cfg file"""
+        with open("options.cfg", "r") as options:
             for line in options:
                 if "lng:" in line:                
-                    self.language=line.split("lng:")[1]
-        pass
+                    self.language = line.split("lng:")[1]
+
 if __name__ == '__main__':
     k = 0
-    root = Tk()
-    root.geometry("853x480")
-    root.title("D&D App")
-    frame = MainFrame(root)
-    frame.mainloop()
+    ROOT = Tk()
+    ROOT.geometry("853x480")
+    ROOT.title("D&D App")
+    FRAME = MainFrame(ROOT)
+    FRAME.mainloop()
