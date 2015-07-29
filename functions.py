@@ -41,10 +41,12 @@ def log(message, first_time=False):
         else:
             log_file.write("\n[{}] {}".format(strftime("%H:%M:%S"), message))
 
-def translate(StringToTranslate,language="EN-us"):
+def translate(language="EN-us"):
     translation=dict()
     with open("lng/{}.lng".format(language),"r") as lng:
         for line in lng:
             line.strip("\n")
-            translation[line.split(":")[0]]=line.split(":")[1]
-    return translation[StringToTranslate]
+            if line[0]=="/" and line[1]=="/":
+                continue
+            translation[line.split("§")[0]]=line.split("§")[1]              
+    return translation

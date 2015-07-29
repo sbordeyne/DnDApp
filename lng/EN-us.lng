@@ -1,0 +1,27 @@
+//Use this file as a template to translate the software
+//Any line that start with // is ignored
+
+Dice§Dice
+Map§Map
+Encounters§Encounters
+Treasure§Treasure
+Character Sheet§Character Sheet
+Disease§Disease
+Quit§Quit
+File§File
+Host§Host
+Connect§Connect
+Save As...§Save As...
+Load§Load
+Reset§Reset
+Roll Characteristics§Roll Characteristics
+Freeze Characteristics§Freeze Characteristics
+Character Sheet§Character Sheet
+About§About
+Help§Help
+Host Config§Host Config
+Port :§Port :
+Maximum users§Maximum users
+IP Address§IP Address
+
+Player Name:§Player Name:

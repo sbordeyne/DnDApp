@@ -18,7 +18,7 @@ from tabs.encounters import EncountersTab
 from tabs.map import MapTab
 from tabs.treasure import TreasureTab
 from tabs.disease import DiseaseTab
-from functions import log
+from functions import log, translate
 
 log('', True)
 
@@ -29,7 +29,7 @@ class MainFrame(Frame):
         self.window = master
         self.init_tabs()
         self.init_menu_bar()
-        
+        self.translation=translate()
 
     def init_tabs(self):
         """Creating Tabs : Dice, Map, Encounters, Treasure"""
@@ -71,8 +71,8 @@ class MainFrame(Frame):
         menuCharacterSheet.add_command(label="Save As...", command=self.tabCharacterSheet.save)
         menuCharacterSheet.add_command(label="Load", command=self.tabCharacterSheet.load)
         menuCharacterSheet.add_command(label="Reset", command=self.tabCharacterSheet.reset)
-        menuCharacterSheet.add_command(label="Roll Caracteristics", command=self.tabCharacterSheet.rollCharacteristics)
-        menuCharacterSheet.add_checkbutton(label="Freeze Caracteristics", variable=self.tabCharacterSheet.freeze)
+        menuCharacterSheet.add_command(label="Roll Characteristics", command=self.tabCharacterSheet.rollCharacteristics)
+        menuCharacterSheet.add_checkbutton(label="Freeze Characteristics", variable=self.tabCharacterSheet.freeze)
         menuBar.add_cascade(label="Character Sheet", menu=menuCharacterSheet)        
         
         menuHelp = Menu(menuBar, tearoff=0)
@@ -112,7 +112,7 @@ class MainFrame(Frame):
         self.hostConnection.bind((host, listenPort))
         
         self.IP = self.hostConnection.getsockname()
-        messagebox.showinfo(title="IP Adress", message=str(self.IP))
+        messagebox.showinfo(title="IP Address", message=str(self.IP))
         self.hostConnection.listen(maxUsers)
         
         for i in range(maxUsers):
