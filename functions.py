@@ -40,3 +40,11 @@ def log(message, first_time=False):
             log_file.write(log_string.format(strftime("%A %d %B %Y %H:%M:%S")))
         else:
             log_file.write("\n[{}] {}".format(strftime("%H:%M:%S"), message))
+
+def translate(StringToTranslate,language="EN-us"):
+    translation=dict()
+    with open("lng/{}.lng".format(language),"r") as lng:
+        for line in lng:
+            line.strip("\n")
+            translation[line.split(":")[0]]=line.split(":")[1]
+    return translation[StringToTranslate]
