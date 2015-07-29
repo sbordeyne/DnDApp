@@ -1,6 +1,5 @@
 //Use this file as a template to translate the software
-//Any line that start with // is ignored
-
+//Any line that contains "//" is ignored
 Dice§Dice
 Map§Map
 Encounters§Encounters
@@ -23,5 +22,5 @@ Host Config§Host Config
 Port :§Port :
 Maximum users§Maximum users
 IP Address§IP Address
-
+//
 Player Name:§Player Name:

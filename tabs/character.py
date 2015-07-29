@@ -159,27 +159,27 @@ class CharacterSheetTab(Frame):
         file_=filedialog.asksaveasfile(parent=self, mode="w",title="Save your Character Sheet",defaultextension=".dndcs",filetypes=[("Character Sheets", ".dndcs"), ("All Files", ".*")])
         string=""
         list_vars=[self.player,self.character, self.dm,self.str,self.int,self.wis,self.dex,self.con,self.cha,self.JPpoison,\
-                   self.JPwands,self.JPparalysis,self.JPbreath,self.JPspell,self.class_,self.race,self.align,self.AC,self.HP,self.maxHP,self.XPtotal]
+                   self.JPwands,self.JPparalysis,self.JPbreath,self.JPspell,self.class_,self.race,self.align,self.AC,self.HP,self.maxHP,self.XPtotal,self.level]
         for i in range(len(list_vars)):
             string+=str(list_vars[i].get())+"\n"
-            print(string)
-        #string-="\n"
+            
+        string=string[:-2]
         file_.write(string)
         file_.close()
 
 
     def load(self):
         self.reset()
-        temp=StringVar()
         file_=filedialog.askopenfile(parent=self,mode="r", title="Open a Character Sheet", defaultextension=".dndcs", filetypes=[("Character Sheets", ".dndcs"), ("All Files", ".*")])
         list_vars=[self.player,self.character, self.dm,self.str,self.int,self.wis,self.dex,self.con,self.cha,self.JPpoison,\
-                   self.JPwands,self.JPparalysis,self.JPbreath,self.JPspell,self.class_,self.race,self.align,self.AC,self.HP,self.maxHP,self.XPtotal,temp]
+                   self.JPwands,self.JPparalysis,self.JPbreath,self.JPspell,self.class_,self.race,self.align,self.AC,self.HP,self.maxHP,self.XPtotal,self.level]
         i=0
         for line in file_:
+            line.strip()
             list_vars[i].set(line)
             i+=1
         file_.close()
-        self.refresh()
+        self.refresh(1)
 
 
     def reset(self):

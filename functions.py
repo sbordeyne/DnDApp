@@ -46,7 +46,7 @@ def translate(language="EN-us"):
     with open("lng/{}.lng".format(language),"r") as lng:
         for line in lng:
             line.strip("\n")
-            if line[0]=="/" and line[1]=="/":
+            if "//" in line:
                 continue
             translation[line.split("§")[0]]=line.split("§")[1]              
     return translation
