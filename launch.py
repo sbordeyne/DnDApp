@@ -85,7 +85,10 @@ class MainFrame(Frame):
         """Procedure which host the server version of the app"""
         self.port = StringVar()
         self.port.set("25665")
-
+        
+        self.maxConnections = StringVar()
+        self.maxConnections.set("5")
+        
         hostWindow = Toplevel()
         hostWindow.title("Host Config")
         hostWindow.geometry("256x144")
@@ -93,22 +96,28 @@ class MainFrame(Frame):
         hostFrame.pack(fill=BOTH)
 
         Label(hostFrame, text="Port :").grid(row=0, column=0)
-
-        entryPort = Entry(hostFrame, textvariable=self.port, width=30)
-        entryPort.grid(row=0, column=1)
-
-        buttonHost = Button(hostFrame, text="Host", command=self.hostConnection)
-        buttonHost.grid(row=1, column=1)
+        Label(hostFrame, text="Maximum users").grid(row=1,column=0)
+        
+        Entry(hostFrame, textvariable=self.port, width=30).grid(row=0, column=1)
+        Entry(hostFrame, textvariable=self.maxConnections, width=30).grid(row=1,column=1)
+        
+        Button(hostFrame, text="Host", command=self.hostConnection).grid(row=2, column=1, columnspan=2)
 
     def hostConnection(self):
         listenPort = int(self.port.get())
+        maxUsers=int(self.maxConnections.get())
         host = ''
+        self.users=dict()
         self.hostConnection = sk.socket(sk.AF_INET, sk.SOCK_STREAM)
         self.hostConnection.bind((host, listenPort))
-        self.clientConnection, self.connectionInfos = self.hostConnection.accept()
+        
         self.IP = self.hostConnection.getsockname()
         messagebox.showinfo(title="IP Adress", message=str(self.IP))
-        self.hostConnection.listen(5)
+        self.hostConnection.listen(maxUsers)
+        
+        for i in range(maxUsers):
+            self.users["Player{}".format(i)]=self.hostConnection.accept()
+        pass
 
     def connect(self):
         connectWindow = Toplevel()
