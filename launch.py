@@ -29,7 +29,10 @@ class MainFrame(Frame):
         self.window = master
         self.init_tabs()
         self.init_menu_bar()
+        self.language="EN-us"
+        self.loadOptions()
         self.translation=translate()
+        
 
     def init_tabs(self):
         """Creating Tabs : Dice, Map, Encounters, Treasure"""
@@ -123,18 +126,27 @@ class MainFrame(Frame):
         connectWindow = Toplevel()
         connectWindow.title("Connect to host")
         connectWindow.geometry("256x144")
+        pass
 
     def about(self):
         messagebox.showinfo("About", """DnDApp by Dogeek\nFor
             http://www.reddit.com/r/DnD\n(C)/u/Dogeek\nLicense :
             Creative Commons\n--------------\nCredit To:\n\
             Sinderella\nsolumos""")
-
+        pass
+    
     def _quit(self):
         """Quit procedure. unloads everything and quit"""
         self.destroy()
         self.master.destroy()
-
+        pass
+    
+    def loadOptions(self):
+        with open("options.cfg","r") as options:
+            for line in options:
+                if "lng:" in line:                
+                    self.language=line.split("lng:")[1]
+        pass
 if __name__ == '__main__':
     k = 0
     root = Tk()
