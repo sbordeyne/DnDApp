@@ -80,8 +80,8 @@ class MainFrame(Frame):
         menu_bar.add_cascade(label="File", menu=menu_file)
 
         menu_connect = Menu(menu_bar, tearoff=0)
-        menu_connect.add_command(label="Host", command=self.host)
-        menu_connect.add_command(label="Connect", command=self.connect)
+        menu_connect.add_command(label="Host", command=self.host_window)
+        menu_connect.add_command(label="Connect", command=self.connect_window)
         menu_bar.add_cascade(label="Connect", menu=menu_connect)
 
         menu_character_sheet = Menu(menu_bar, tearoff=0)
@@ -100,15 +100,15 @@ class MainFrame(Frame):
 
         self.window.config(menu=menu_bar)
 
-    def host(self):
+    def host_window(self):
         """Creates a host window to input the vraible needed"""
         self.port.set("25665")
         self.max_connections.set("5")
         
-        host_window = Toplevel()
-        host_window.title("Host Config")
-        host_window.geometry("256x144")
-        host_frame = Frame(host_window)
+        host_root = Toplevel()
+        host_root.title("Host Config")
+        host_root.geometry("256x144")
+        host_frame = Frame(host_root)
         host_frame.pack(fill=BOTH)
 
         Label(host_frame, text="Port :").grid(row=0, column=0)
@@ -136,11 +136,11 @@ class MainFrame(Frame):
         for i in range(max_users):
             self.users["Player{}".format(i)] = self.host_socket.accept()
 
-    def connect(self):
+    def connect_window(self):
         """Displays a connect window to connect to the server"""
-        connect_window = Toplevel()
-        connect_window.title("Connect to host")
-        connect_window.geometry("256x144")
+        connect_root = Toplevel()
+        connect_root.title("Connect to host")
+        connect_root.geometry("256x144")
 
     def about(self):
         """Displays information about the app"""

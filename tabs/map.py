@@ -5,14 +5,20 @@ Created on Sat Apr  4 10:08:54 2015
 @author: Simon
 """
 
-from tkinter import Frame, Button
+from tkinter import Frame, Canvas, StringVar, Toplevel, BOTH
+from tkinter.ttk import Button
 
 class MapTab(Frame):
     def __init__(self,master=None):
         Frame.__init__(self,master)
-        buttonMap=Button(self,text="Map", command=self._map)
-        buttonMap.grid(row=0,column=0)
-
-
-    def _map(self):
-        print("map")
+        self.tiles_type=StringVar()
+    
+    def toolbox_window(self):
+        """Creates the window which will host the toolbox buttons"""
+        toolbox_root = Toplevel()
+        toolbox_root.title("Toolbox")
+        toolbox_root.geometry("455x256")
+        toolbox_frame = Frame(toolbox_root)
+        toolbox_frame.pack(fill=BOTH)
+        
+        
