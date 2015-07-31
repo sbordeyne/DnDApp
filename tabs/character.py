@@ -18,36 +18,36 @@ class CharacterSheetTab(Frame):
     #level.set("1")
     def __init__(self,master=None):
         Frame.__init__(self,master)
-        self.player=StringVar()
-        self.character=StringVar()
-        self.dm=StringVar()
-        self.str=StringVar()
-        self.int=StringVar()
-        self.wis=StringVar()
-        self.dex=StringVar()
-        self.con=StringVar()
-        self.cha=StringVar()
-        self.JPpoison=StringVar()
-        self.JPwands=StringVar()
-        self.JPparalysis=StringVar()
-        self.JPbreath=StringVar()
-        self.JPspell=StringVar()
-        self.class_=StringVar()
-        self.race=StringVar()
-        self.align=StringVar()
-        self.AC=StringVar()
-        self.HP=StringVar()
-        self.maxHP=StringVar()
-        self.XP_to_add=StringVar()
-        self.XPbonus=StringVar()
-        self.XPtotal=IntVar()
-        self.level=StringVar()
+        self.player = StringVar()
+        self.character = StringVar()
+        self.dm = StringVar()
+        self.str = StringVar()
+        self.int = StringVar()
+        self.wis = StringVar()
+        self.dex = StringVar()
+        self.con = StringVar()
+        self.cha = StringVar()
+        self.JPpoison = StringVar()
+        self.JPwands = StringVar()
+        self.JPparalysis = StringVar()
+        self.JPbreath = StringVar()
+        self.JPspell = StringVar()
+        self.class_ = StringVar()
+        self.race = StringVar()
+        self.align = StringVar()
+        self.AC = StringVar()
+        self.HP = StringVar()
+        self.maxHP = StringVar()
+        self.XP_to_add = StringVar()
+        self.XPbonus = StringVar()
+        self.XPtotal = IntVar()
+        self.level = StringVar()
 
         self.init_once()
         self.baseXP,self.mainCarRace,self.mainCarClass = self.classDifferenciation()
-        self.remainingXP=StringVar()
+        self.remainingXP = StringVar()
         self.remainingXP.set(self.getRemainingXP())
-        self.bonusXP=StringVar()
+        self.bonusXP = StringVar()
         self.bonusXP.set(self.getBonusXP())
 
         self.freeze=IntVar()
@@ -301,8 +301,8 @@ class CharacterSheetTab(Frame):
     @method_once
     def init_once(self):
         self.level.set("1")
-        self.baseXP=0
-        self.mainCarRace=0
-        self.mainCarClass=0
-        self.bonus=0
+        self.baseXP = 0
+        self.mainCarRace = 0
+        self.mainCarClass = 0
+        self.bonus = 0
         self.XP_to_add.set("0")

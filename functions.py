@@ -7,6 +7,7 @@ Created on Sat Apr  4 10:21:25 2015
 from time import strftime
 
 def read_config(file_name):
+    """Function that reads the config of given filename, returns dict"""
     return_dict = dict()
     temp_list = list()
     i = 0
@@ -22,9 +23,10 @@ def read_config(file_name):
     return return_dict
 
 def method_once(method): #http://code.activestate.com/recipes/425445-once-decorator/
-    "A decorator that runs a method only once."
+    """A decorator that runs a method only once."""
     attrname = "_%s_once_result" % id(method)
     def decorated(self, *args, **kwargs):
+        """function decorated"""
         try:
             return getattr(self, attrname)
         except AttributeError:
@@ -32,9 +34,14 @@ def method_once(method): #http://code.activestate.com/recipes/425445-once-decora
             return getattr(self, attrname)
     return decorated
 
-def log(message, first_time=False):
+def log(message, file_="log.txt", first_time=False):
+    """
+    Inits or writes log messages to log.txt(default)
+    
+    Use instead of print() for debug
+    """
     message = str(message)
-    with open("log.txt", "a") as log_file:
+    with open(file_, "a") as log_file:
         if first_time:
             log_string = "\n--------------\n{0}\n--------------\n"
             log_file.write(log_string.format(strftime("%A %d %B %Y %H:%M:%S")))
@@ -42,11 +49,16 @@ def log(message, first_time=False):
             log_file.write("\n[{}] {}".format(strftime("%H:%M:%S"), message))
 
 def translate(language="EN-us"):
-    translation=dict()
-    with open("lng/{}.lng".format(language),"r") as lng:
+    """
+    Reads the translation file, defaults to EN-us.
+    
+    Returns a dictionary with the key corresponding to the english sentence
+    """
+    translation = dict()
+    with open("lng/{}.lng".format(language), "r") as lng:
         for line in lng:
             line.strip("\n")
             if "//" in line:
                 continue
-            translation[line.split("§")[0]]=line.split("§")[1]              
+            translation[line.split("§")[0]] = line.split("§")[1]              
     return translation
