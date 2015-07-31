@@ -25,7 +25,7 @@ from tabs.treasure import TreasureTab
 from tabs.disease import DiseaseTab
 from functions import log, translate
 
-log('', True)
+log('', "log.txt", True)
 
 class MainFrame(Frame):
     """MainFrame class to hold every widget used by the app. Inherits from tkinter.Frame"""
