@@ -56,7 +56,8 @@ class CharacterSheetTab(Frame):
         self.freeze.set(1)
 
         Label(self, text="Player Name:").grid(row=0, column=0, columnspan=2)
-        Label(self, text="Character Name :").grid(row=0, column=4, columnspan=2)
+        Label(self, text="Character Name :").grid(
+            row=0, column=4, columnspan=2)
         Label(self, text="DM Name:").grid(row=0, column=8, columnspan=2)
         Label(self, text="STR:").grid(row=1, column=0)
         Label(self, text="INT:").grid(row=2, column=0)
@@ -189,7 +190,6 @@ class CharacterSheetTab(Frame):
         self.bonusXP.set(self.getBonusXP())
         self.update_idletasks()
 
-
     def addXP(self, event):
         (
             self.baseXP,
@@ -199,7 +199,6 @@ class CharacterSheetTab(Frame):
         self.bonusXP.set(self.getBonusXP())
         self.addXPToTotal()
         self.update_idletasks()
-
 
     def save(self):
         file_ = filedialog.asksaveasfile(
@@ -247,7 +246,6 @@ class CharacterSheetTab(Frame):
         file_.close()
         self.refresh(1)
 
-
     def reset(self):
         self.player.set("")
         self.character.set("")
@@ -273,7 +271,6 @@ class CharacterSheetTab(Frame):
         self.XPbonus.set("")
         self.XPtotal.set(0)
         self.level.set("1")
-
 
     def classDifferenciation(self):
         XPToReturn = 0
@@ -307,12 +304,10 @@ class CharacterSheetTab(Frame):
             mainCarRace = int(self.dex.str.get())
         return XPToReturn, mainCarClass, mainCarRace
 
-
     def getRemainingXP(self):
         remainingXP = int(self.baseXP) * int(self.level.get()) - \
             int(self.XPtotal.get())
         return str(remainingXP)
-
 
     def getBonusXP(self):
         bonusPercentage = 0
@@ -340,7 +335,6 @@ class CharacterSheetTab(Frame):
         self.bonus = bonusPercentage
         return str(bonusPercentage) + "%"
 
-
     def addXPToTotal(self):
         (
             self.baseXP,
@@ -353,7 +347,7 @@ class CharacterSheetTab(Frame):
         if self.XP_to_add.get() != '':
             XP_to_add = int(self.XP_to_add.get())
         else:
-            XP_to_add=0
+            XP_to_add = 0
         self.XP_to_add.set("")
         total = self.XPtotal.get()
         total += XP_to_add*(1+bonus/100)
