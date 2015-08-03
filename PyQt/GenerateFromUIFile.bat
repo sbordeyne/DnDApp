@@ -1,1 +1,0 @@
-python "C:\Anaconda3\Lib\site-packages\PyQt4\uic\pyuic.py" -o "DnDApp.py" -x "DnDApp.ui"
