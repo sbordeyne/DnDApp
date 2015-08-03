@@ -9,6 +9,9 @@ from tkinter import Frame, Label, StringVar
 
 
 class EncountersTab(Frame):
+    '''
+    Tab object for the encounters tab.
+    '''
     def __init__(self, master=None):
         Frame.__init__(self, master)
 
@@ -49,4 +52,8 @@ class EncountersTab(Frame):
         print("encounter")
 
     def get_creatures_names(self):
-        creatures = readConfig("creatures_names")
+        '''
+        Function prototype for retrieving creature list.
+        '''
+        #creatures = read_config("creatures_names")
+        pass
