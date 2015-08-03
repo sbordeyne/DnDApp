@@ -48,6 +48,9 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionHelp"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuConnect"/>
@@ -66,7 +69,7 @@
      <item row="0" column="0">
       <widget class="QTabWidget" name="create_campain_tabs">
        <property name="currentIndex">
-        <number>3</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="map_designer_tab">
         <attribute name="title">
@@ -249,14 +252,14 @@
             <item row="0" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
-               <widget class="QRadioButton" name="radioButton_3">
+               <widget class="QRadioButton" name="toolbox_radio_paper_empty">
                 <property name="text">
                  <string>Empty</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="radioButton_2">
+               <widget class="QRadioButton" name="toolbox_radio_paper_square">
                 <property name="text">
                  <string>Squares</string>
                 </property>
@@ -266,7 +269,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="radioButton">
+               <widget class="QRadioButton" name="toolbox_radio_paper_hexagonal">
                 <property name="text">
                  <string>Hexagonal</string>
                 </property>
@@ -288,14 +291,14 @@
         </attribute>
         <layout class="QGridLayout" name="gridLayout_3">
          <item row="0" column="0">
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="label_environmentofencounter">
            <property name="text">
             <string>Environement of Encounter</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="0" rowspan="3">
-          <widget class="QGroupBox" name="groupBox">
+         <item row="4" column="0" rowspan="3" alignment="Qt::AlignTop">
+          <widget class="QGroupBox" name="group_generatedtable">
            <property name="title">
             <string>Generated Table</string>
            </property>
@@ -505,15 +508,15 @@
           </widget>
          </item>
          <item row="4" column="1" rowspan="3">
-          <widget class="QGroupBox" name="groupBox_2">
+          <widget class="QGroupBox" name="group_statsofrolledmonster">
            <property name="title">
             <string>Stats of the Rolled Monster</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_10">
             <item row="7" column="0">
-             <widget class="QLabel" name="label_38">
+             <widget class="QLabel" name="label_statsofrolledmonster_treasurevalue">
               <property name="text">
-               <string>Treasure :</string>
+               <string>Treasure Value :</string>
               </property>
              </widget>
             </item>
@@ -524,21 +527,8 @@
               </property>
              </widget>
             </item>
-            <item row="11" column="0">
-             <spacer name="verticalSpacer_3">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>4</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
             <item row="0" column="0">
-             <widget class="QLabel" name="label_29">
+             <widget class="QLabel" name="label_statsofrolledmonster_hp">
               <property name="text">
                <string>HP :</string>
               </property>
@@ -552,7 +542,7 @@
              </widget>
             </item>
             <item row="9" column="0">
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="label_statsofrolledmonster_xpvalue">
               <property name="text">
                <string>XP Value :</string>
               </property>
@@ -566,7 +556,7 @@
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="label_3">
+             <widget class="QLabel" name="label_statsofrolledmonster_ac">
               <property name="text">
                <string>AC :</string>
               </property>
@@ -587,17 +577,14 @@
              </widget>
             </item>
             <item row="5" column="0">
-             <widget class="QLabel" name="label_34">
+             <widget class="QLabel" name="label_statsofrolledmonster_moral">
               <property name="text">
                <string>Moral :</string>
               </property>
              </widget>
             </item>
-            <item row="7" column="1">
-             <widget class="QTextBrowser" name="textBrowser"/>
-            </item>
             <item row="3" column="0">
-             <widget class="QLabel" name="label_32">
+             <widget class="QLabel" name="label_statsofrolledmonster_attacks">
               <property name="text">
                <string>Attacks :</string>
               </property>
@@ -611,14 +598,14 @@
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="label_30">
+             <widget class="QLabel" name="label_statsofrolledmonster_movement">
               <property name="text">
                <string>Movement</string>
               </property>
              </widget>
             </item>
             <item row="8" column="0">
-             <widget class="QLabel" name="label_39">
+             <widget class="QLabel" name="label_statsofrolledmonster_alignment">
               <property name="text">
                <string>Alignment :</string>
               </property>
@@ -632,14 +619,14 @@
              </widget>
             </item>
             <item row="4" column="0">
-             <widget class="QLabel" name="label_33">
+             <widget class="QLabel" name="label_statsofrolledmonster_damages">
               <property name="text">
                <string>Damages :</string>
               </property>
              </widget>
             </item>
             <item row="6" column="0">
-             <widget class="QLabel" name="label_43">
+             <widget class="QLabel" name="label_statsofrolledmonster_saves">
               <property name="text">
                <string>Saves :</string>
               </property>
@@ -740,6 +727,13 @@
               </item>
              </layout>
             </item>
+            <item row="7" column="1">
+             <widget class="QLabel" name="label_71">
+              <property name="text">
+               <string>_</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
@@ -793,14 +787,14 @@
           </widget>
          </item>
          <item row="2" column="0">
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="label_chanceofencounter">
            <property name="text">
             <string>Chance of Encounter</string>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout">
+          <layout class="QHBoxLayout" name="_2">
            <item>
             <widget class="QSlider" name="horizontalSlider_2">
              <property name="maximum">
@@ -1403,6 +1397,16 @@
   <action name="actionConnect_to">
    <property name="text">
     <string>Connect to...</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>
