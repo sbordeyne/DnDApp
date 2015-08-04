@@ -827,7 +827,7 @@ class Ui_MainWindow(object):
         self.actionHelp.setText(_translate("MainWindow", "Help", None))
         self.actionAbout.setText(_translate("MainWindow", "About", None))
 
-#import resources_rc
+
 
 if __name__ == "__main__":
     import sys

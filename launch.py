@@ -1,6 +1,6 @@
 from PyQt4 import QtCore, QtGui
 import sys
-from lib import main_window
+from lib import main_window, resources_rc
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
