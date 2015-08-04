@@ -1,0 +1,76 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/dices/custom.png</file>
+    <file>images/dices/d4.png</file>
+    <file>images/dices/d6.png</file>
+    <file>images/dices/d8.png</file>
+    <file>images/dices/d10.png</file>
+    <file>images/dices/d12.png</file>
+    <file>images/dices/d20.png</file>
+    <file>images/dices/d100.png</file>
+    <file>images/tiles/deco_arches.png</file>
+    <file>images/tiles/deco_bars.png</file>
+    <file>images/tiles/deco_wellcovered.png</file>
+    <file>images/tiles/deco_welluncovered.png</file>
+    <file>images/tiles/door_concealed.png</file>
+    <file>images/tiles/door_double.png</file>
+    <file>images/tiles/door_fake.png</file>
+    <file>images/tiles/door_oneway.png</file>
+    <file>images/tiles/door_open.png</file>
+    <file>images/tiles/door_rotating.png</file>
+    <file>images/tiles/door_secret.png</file>
+    <file>images/tiles/door_secretoneway.png</file>
+    <file>images/tiles/door_simple.png</file>
+    <file>images/tiles/paper_hexagon.png</file>
+    <file>images/tiles/paper_square.png</file>
+    <file>images/tiles/stair_roundspiral.png</file>
+    <file>images/tiles/stair_squarespiral.png</file>
+    <file>images/tiles/stair_stairslide.png</file>
+    <file>images/tiles/stair_straight.png</file>
+    <file>images/tiles/trapdoor_ceiling.png</file>
+    <file>images/tiles/trapdoor_floor.png</file>
+    <file>images/tiles/trapdoor_secret.png</file>
+    <file>images/tiles/utilities_trap.png</file>
+  </qresource>
+  <qresource prefix="sound">
+    <file>sound/diceroll.wav</file>
+  </qresource>
+  <qresource prefix="fonts">
+    <file>fonts/alchemst.TTF</file>
+    <file>fonts/ALPMAGI.TTF</file>
+    <file>fonts/Anarchy.ttf</file>
+    <file>fonts/ba______.ttf</file>
+    <file>fonts/BAJORAN2.TTF</file>
+    <file>fonts/CH'LANO.TTF</file>
+    <file>fonts/CIRTH.TTF</file>
+    <file>fonts/COURTHAN.TTF</file>
+    <file>fonts/CTHUR___.TTF</file>
+    <file>fonts/EICAP___.TTF</file>
+    <file>fonts/electroh.ttf</file>
+    <file>fonts/En'dankai Normal.ttf</file>
+    <file>fonts/eraser.TTF</file>
+    <file>fonts/FloralMajuscules.ttf</file>
+    <file>fonts/Georges.ttf</file>
+    <file>fonts/GINETTE.TTF</file>
+    <file>fonts/GRUNGE.TTF</file>
+    <file>fonts/jami.ttf</file>
+    <file>fonts/JUGEND__.TTF</file>
+    <file>fonts/karine.ttf</file>
+    <file>fonts/kilrathi.TTF</file>
+    <file>fonts/MERO_DEM.TTF</file>
+    <file>fonts/MICHELLE.TTF</file>
+    <file>fonts/Miss_clo.ttf</file>
+    <file>fonts/noel____.ttf</file>
+    <file>fonts/OLDTS___.TTF</file>
+    <file>fonts/Philing.ttf</file>
+    <file>fonts/rstimesm.ttf</file>
+    <file>fonts/SKAVEN.TTF</file>
+    <file>fonts/theban.TTF</file>
+    <file>fonts/UGARIT.TTF</file>
+    <file>fonts/valerie.ttf</file>
+    <file>fonts/Virginie.ttf</file>
+    <file>fonts/vtmeo___.TTF</file>
+    <file>fonts/WALROD__.TTF</file>
+    <file>fonts/XBand Rough.TTF</file>
+  </qresource>
+</RCC>
