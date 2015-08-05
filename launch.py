@@ -1,6 +1,6 @@
 from PyQt4 import QtCore, QtGui
 import sys
-from lib import main_window, resources_rc
+from lib import main_window_ui, resources_rc
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -18,7 +18,7 @@ except AttributeError:
 
 app = QtGui.QApplication(sys.argv)
 MainWindow = QtGui.QMainWindow()
-ui = main_window.Ui_MainWindow()
+ui = main_window_ui.Ui_MainWindow()
 ui.setupUi(MainWindow)
 MainWindow.show()
 sys.exit(app.exec_())
