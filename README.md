@@ -1,7 +1,7 @@
 # DnDApp
 The GitHub repository for DnDApp 
 
-Teamspeak3 server to discuss it : IP: thor.evxv.net:10179, pass: phacodick
+Teamspeak3 server to discuss it : IP: thor.evxv.net:10179
 
 If you have any suggestion about the app : https://www.reddit.com/r/DnDApp
 
