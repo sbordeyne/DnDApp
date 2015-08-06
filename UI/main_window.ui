@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>826</width>
-    <height>626</height>
+    <width>830</width>
+    <height>1240</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>826</width>
+     <width>830</width>
      <height>21</height>
     </rect>
    </property>
@@ -58,8 +58,14 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QDockWidget" name="dock_campain">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="floating">
     <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Campain Editor</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>4</number>
@@ -69,18 +75,15 @@
      <item row="0" column="0">
       <widget class="QTabWidget" name="create_campain_tabs">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="map_designer_tab">
         <attribute name="title">
          <string>Map Designer</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_6">
-         <item row="1" column="2">
-          <widget class="QWidget" name="widget_4" native="true"/>
-         </item>
          <item row="0" column="1">
-          <widget class="QGroupBox" name="groupBox_3">
+          <widget class="QGroupBox" name="groubox_toolbox">
            <property name="title">
             <string>ToolBox</string>
            </property>
@@ -105,7 +108,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_secret.png</normaloff>:/images/images/tiles/door_secret.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_secret.png</normaloff>:/images/images/tiles/squared_tileset/door/door_secret.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -122,7 +125,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_double.png</normaloff>:/images/images/tiles/door_double.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_double.png</normaloff>:/images/images/tiles/squared_tileset/door/door_double.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -139,7 +142,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_concealed.png</normaloff>:/images/images/tiles/door_concealed.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_concealed.png</normaloff>:/images/images/tiles/squared_tileset/door/door_concealed.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -156,7 +159,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_fake.png</normaloff>:/images/images/tiles/door_fake.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_fake.png</normaloff>:/images/images/tiles/squared_tileset/door/door_fake.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -173,7 +176,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_oneway.png</normaloff>:/images/images/tiles/door_oneway.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_oneway.png</normaloff>:/images/images/tiles/squared_tileset/door/door_oneway.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -190,7 +193,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_simple.png</normaloff>:/images/images/tiles/door_simple.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_simple.png</normaloff>:/images/images/tiles/squared_tileset/door/door_simple.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -210,7 +213,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_open.png</normaloff>:/images/images/tiles/door_open.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_open.png</normaloff>:/images/images/tiles/squared_tileset/door/door_open.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -227,7 +230,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_rotating.png</normaloff>:/images/images/tiles/door_rotating.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_rotating.png</normaloff>:/images/images/tiles/squared_tileset/door/door_rotating.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -244,7 +247,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/door_secretoneway.png</normaloff>:/images/images/tiles/door_secretoneway.png</iconset>
+                    <normaloff>:/images/images/tiles/squared_tileset/door/door_secretoneway.png</normaloff>:/images/images/tiles/squared_tileset/door/door_secretoneway.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -269,7 +272,7 @@
              </widget>
             </item>
             <item row="0" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <layout class="QHBoxLayout" name="layout_type_graph_paper">
               <item>
                <widget class="QRadioButton" name="toolbox_radio_paper_empty">
                 <property name="text">
@@ -640,7 +643,7 @@
              </widget>
             </item>
             <item row="6" column="1">
-             <layout class="QGridLayout" name="gridLayout_12">
+             <layout class="QGridLayout" name="layout_savesomonster">
               <item row="1" column="0">
                <widget class="QLabel" name="monster_saves_poison_value">
                 <property name="text">
@@ -714,7 +717,7 @@
              </layout>
             </item>
             <item row="0" column="1">
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <layout class="QHBoxLayout" name="layout_hpofmonster">
               <item>
                <widget class="QProgressBar" name="progressbar_healthorolledmonster">
                 <property name="value">
@@ -723,7 +726,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spin_damagetoinflict"/>
+               <widget class="QSpinBox" name="spin_damagetoinflict">
+                <property name="suffix">
+                 <string> DMG</string>
+                </property>
+               </widget>
               </item>
               <item>
                <widget class="QPushButton" name="button_inflictdamage">
@@ -1014,19 +1021,6 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="1">
-          <spacer name="verticalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
          <item row="3" column="1">
           <widget class="QWidget" name="widget_9" native="true">
            <layout class="QGridLayout" name="gridLayout_17">
@@ -1076,27 +1070,27 @@
         </attribute>
         <layout class="QGridLayout" name="gridLayout_18">
          <item row="0" column="0">
-          <widget class="QGroupBox" name="groupBox_6">
+          <widget class="QGroupBox" name="groupbox_parametersofgeneration">
            <property name="title">
             <string>Parameters of generation</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_19">
             <item row="2" column="0">
-             <widget class="QLabel" name="label_65">
+             <widget class="QLabel" name="label_raceofnpc">
               <property name="text">
                <string>Race :</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="label_64">
+             <widget class="QLabel" name="label_genderofnpc">
               <property name="text">
                <string>Gender :</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QComboBox" name="comboBox_4">
+             <widget class="QComboBox" name="combobox_genderofnpc">
               <item>
                <property name="text">
                 <string>Any</string>
@@ -1115,14 +1109,14 @@
              </widget>
             </item>
             <item row="0" column="0">
-             <widget class="QLabel" name="label_63">
+             <widget class="QLabel" name="label_alignmentofnpc">
               <property name="text">
                <string>Alignment :</string>
               </property>
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QComboBox" name="comboBox_5">
+             <widget class="QComboBox" name="combobox_raceofnpc">
               <item>
                <property name="text">
                 <string>Any</string>
@@ -1151,7 +1145,7 @@
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QComboBox" name="comboBox_3">
+             <widget class="QComboBox" name="combobox_alignmentofnpc">
               <item>
                <property name="text">
                 <string>Any</string>
@@ -1220,7 +1214,7 @@
              </widget>
             </item>
             <item row="0" column="2">
-             <widget class="QLabel" name="label_66">
+             <widget class="QLabel" name="label_classofnpc">
               <property name="text">
                <string>Class :</string>
               </property>
@@ -1256,14 +1250,14 @@
              </widget>
             </item>
             <item row="1" column="2">
-             <widget class="QLabel" name="label_67">
+             <widget class="QLabel" name="label_levelofnpc">
               <property name="text">
                <string>Level :</string>
               </property>
              </widget>
             </item>
             <item row="1" column="3">
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <layout class="QHBoxLayout" name="layout_levelofnpc">
               <item>
                <widget class="QSlider" name="slider_levelofnpc">
                 <property name="minimum">
@@ -1278,7 +1272,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_68">
+               <widget class="QLabel" name="label_level_number">
                 <property name="text">
                  <string>1</string>
                 </property>
@@ -1287,7 +1281,7 @@
              </layout>
             </item>
             <item row="2" column="2">
-             <widget class="QLabel" name="label_69">
+             <widget class="QLabel" name="label_statsofnpc">
               <property name="text">
                <string>Stats :</string>
               </property>
@@ -1336,17 +1330,752 @@
         </attribute>
         <layout class="QGridLayout" name="gridLayout">
          <item row="3" column="0">
-          <widget class="QPlainTextEdit" name="plainTextEdit"/>
+          <widget class="QPlainTextEdit" name="textedit_background"/>
          </item>
          <item row="3" column="1">
-          <widget class="QScrollBar" name="verticalScrollBar">
+          <widget class="QScrollBar" name="verticalscrollbar_background">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QFontComboBox" name="fontComboBox"/>
+          <widget class="QFontComboBox" name="font_background"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dock_client">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Play Dungeons &amp; Dragons</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="1" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Map Viewer</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_11">
+          <item row="0" column="0">
+           <widget class="QGraphicsView" name="graphicsView_2"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Dice Rolls</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_12">
+          <item row="7" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="label_32">
+              <property name="text">
+               <string>Result :</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_27">
+              <property name="frameShape">
+               <enum>QFrame::WinPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Sunken</enum>
+              </property>
+              <property name="text">
+               <string>_</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="text">
+             <string>d6</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/resources.qrc">
+              <normaloff>:/images/images/dices/d6.png</normaloff>:/images/images/dices/d6.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QPushButton" name="pushButton_4">
+            <property name="text">
+             <string>d10</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/resources.qrc">
+              <normaloff>:/images/images/dices/d10.png</normaloff>:/images/images/dices/d10.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QPushButton" name="pushButton_5">
+            <property name="text">
+             <string>d12</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/resources.qrc">
+              <normaloff>:/images/images/dices/d12.png</normaloff>:/images/images/dices/d12.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Sides :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="text">
+             <string>d8</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/resources.qrc">
+              <normaloff>:/images/images/dices/d8.png</normaloff>:/images/images/dices/d8.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>d4</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/resources.qrc">
+              <normaloff>:/images/images/dices/d4.png</normaloff>:/images/images/dices/d4.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="spinBox_3">
+            <property name="minimum">
+             <number>-9999</number>
+            </property>
+            <property name="maximum">
+             <number>9999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="spinBox"/>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="spinBox_2"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Number :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Modifier :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QPushButton" name="pushButton_6">
+            <property name="text">
+             <string>d20</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/resources.qrc">
+              <normaloff>:/images/images/dices/d20.png</normaloff>:/images/images/dices/d20.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QPushButton" name="pushButton_7">
+            <property name="text">
+             <string>d%</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/resources.qrc">
+              <normaloff>:/images/images/dices/d100.png</normaloff>:/images/images/dices/d100.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QPushButton" name="pushButton_8">
+            <property name="text">
+             <string>d?</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/resources.qrc">
+              <normaloff>:/images/images/dices/custom.png</normaloff>:/images/images/dices/custom.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QCheckBox" name="checkBox">
+            <property name="text">
+             <string>Hide Roll</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="0">
+      <widget class="QTabWidget" name="tab_character_sheets">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="character_sheet_1">
+        <attribute name="title">
+         <string>%s 's character sheet</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_20">
+         <item row="0" column="2">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Player Name :</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit">
+             <property name="placeholderText">
+              <string>Player's Name</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>Character Name :</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_2">
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Character Name</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>DM Name :</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_3">
+             <property name="placeholderText">
+              <string>Dungeon Master's Name</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="toolbutton_charactersheet_options">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="2">
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <layout class="QGridLayout" name="gridLayout_21">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>HP :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QProgressBar" name="progressBar">
+               <property name="maximum">
+                <number>8</number>
+               </property>
+               <property name="value">
+                <number>8</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QSpinBox" name="spinBox_4">
+               <property name="maximum">
+                <number>999</number>
+               </property>
+               <property name="value">
+                <number>8</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <layout class="QGridLayout" name="gridLayout_22">
+             <item row="6" column="2">
+              <widget class="QLabel" name="label_19">
+               <property name="text">
+                <string>SPELLS :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="QLabel" name="label_18">
+               <property name="text">
+                <string>DRAGON :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QLabel" name="label_17">
+               <property name="text">
+                <string>PARALYSIS :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>CHA :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>INT :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_13">
+               <property name="text">
+                <string>DEX :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>WIS :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_11">
+               <property name="text">
+                <string>CON :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="lineEdit_6">
+               <property name="inputMethodHints">
+                <set>Qt::ImhFormattedNumbersOnly</set>
+               </property>
+               <property name="placeholderText">
+                <string>3-18</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QLabel" name="label_16">
+               <property name="text">
+                <string>WANDS :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="lineEdit_9">
+               <property name="inputMethodHints">
+                <set>Qt::ImhFormattedNumbersOnly</set>
+               </property>
+               <property name="placeholderText">
+                <string>3-18</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="lineEdit_8">
+               <property name="inputMethodHints">
+                <set>Qt::ImhFormattedNumbersOnly</set>
+               </property>
+               <property name="placeholderText">
+                <string>3-18</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>STR :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLabel" name="label_15">
+               <property name="text">
+                <string>POISON :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLabel" name="label_14">
+               <property name="text">
+                <string>SAVES :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lineEdit_4">
+               <property name="inputMethodHints">
+                <set>Qt::ImhFormattedNumbersOnly</set>
+               </property>
+               <property name="placeholderText">
+                <string>3-18</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="lineEdit_7">
+               <property name="inputMethodHints">
+                <set>Qt::ImhFormattedNumbersOnly</set>
+               </property>
+               <property name="placeholderText">
+                <string>3-18</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="lineEdit_5">
+               <property name="inputMethodHints">
+                <set>Qt::ImhFormattedNumbersOnly</set>
+               </property>
+               <property name="placeholderText">
+                <string>3-18</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="3">
+              <widget class="QLineEdit" name="lineEdit_10"/>
+             </item>
+             <item row="3" column="3">
+              <widget class="QLineEdit" name="lineEdit_11"/>
+             </item>
+             <item row="4" column="3">
+              <widget class="QLineEdit" name="lineEdit_12"/>
+             </item>
+             <item row="5" column="3">
+              <widget class="QLineEdit" name="lineEdit_13"/>
+             </item>
+             <item row="6" column="3">
+              <widget class="QLineEdit" name="lineEdit_14"/>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLabel" name="label_20">
+               <property name="text">
+                <string>AC :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="spinBox_5">
+               <property name="suffix">
+                <string/>
+               </property>
+               <property name="minimum">
+                <number>-999</number>
+               </property>
+               <property name="maximum">
+                <number>9</number>
+               </property>
+               <property name="value">
+                <number>9</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_21">
+               <property name="text">
+                <string>Alignment :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox">
+               <item>
+                <property name="text">
+                 <string>Lawful Good</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Lawful Neutral</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Lawful Evil</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Neutral Good</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Neutral Neutral</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Neutral Evil</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Chaotic Good</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Chaotic Neutral</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Chaotic Evil</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_22">
+               <property name="text">
+                <string>Race :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_2">
+               <item>
+                <property name="text">
+                 <string>Human</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Elf</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Dwarf</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Halfelin</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Ork</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_23">
+               <property name="text">
+                <string>Class :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_3">
+               <item>
+                <property name="text">
+                 <string>Warrior</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Wizard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Cleric</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Thief</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_25">
+               <property name="text">
+                <string>Level :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_26">
+               <property name="frameShape">
+                <enum>QFrame::WinPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Sunken</enum>
+               </property>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="1">
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QLabel" name="label_24">
+               <property name="text">
+                <string>INVENTORY &amp; TREASURES :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPlainTextEdit" name="plainTextEdit"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item row="2" column="2">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="label_28">
+             <property name="text">
+              <string>Add XP :</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_15">
+             <property name="placeholderText">
+              <string>Press Enter to Add XP. Bonus is automatically calculated.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_29">
+             <property name="text">
+              <string>Bonus XP :</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_30">
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_31">
+             <property name="text">
+              <string>%</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
@@ -1419,7 +2148,7 @@
   <connection>
    <sender>slider_levelofnpc</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>label_68</receiver>
+   <receiver>label_level_number</receiver>
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1439,8 +2168,8 @@
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>729</x>
-     <y>120</y>
+     <x>784</x>
+     <y>169</y>
     </hint>
     <hint type="destinationlabel">
      <x>801</x>
@@ -1477,6 +2206,22 @@
     <hint type="destinationlabel">
      <x>412</x>
      <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_4</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>progressBar</receiver>
+   <slot>setMaximum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>263</x>
+     <y>970</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>973</y>
     </hint>
    </hints>
   </connection>

@@ -1,5 +1,55 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/tiles/squared_tileset/deco/deco_altar.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_arches.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_arches_EW.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_arches_NS.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_basin.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_bed.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_chimney.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_foutain.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_pillar.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_statue.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_well.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_wellcovered.png</file>
+    <file>images/tiles/squared_tileset/deco/deco_welluncovered.png</file>
+    <file>images/tiles/squared_tileset/stair/stair_ladder.png</file>
+    <file>images/tiles/squared_tileset/stair/stair_roundspiral.png</file>
+    <file>images/tiles/squared_tileset/stair/stair_slide.png</file>
+    <file>images/tiles/squared_tileset/stair/stair_squarespiral.png</file>
+    <file>images/tiles/squared_tileset/stair/stair_stairslide.png</file>
+    <file>images/tiles/squared_tileset/stair/stair_straight.png</file>
+    <file>images/tiles/squared_tileset/trapdoor/trapdoor_ceiling.png</file>
+    <file>images/tiles/squared_tileset/trapdoor/trapdoor_floor.png</file>
+    <file>images/tiles/squared_tileset/trapdoor/trapdoor_secret.png</file>
+    <file>images/tiles/squared_tileset/utilities/utilities_chest.png</file>
+    <file>images/tiles/squared_tileset/utilities/utilities_table.png</file>
+    <file>images/tiles/squared_tileset/utilities/utilities_trap.png</file>
+    <file>images/tiles/squared_tileset/walls/walls_arrow_slit.png</file>
+    <file>images/tiles/squared_tileset/walls/walls_bars.png</file>
+    <file>images/tiles/squared_tileset/walls/walls_curtain.png</file>
+    <file>images/tiles/squared_tileset/walls/walls_illusion.png</file>
+    <file>images/tiles/squared_tileset/walls/walls_normal.png</file>
+    <file>images/tiles/squared_tileset/walls/walls_ramp.png</file>
+    <file>images/tiles/squared_tileset/walls/walls_rock.png</file>
+    <file>images/tiles/squared_tileset/walls/walls_window.png</file>
+    <file>images/tiles/hexagonal_tileset/constructions/constructions_capital.png</file>
+    <file>images/tiles/hexagonal_tileset/constructions/constructions_castle.png</file>
+    <file>images/tiles/hexagonal_tileset/constructions/constructions_city.png</file>
+    <file>images/tiles/hexagonal_tileset/constructions/constructions_estate.png</file>
+    <file>images/tiles/hexagonal_tileset/constructions/constructions_quests.png</file>
+    <file>images/tiles/hexagonal_tileset/constructions/constructions_ruins.png</file>
+    <file>images/tiles/hexagonal_tileset/constructions/constructions_town.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_desert.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_forest.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_hills.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_jungle.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_meadow.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_moutains.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_rocky.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_swamp.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_volcano.png</file>
+    <file>images/tiles/hexagonal_tileset/lands/lands_water.png</file>
     <file>images/dices/custom.png</file>
     <file>images/dices/d4.png</file>
     <file>images/dices/d6.png</file>
@@ -8,32 +58,17 @@
     <file>images/dices/d12.png</file>
     <file>images/dices/d20.png</file>
     <file>images/dices/d100.png</file>
-    <file>images/tiles/deco_arches.png</file>
-    <file>images/tiles/deco_bars.png</file>
-    <file>images/tiles/deco_wellcovered.png</file>
-    <file>images/tiles/deco_welluncovered.png</file>
-    <file>images/tiles/door_concealed.png</file>
-    <file>images/tiles/door_double.png</file>
-    <file>images/tiles/door_fake.png</file>
-    <file>images/tiles/door_oneway.png</file>
-    <file>images/tiles/door_open.png</file>
-    <file>images/tiles/door_rotating.png</file>
-    <file>images/tiles/door_secret.png</file>
-    <file>images/tiles/door_secretoneway.png</file>
-    <file>images/tiles/door_simple.png</file>
-    <file>images/tiles/paper_hexagon.png</file>
-    <file>images/tiles/paper_square.png</file>
-    <file>images/tiles/stair_roundspiral.png</file>
-    <file>images/tiles/stair_squarespiral.png</file>
-    <file>images/tiles/stair_stairslide.png</file>
-    <file>images/tiles/stair_straight.png</file>
-    <file>images/tiles/trapdoor_ceiling.png</file>
-    <file>images/tiles/trapdoor_floor.png</file>
-    <file>images/tiles/trapdoor_secret.png</file>
-    <file>images/tiles/utilities_trap.png</file>
-  </qresource>
-  <qresource prefix="sound">
-    <file>sound/diceroll.wav</file>
+    <file>images/tiles/hexagonal_tileset/paper_hexagon.png</file>
+    <file>images/tiles/squared_tileset/paper_square.png</file>
+    <file>images/tiles/squared_tileset/door/door_concealed.png</file>
+    <file>images/tiles/squared_tileset/door/door_double.png</file>
+    <file>images/tiles/squared_tileset/door/door_fake.png</file>
+    <file>images/tiles/squared_tileset/door/door_oneway.png</file>
+    <file>images/tiles/squared_tileset/door/door_open.png</file>
+    <file>images/tiles/squared_tileset/door/door_rotating.png</file>
+    <file>images/tiles/squared_tileset/door/door_secret.png</file>
+    <file>images/tiles/squared_tileset/door/door_secretoneway.png</file>
+    <file>images/tiles/squared_tileset/door/door_simple.png</file>
   </qresource>
   <qresource prefix="fonts">
     <file>fonts/alchemst.TTF</file>
