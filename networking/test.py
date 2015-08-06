@@ -24,7 +24,7 @@ class networking_udp_client_Tests(unittest.TestCase):
         print(self.out_q.get())
         self.in_q.put('et tu, Brute?')
         client.join()
-        
+
     def test_client_ping_through_io_queue(self):
         '''
         Create clientobject. Start running, send special 'test' signal in
@@ -69,23 +69,11 @@ class networking_udp_client_Tests(unittest.TestCase):
         self.in_q.put('et tu, Brute?')
         client.join()
 
-        
-        
-
-    
-
-
-
-
-
-
-#def run_test():
-#    unittest.main()
 
 if __name__ == "__main__":
 
-    networking_test = unittest.TestLoader().loadTestsFromTestCase(networking_udp_client_Tests)
-    alltest = unittest.TestSuite([networking_test])
+    client_test = unittest.TestLoader().loadTestsFromTestCase(networking_udp_client_Tests)
+    alltest = unittest.TestSuite([client_test])
 
 
     result = unittest.TextTestRunner(verbosity=2).run(alltest) 
