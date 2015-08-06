@@ -1,3 +1,13 @@
+'''
+This module is the client class for client mode.
+In the game we have the option of being a client or a host.
+If client is selected, this module will be invoked. It is threaded
+so it won't lock up the UI. It also uses UDP since I read somewhere
+that UDP is good for games. It won't do any varification for the sent
+data. It is fire and forget. The only exception is the 'ping'
+command, which will be used to verify that the host is still present
+every several seconds
+'''
 import socket
 import sys
 import threading
@@ -5,11 +15,15 @@ from queue import Queue
 
 
 class client_thread(threading.Thread):
+    '''
+    This is the main client thread. Unlike the host, we only need one
+    network IO thread as a client.
+    '''
     def __init__(self, host, port, in_queue, out_queue):
         threading.Thread.__init__(self)
         # Create a UDP socket
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        server_address = (host, port)
+        self.server_address = (host, port)
         self.input_queue = in_queue
         self.out_queue = out_queue
         self.running = True
@@ -23,13 +37,13 @@ class client_thread(threading.Thread):
         message = 'ping'.encode()
         try:
             # Send data
-            print ('sending {}'.format(message))
-            sent = self.sock.sendto(message, server_address)
+            print('sending {}'.format(message))
+            self.sock.sendto(message, self.server_address)
 
             # Receive response
-            print ('waiting to receive')
+            print('waiting to receive')
             data, server = self.sock.recvfrom(4096)
-            print ('received {}'.format(data))
+            print('received {}'.format(data))
 
         except Exception:
             raise Exception
@@ -65,10 +79,10 @@ class client_thread(threading.Thread):
             # I want this client thread to run continiously untill the kill
             # signal is sent or the host disconnects. So on an empty input
             # queue we will just chill out.
-            except queue.Empty:
+            except self.input_queue.Empty:
                 pass
         self.close()     # close the socket after exiting the loop
 
     def close(self):
-        print ('closing socket')
+        print('closing socket')
         self.sock.close()
