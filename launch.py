@@ -9,7 +9,7 @@ from lib.connect_window_ui import Ui_connect_window
 
 from lib.functions import *
 
-log("",True)
+#log("",True)
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -32,6 +32,12 @@ class main_window(Ui_MainWindow):
     '''
     def __init__(self, MainWindow):
         self.setupUi(MainWindow)
+        self.ui_connect = Ui_connect_window()        
+        MainWindow.resize(1280,720)
+        
+        self.dock_campain.hide()
+        self.dock_client.hide()
+        
         self.actionHost_Game.triggered.connect(self.launch_host_game)
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
 
@@ -49,13 +55,19 @@ class main_window(Ui_MainWindow):
         This method will launch the connect window dialog
         '''
         connect_dialog = QtGui.QDialog()
-        ui = Ui_connect_window()
-        ui.setupUi(connect_dialog)
+        self.ui_connect.setupUi(connect_dialog)
+        self.ui_connect.button_connect.clicked.connect(self.launch_dock_client)
         connect_dialog.exec_()
-            self.monster_dictionary = self.get_monster_dict()
-        self.environmentofencounter=""
+        if self.ui_connect.button_connect.isDown():
+            connect_dialog.close()
 
-    def get_encounter_table(self): #should return a dict or whatevs to print with qt in the random encounters tab.
+    def launch_dock_client(self):
+        self.dock_client.show()
+        host_ip = self.ui_connect.line_host_ip.text()
+        port = self.ui_connect.line_port.text()
+        name = self.ui_connect.line_name.text()
+
+    def set_encounter_table(self): #should return a dict or whatevs to print with qt in the random encounters tab.
         list_of_encounters=[]
         for i in range(12):
             list_of_encounters.append(self.monster_dictionary["id"])
