@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\connect_window.ui'
 #
-# Created: Sat Aug  8 09:24:14 2015
+# Created: Sat Aug  8 10:59:16 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -39,17 +39,24 @@ class Ui_connect_window(object):
         self.label_3 = QtGui.QLabel(connect_window)
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
-        self.lineEdit = QtGui.QLineEdit(connect_window)
-        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.gridLayout.addWidget(self.lineEdit, 0, 1, 1, 1)
-        self.lineEdit_2 = QtGui.QLineEdit(connect_window)
-        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
-        self.gridLayout.addWidget(self.lineEdit_2, 1, 1, 1, 1)
-        self.lineEdit_3 = QtGui.QLineEdit(connect_window)
-        self.lineEdit_3.setObjectName(_fromUtf8("lineEdit_3"))
-        self.gridLayout.addWidget(self.lineEdit_3, 2, 1, 1, 1)
+        self.line_host_ip = QtGui.QLineEdit(connect_window)
+        self.line_host_ip.setObjectName(_fromUtf8("line_host_ip"))
+        self.gridLayout.addWidget(self.line_host_ip, 0, 1, 1, 1)
+        self.line_port = QtGui.QLineEdit(connect_window)
+        self.line_port.setObjectName(_fromUtf8("line_port"))
+        self.gridLayout.addWidget(self.line_port, 1, 1, 1, 1)
+        self.line_name = QtGui.QLineEdit(connect_window)
+        self.line_name.setObjectName(_fromUtf8("line_name"))
+        self.gridLayout.addWidget(self.line_name, 2, 1, 1, 1)
+        self.button_connect = QtGui.QPushButton(connect_window)
+        self.button_connect.setObjectName(_fromUtf8("button_connect"))
+        self.gridLayout.addWidget(self.button_connect, 3, 1, 1, 1)
+        self.button_cancel = QtGui.QPushButton(connect_window)
+        self.button_cancel.setObjectName(_fromUtf8("button_cancel"))
+        self.gridLayout.addWidget(self.button_cancel, 3, 0, 1, 1)
 
         self.retranslateUi(connect_window)
+        QtCore.QObject.connect(self.button_cancel, QtCore.SIGNAL(_fromUtf8("clicked()")), connect_window.close)
         QtCore.QMetaObject.connectSlotsByName(connect_window)
 
     def retranslateUi(self, connect_window):
@@ -57,6 +64,8 @@ class Ui_connect_window(object):
         self.label_2.setText(_translate("connect_window", "Host IP :", None))
         self.label.setText(_translate("connect_window", "Port :", None))
         self.label_3.setText(_translate("connect_window", "Name :", None))
+        self.button_connect.setText(_translate("connect_window", "Connect", None))
+        self.button_cancel.setText(_translate("connect_window", "Cancel", None))
 
 
 if __name__ == "__main__":

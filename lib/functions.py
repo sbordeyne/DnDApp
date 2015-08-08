@@ -5,6 +5,8 @@ Created on Sat Apr  4 10:21:25 2015
 @author: Simon
 """
 from time import strftime
+import sys
+
 
 def read_config(file_name):
     """Function that reads the config of given filename, returns dict"""
@@ -83,3 +85,5 @@ def get_monster_dict(environment_of_encounter):
         
         with open("/resources/cfg/monster.cfg", "r") as monster_config:
             for line in monster_config:
+                pass
+        return return_dict
