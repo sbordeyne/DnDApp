@@ -91,15 +91,198 @@
             <string>ToolBox</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_9">
+            <item row="0" column="0">
+             <layout class="QHBoxLayout" name="layout_type_graph_paper">
+              <item>
+               <widget class="QRadioButton" name="toolbox_radio_paper_empty">
+                <property name="text">
+                 <string>Empty</string>
+                </property>
+                <attribute name="buttonGroup">
+                 <string notr="true">buttonGroup</string>
+                </attribute>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="toolbox_radio_paper_square">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string>Squares</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+                <attribute name="buttonGroup">
+                 <string notr="true">buttonGroup</string>
+                </attribute>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="toolbox_radio_paper_hexagonal">
+                <property name="text">
+                 <string>Hexagonal</string>
+                </property>
+                <attribute name="buttonGroup">
+                 <string notr="true">buttonGroup</string>
+                </attribute>
+               </widget>
+              </item>
+             </layout>
+            </item>
             <item row="3" column="0">
-             <widget class="QTabWidget" name="toolbox_tabs">
+             <widget class="QTabWidget" name="toolbox_squared_tabs">
               <property name="tabPosition">
                <enum>QTabWidget::East</enum>
               </property>
               <property name="currentIndex">
                <number>2</number>
               </property>
-              <widget class="QWidget" name="door_tab">
+              <widget class="QWidget" name="tab_walls">
+               <attribute name="title">
+                <string>Walls</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_5">
+                <item row="2" column="0">
+                 <widget class="QRadioButton" name="radioButton_6">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_window.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_window.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QRadioButton" name="radioButton_2">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_rock.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_rock.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QRadioButton" name="radioButton_5">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_arrow_slit.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_arrow_slit.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QRadioButton" name="radioButton">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_normal.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_normal.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QRadioButton" name="radioButton_3">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_illusion.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_illusion.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QRadioButton" name="radioButton_4">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_bars.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_bars.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QRadioButton" name="radioButton_7">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_ramp.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_ramp.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QRadioButton" name="radioButton_8">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_curtain.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_curtain.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_doors">
                <attribute name="title">
                 <string>Doors</string>
                </attribute>
@@ -262,57 +445,22 @@
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="tab_2">
+              <widget class="QWidget" name="tab_utilities_trapdoor">
                <attribute name="title">
-                <string>Page</string>
+                <string>Utilities / Trapdoors</string>
                </attribute>
               </widget>
-              <widget class="QWidget" name="tab_3">
+              <widget class="QWidget" name="tab_stairs">
                <attribute name="title">
-                <string>Page</string>
+                <string>Stairs</string>
+               </attribute>
+              </widget>
+              <widget class="QWidget" name="tab_deco">
+               <attribute name="title">
+                <string>Decorations</string>
                </attribute>
               </widget>
              </widget>
-            </item>
-            <item row="0" column="0">
-             <layout class="QHBoxLayout" name="layout_type_graph_paper">
-              <item>
-               <widget class="QRadioButton" name="toolbox_radio_paper_empty">
-                <property name="text">
-                 <string>Empty</string>
-                </property>
-                <attribute name="buttonGroup">
-                 <string notr="true">buttonGroup</string>
-                </attribute>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="toolbox_radio_paper_square">
-                <property name="focusPolicy">
-                 <enum>Qt::NoFocus</enum>
-                </property>
-                <property name="text">
-                 <string>Squares</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-                <attribute name="buttonGroup">
-                 <string notr="true">buttonGroup</string>
-                </attribute>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="toolbox_radio_paper_hexagonal">
-                <property name="text">
-                 <string>Hexagonal</string>
-                </property>
-                <attribute name="buttonGroup">
-                 <string notr="true">buttonGroup</string>
-                </attribute>
-               </widget>
-              </item>
-             </layout>
             </item>
            </layout>
           </widget>
@@ -853,224 +1001,114 @@
          <string>Treasure Generator</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_14">
-         <item row="1" column="1">
-          <widget class="QWidget" name="widget_7" native="true">
-           <layout class="QGridLayout" name="gridLayout_15">
-            <item row="0" column="1">
-             <widget class="QComboBox" name="combobox_treasure_type">
-              <item>
-               <property name="text">
-                <string>A</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>B</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>C</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>D</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>E</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>F</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>G</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>H</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>I</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>J</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>K</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>L</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>M</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>N</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>O</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>P</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Q</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>R</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>S</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>T</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>U</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>V</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_treasure_type">
-              <property name="text">
-               <string>Treasure Type :</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
+         <item row="0" column="0">
+          <layout class="QHBoxLayout" name="layout_treasure_value">
+           <item>
+            <widget class="QLabel" name="label_treasure_value">
+             <property name="text">
+              <string>Treasure Value :</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="line_treasure_value"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="check_magic_items">
+             <property name="text">
+              <string>Magic Items</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
-         <item row="2" column="1">
-          <widget class="QWidget" name="widget_8" native="true">
-           <layout class="QGridLayout" name="gridLayout_16">
-            <item row="0" column="1">
-             <widget class="QLabel" name="label_silver">
-              <property name="text">
-               <string>Silver Coins</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="3">
-             <widget class="QLabel" name="label_gold">
-              <property name="text">
-               <string>Golden Coins</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="4">
-             <widget class="QLabel" name="label_platinum">
-              <property name="text">
-               <string>Platinum Coins</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_copper">
-              <property name="text">
-               <string>Copper Coins</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2">
-             <widget class="QLabel" name="label_electrum">
-              <property name="text">
-               <string>Electrum Coins</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLineEdit" name="lineedit_numberofcoins_copper"/>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="lineedit_numberofcoins_silver"/>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLineEdit" name="lineedit_numberofcoins_electrum"/>
-            </item>
-            <item row="1" column="3">
-             <widget class="QLineEdit" name="lineedit_numberofcoins_gold"/>
-            </item>
-            <item row="1" column="4">
-             <widget class="QLineEdit" name="lineedit_numberofcoins_platinum"/>
-            </item>
-           </layout>
-          </widget>
+         <item row="1" column="0">
+          <layout class="QGridLayout" name="layout_treasure_coins">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_copper">
+             <property name="text">
+              <string>Copper Coins</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_silver">
+             <property name="text">
+              <string>Silver Coins</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_gold">
+             <property name="text">
+              <string>Golden Coins</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="label_platinum">
+             <property name="text">
+              <string>Platinum Coins</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_electrum">
+             <property name="text">
+              <string>Electrum Coins</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QLineEdit" name="lineedit_numberofcoins_platinum"/>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="lineedit_numberofcoins_gold"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="lineedit_numberofcoins_electrum"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineedit_numberofcoins_silver"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="lineedit_numberofcoins_copper"/>
+           </item>
+          </layout>
          </item>
-         <item row="3" column="1">
-          <widget class="QWidget" name="widget_9" native="true">
-           <layout class="QGridLayout" name="gridLayout_17">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_gems">
-              <property name="text">
-               <string>Gems :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_magicitems">
-              <property name="text">
-               <string>Magic Items :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_jewels">
-              <property name="text">
-               <string>Jewels :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QTextBrowser" name="display_gems"/>
-            </item>
-            <item row="1" column="1">
-             <widget class="QTextBrowser" name="display_jewels"/>
-            </item>
-            <item row="2" column="1">
-             <widget class="QTextBrowser" name="display_magicitems"/>
-            </item>
-           </layout>
-          </widget>
+         <item row="2" column="0">
+          <layout class="QFormLayout" name="layout_treasure_other">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_gems">
+             <property name="text">
+              <string>Gems :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_jewels">
+             <property name="text">
+              <string>Jewels :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_magicitems">
+             <property name="text">
+              <string>Magic Items :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QTextBrowser" name="display_gems"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QTextBrowser" name="display_jewels"/>
+           </item>
+           <item row="2" column="1">
+            <widget class="QTextBrowser" name="display_magicitems"/>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
@@ -1379,13 +1417,13 @@
      <item row="1" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QGroupBox" name="groupBox_2">
+        <widget class="QGroupBox" name="group_map_viewer">
          <property name="title">
           <string>Map Viewer</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_11">
           <item row="0" column="0">
-           <widget class="QGraphicsView" name="graphicsView_2"/>
+           <widget class="QGraphicsView" name="graphics_map_viewer"/>
           </item>
          </layout>
         </widget>
@@ -1397,16 +1435,16 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_12">
           <item row="7" column="0">
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <layout class="QHBoxLayout" name="layout_result">
             <item>
-             <widget class="QLabel" name="label_32">
+             <widget class="QLabel" name="label_result">
               <property name="text">
                <string>Result :</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_27">
+             <widget class="QLabel" name="label_display_result">
               <property name="frameShape">
                <enum>QFrame::WinPanel</enum>
               </property>
@@ -1421,7 +1459,7 @@
            </layout>
           </item>
           <item row="3" column="1">
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="button_d6">
             <property name="text">
              <string>d6</string>
             </property>
@@ -1438,7 +1476,7 @@
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="button_d10">
             <property name="text">
              <string>d10</string>
             </property>
@@ -1455,7 +1493,7 @@
            </widget>
           </item>
           <item row="5" column="0">
-           <widget class="QPushButton" name="pushButton_5">
+           <widget class="QPushButton" name="button_d12">
             <property name="text">
              <string>d12</string>
             </property>
@@ -1479,7 +1517,7 @@
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="button_d8">
             <property name="text">
              <string>d8</string>
             </property>
@@ -1496,7 +1534,7 @@
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="button_d4">
             <property name="text">
              <string>d4</string>
             </property>
@@ -1513,7 +1551,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QSpinBox" name="spinBox_3">
+           <widget class="QSpinBox" name="spin_dice_sides">
             <property name="minimum">
              <number>-9999</number>
             </property>
@@ -1523,10 +1561,10 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QSpinBox" name="spinBox"/>
+           <widget class="QSpinBox" name="spin_dice_number"/>
           </item>
           <item row="2" column="1">
-           <widget class="QSpinBox" name="spinBox_2"/>
+           <widget class="QSpinBox" name="spin_dice_modifier"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_dicerolls_number">
@@ -1543,7 +1581,7 @@
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="QPushButton" name="pushButton_6">
+           <widget class="QPushButton" name="button_d20">
             <property name="text">
              <string>d20</string>
             </property>
@@ -1560,7 +1598,7 @@
            </widget>
           </item>
           <item row="6" column="0">
-           <widget class="QPushButton" name="pushButton_7">
+           <widget class="QPushButton" name="button_d100">
             <property name="text">
              <string>d%</string>
             </property>
@@ -1577,7 +1615,7 @@
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="QPushButton" name="pushButton_8">
+           <widget class="QPushButton" name="button_d_custom">
             <property name="text">
              <string>d?</string>
             </property>
@@ -1594,7 +1632,7 @@
            </widget>
           </item>
           <item row="7" column="1">
-           <widget class="QCheckBox" name="checkBox">
+           <widget class="QCheckBox" name="check_hide_roll">
             <property name="text">
              <string>Hide Roll</string>
             </property>
@@ -1616,30 +1654,30 @@
         </attribute>
         <layout class="QGridLayout" name="gridLayout_20">
          <item row="0" column="2">
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <layout class="QHBoxLayout" name="layout_names_menu">
            <item>
-            <widget class="QLabel" name="label_5">
+            <widget class="QLabel" name="label_name_player">
              <property name="text">
               <string>Player Name :</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit">
+            <widget class="QLineEdit" name="line_name_player">
              <property name="placeholderText">
               <string>Player's Name</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_6">
+            <widget class="QLabel" name="label_name_character">
              <property name="text">
               <string>Character Name :</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_2">
+            <widget class="QLineEdit" name="line_name_character">
              <property name="inputMask">
               <string/>
              </property>
@@ -1649,16 +1687,36 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_7">
+            <widget class="QLabel" name="label_name_dm">
              <property name="text">
               <string>DM Name :</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_3">
+            <widget class="QLineEdit" name="line_name_dm">
              <property name="placeholderText">
               <string>Dungeon Master's Name</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Last Roll :</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_display_last_roll">
+             <property name="frameShape">
+              <enum>QFrame::WinPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="text">
+              <string>_</string>
              </property>
             </widget>
            </item>
@@ -1672,28 +1730,18 @@
           </layout>
          </item>
          <item row="1" column="2">
-          <layout class="QGridLayout" name="gridLayout_5">
+          <layout class="QGridLayout" name="layout_character_sheet">
            <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout_21">
+            <layout class="QGridLayout" name="layout_hp">
              <item row="0" column="0">
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="label_hp">
                <property name="text">
                 <string>HP :</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QProgressBar" name="progressBar">
-               <property name="maximum">
-                <number>8</number>
-               </property>
-               <property name="value">
-                <number>8</number>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QSpinBox" name="spinBox_4">
+             <item row="0" column="3">
+              <widget class="QSpinBox" name="spinbox_max_hp">
                <property name="maximum">
                 <number>999</number>
                </property>
@@ -1702,68 +1750,78 @@
                </property>
               </widget>
              </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="spinbox_current_hp"/>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="label_slash_hp">
+               <property name="text">
+                <string>     / </string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </item>
            <item row="1" column="0">
-            <layout class="QGridLayout" name="gridLayout_22">
+            <layout class="QGridLayout" name="layout_stats">
              <item row="6" column="2">
-              <widget class="QLabel" name="label_19">
+              <widget class="QLabel" name="label_spells">
                <property name="text">
                 <string>SPELLS :</string>
                </property>
               </widget>
              </item>
              <item row="5" column="2">
-              <widget class="QLabel" name="label_18">
+              <widget class="QLabel" name="label_dragon">
                <property name="text">
                 <string>DRAGON :</string>
                </property>
               </widget>
              </item>
              <item row="4" column="2">
-              <widget class="QLabel" name="label_17">
+              <widget class="QLabel" name="label_paralysis">
                <property name="text">
                 <string>PARALYSIS :</string>
                </property>
               </widget>
              </item>
              <item row="6" column="0">
-              <widget class="QLabel" name="label_12">
+              <widget class="QLabel" name="label_cha">
                <property name="text">
                 <string>CHA :</string>
                </property>
               </widget>
              </item>
              <item row="2" column="0">
-              <widget class="QLabel" name="label_9">
+              <widget class="QLabel" name="label_int">
                <property name="text">
                 <string>INT :</string>
                </property>
               </widget>
              </item>
              <item row="4" column="0">
-              <widget class="QLabel" name="label_13">
+              <widget class="QLabel" name="label_dex">
                <property name="text">
                 <string>DEX :</string>
                </property>
               </widget>
              </item>
              <item row="3" column="0">
-              <widget class="QLabel" name="label_10">
+              <widget class="QLabel" name="label_wis">
                <property name="text">
                 <string>WIS :</string>
                </property>
               </widget>
              </item>
              <item row="5" column="0">
-              <widget class="QLabel" name="label_11">
+              <widget class="QLabel" name="label_con">
                <property name="text">
                 <string>CON :</string>
                </property>
               </widget>
              </item>
              <item row="3" column="1">
-              <widget class="QLineEdit" name="lineEdit_6">
+              <widget class="QLineEdit" name="line_wis">
                <property name="inputMethodHints">
                 <set>Qt::ImhFormattedNumbersOnly</set>
                </property>
@@ -1773,14 +1831,14 @@
               </widget>
              </item>
              <item row="3" column="2">
-              <widget class="QLabel" name="label_16">
+              <widget class="QLabel" name="label_wands">
                <property name="text">
                 <string>WANDS :</string>
                </property>
               </widget>
              </item>
              <item row="6" column="1">
-              <widget class="QLineEdit" name="lineEdit_9">
+              <widget class="QLineEdit" name="line_cha">
                <property name="inputMethodHints">
                 <set>Qt::ImhFormattedNumbersOnly</set>
                </property>
@@ -1790,7 +1848,7 @@
               </widget>
              </item>
              <item row="5" column="1">
-              <widget class="QLineEdit" name="lineEdit_8">
+              <widget class="QLineEdit" name="line_con">
                <property name="inputMethodHints">
                 <set>Qt::ImhFormattedNumbersOnly</set>
                </property>
@@ -1800,28 +1858,28 @@
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QLabel" name="label_8">
+              <widget class="QLabel" name="label_str">
                <property name="text">
                 <string>STR :</string>
                </property>
               </widget>
              </item>
              <item row="2" column="2">
-              <widget class="QLabel" name="label_15">
+              <widget class="QLabel" name="label_poison">
                <property name="text">
                 <string>POISON :</string>
                </property>
               </widget>
              </item>
              <item row="1" column="2">
-              <widget class="QLabel" name="label_14">
+              <widget class="QLabel" name="label_saves">
                <property name="text">
                 <string>SAVES :</string>
                </property>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QLineEdit" name="lineEdit_4">
+              <widget class="QLineEdit" name="line_str">
                <property name="inputMethodHints">
                 <set>Qt::ImhFormattedNumbersOnly</set>
                </property>
@@ -1831,7 +1889,7 @@
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QLineEdit" name="lineEdit_7">
+              <widget class="QLineEdit" name="line_dex">
                <property name="inputMethodHints">
                 <set>Qt::ImhFormattedNumbersOnly</set>
                </property>
@@ -1841,7 +1899,7 @@
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLineEdit" name="lineEdit_5">
+              <widget class="QLineEdit" name="line_int">
                <property name="inputMethodHints">
                 <set>Qt::ImhFormattedNumbersOnly</set>
                </property>
@@ -1851,33 +1909,33 @@
               </widget>
              </item>
              <item row="2" column="3">
-              <widget class="QLineEdit" name="lineEdit_10"/>
+              <widget class="QLineEdit" name="line_poison"/>
              </item>
              <item row="3" column="3">
-              <widget class="QLineEdit" name="lineEdit_11"/>
+              <widget class="QLineEdit" name="line_wands"/>
              </item>
              <item row="4" column="3">
-              <widget class="QLineEdit" name="lineEdit_12"/>
+              <widget class="QLineEdit" name="line_paralysis"/>
              </item>
              <item row="5" column="3">
-              <widget class="QLineEdit" name="lineEdit_13"/>
+              <widget class="QLineEdit" name="line_dragon"/>
              </item>
              <item row="6" column="3">
-              <widget class="QLineEdit" name="lineEdit_14"/>
+              <widget class="QLineEdit" name="line_spells"/>
              </item>
             </layout>
            </item>
            <item row="0" column="1">
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <layout class="QHBoxLayout" name="layout_ac_align_race_class_level">
              <item>
-              <widget class="QLabel" name="label_20">
+              <widget class="QLabel" name="label_ac">
                <property name="text">
                 <string>AC :</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_5">
+              <widget class="QSpinBox" name="spinbox_current_ac">
                <property name="suffix">
                 <string/>
                </property>
@@ -1893,14 +1951,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_21">
+              <widget class="QLabel" name="label_alignment">
                <property name="text">
                 <string>Alignment :</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox">
+              <widget class="QComboBox" name="combobox_alignment">
                <item>
                 <property name="text">
                  <string>Lawful Good</string>
@@ -1949,14 +2007,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_22">
+              <widget class="QLabel" name="lael_race">
                <property name="text">
                 <string>Race :</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox_2">
+              <widget class="QComboBox" name="combobox_race">
                <item>
                 <property name="text">
                  <string>Human</string>
@@ -1985,14 +2043,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_23">
+              <widget class="QLabel" name="label_class">
                <property name="text">
                 <string>Class :</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox_3">
+              <widget class="QComboBox" name="combobox_class">
                <item>
                 <property name="text">
                  <string>Warrior</string>
@@ -2016,14 +2074,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_25">
+              <widget class="QLabel" name="label_level">
                <property name="text">
                 <string>Level :</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_26">
+              <widget class="QLabel" name="label_display_level">
                <property name="frameShape">
                 <enum>QFrame::WinPanel</enum>
                </property>
@@ -2038,53 +2096,53 @@
             </layout>
            </item>
            <item row="1" column="1">
-            <layout class="QVBoxLayout" name="verticalLayout">
+            <layout class="QVBoxLayout" name="layout_inventory">
              <item>
-              <widget class="QLabel" name="label_24">
+              <widget class="QLabel" name="label_inventorytreasures">
                <property name="text">
                 <string>INVENTORY &amp; TREASURES :</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPlainTextEdit" name="plainTextEdit"/>
+              <widget class="QPlainTextEdit" name="plaintext_inventory"/>
              </item>
             </layout>
            </item>
           </layout>
          </item>
          <item row="2" column="2">
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <layout class="QHBoxLayout" name="layout_add_xp">
            <item>
-            <widget class="QLabel" name="label_28">
+            <widget class="QLabel" name="label_add_xp">
              <property name="text">
               <string>Add XP :</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_15">
+            <widget class="QLineEdit" name="line_add_xp">
              <property name="placeholderText">
               <string>Press Enter to Add XP. Bonus is automatically calculated.</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_29">
+            <widget class="QLabel" name="label_bonus_xp">
              <property name="text">
               <string>Bonus XP :</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_30">
+            <widget class="QLabel" name="label_display_bonus_xp">
              <property name="text">
               <string>0</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_31">
+            <widget class="QLabel" name="label_percentage">
              <property name="text">
               <string>%</string>
              </property>
@@ -2221,22 +2279,6 @@
     <hint type="destinationlabel">
      <x>412</x>
      <y>303</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>spinBox_4</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>progressBar</receiver>
-   <slot>setMaximum(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>235</x>
-     <y>1150</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>144</x>
-     <y>1147</y>
     </hint>
    </hints>
   </connection>
