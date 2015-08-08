@@ -2,9 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
 .spyderproject
-log.txt
+*.log
 *.dndcs
-
+*.dndc
 build/
