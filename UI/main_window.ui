@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>903</width>
+    <width>767</width>
     <height>1471</height>
    </rect>
   </property>
@@ -22,8 +22,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>903</width>
-     <height>31</height>
+     <width>767</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -97,7 +97,7 @@
                <enum>QTabWidget::East</enum>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="door_tab">
                <attribute name="title">
@@ -1391,7 +1391,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupBox">
+        <widget class="QGroupBox" name="group_dice_rolls">
          <property name="title">
           <string>Dice Rolls</string>
          </property>
@@ -1472,7 +1472,7 @@
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="label_dicerolls_sides">
             <property name="text">
              <string>Sides :</string>
             </property>
@@ -1529,14 +1529,14 @@
            <widget class="QSpinBox" name="spinBox_2"/>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="label_dicerolls_number">
             <property name="text">
              <string>Number :</string>
             </property>
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="label_dicerolls_modifier">
             <property name="text">
              <string>Modifier :</string>
             </property>
