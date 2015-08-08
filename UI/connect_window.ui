@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>connect_window</class>
+ <widget class="QDialog" name="connect_window">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>261</width>
-    <height>160</height>
+    <width>433</width>
+    <height>298</height>
    </rect>
   </property>
   <property name="windowTitle">
