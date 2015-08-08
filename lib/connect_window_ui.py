@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\connect_window.ui'
 #
-# Created: Thu Aug  6 16:35:16 2015
+# Created: Sat Aug  8 09:24:14 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -23,48 +23,48 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(261, 160)
-        Dialog.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
-        self.gridLayout = QtGui.QGridLayout(Dialog)
+class Ui_connect_window(object):
+    def setupUi(self, connect_window):
+        connect_window.setObjectName(_fromUtf8("connect_window"))
+        connect_window.resize(433, 298)
+        connect_window.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
+        self.gridLayout = QtGui.QGridLayout(connect_window)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.label_2 = QtGui.QLabel(Dialog)
+        self.label_2 = QtGui.QLabel(connect_window)
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
-        self.label = QtGui.QLabel(Dialog)
+        self.label = QtGui.QLabel(connect_window)
         self.label.setObjectName(_fromUtf8("label"))
         self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
-        self.label_3 = QtGui.QLabel(Dialog)
+        self.label_3 = QtGui.QLabel(connect_window)
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
-        self.lineEdit = QtGui.QLineEdit(Dialog)
+        self.lineEdit = QtGui.QLineEdit(connect_window)
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.gridLayout.addWidget(self.lineEdit, 0, 1, 1, 1)
-        self.lineEdit_2 = QtGui.QLineEdit(Dialog)
+        self.lineEdit_2 = QtGui.QLineEdit(connect_window)
         self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
         self.gridLayout.addWidget(self.lineEdit_2, 1, 1, 1, 1)
-        self.lineEdit_3 = QtGui.QLineEdit(Dialog)
+        self.lineEdit_3 = QtGui.QLineEdit(connect_window)
         self.lineEdit_3.setObjectName(_fromUtf8("lineEdit_3"))
         self.gridLayout.addWidget(self.lineEdit_3, 2, 1, 1, 1)
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(connect_window)
+        QtCore.QMetaObject.connectSlotsByName(connect_window)
 
-    def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(_translate("Dialog", "Connect to...", None))
-        self.label_2.setText(_translate("Dialog", "Host IP :", None))
-        self.label.setText(_translate("Dialog", "Port :", None))
-        self.label_3.setText(_translate("Dialog", "Name :", None))
+    def retranslateUi(self, connect_window):
+        connect_window.setWindowTitle(_translate("connect_window", "Connect to...", None))
+        self.label_2.setText(_translate("connect_window", "Host IP :", None))
+        self.label.setText(_translate("connect_window", "Port :", None))
+        self.label_3.setText(_translate("connect_window", "Name :", None))
 
 
 if __name__ == "__main__":
     import sys
     app = QtGui.QApplication(sys.argv)
-    Dialog = QtGui.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    connect_window = QtGui.QDialog()
+    ui = Ui_connect_window()
+    ui.setupUi(connect_window)
+    connect_window.show()
     sys.exit(app.exec_())
 

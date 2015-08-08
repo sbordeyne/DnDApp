@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\main_window.ui'
 #
-# Created: Thu Aug  6 16:35:16 2015
+# Created: Sat Aug  8 09:24:14 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,13 +26,13 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(830, 1240)
+        MainWindow.resize(903, 1471)
         MainWindow.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 830, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 903, 31))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
@@ -59,6 +59,7 @@ class Ui_MainWindow(object):
         self.gridLayout_6 = QtGui.QGridLayout(self.map_designer_tab)
         self.gridLayout_6.setObjectName(_fromUtf8("gridLayout_6"))
         self.groubox_toolbox = QtGui.QGroupBox(self.map_designer_tab)
+        self.groubox_toolbox.setFocusPolicy(QtCore.Qt.TabFocus)
         self.groubox_toolbox.setObjectName(_fromUtf8("groubox_toolbox"))
         self.gridLayout_9 = QtGui.QGridLayout(self.groubox_toolbox)
         self.gridLayout_9.setObjectName(_fromUtf8("gridLayout_9"))
@@ -154,13 +155,19 @@ class Ui_MainWindow(object):
         self.layout_type_graph_paper.setObjectName(_fromUtf8("layout_type_graph_paper"))
         self.toolbox_radio_paper_empty = QtGui.QRadioButton(self.groubox_toolbox)
         self.toolbox_radio_paper_empty.setObjectName(_fromUtf8("toolbox_radio_paper_empty"))
+        self.buttonGroup = QtGui.QButtonGroup(MainWindow)
+        self.buttonGroup.setObjectName(_fromUtf8("buttonGroup"))
+        self.buttonGroup.addButton(self.toolbox_radio_paper_empty)
         self.layout_type_graph_paper.addWidget(self.toolbox_radio_paper_empty)
         self.toolbox_radio_paper_square = QtGui.QRadioButton(self.groubox_toolbox)
+        self.toolbox_radio_paper_square.setFocusPolicy(QtCore.Qt.NoFocus)
         self.toolbox_radio_paper_square.setChecked(True)
         self.toolbox_radio_paper_square.setObjectName(_fromUtf8("toolbox_radio_paper_square"))
+        self.buttonGroup.addButton(self.toolbox_radio_paper_square)
         self.layout_type_graph_paper.addWidget(self.toolbox_radio_paper_square)
         self.toolbox_radio_paper_hexagonal = QtGui.QRadioButton(self.groubox_toolbox)
         self.toolbox_radio_paper_hexagonal.setObjectName(_fromUtf8("toolbox_radio_paper_hexagonal"))
+        self.buttonGroup.addButton(self.toolbox_radio_paper_hexagonal)
         self.layout_type_graph_paper.addWidget(self.toolbox_radio_paper_hexagonal)
         self.gridLayout_9.addLayout(self.layout_type_graph_paper, 0, 0, 1, 1)
         self.gridLayout_6.addWidget(self.groubox_toolbox, 0, 1, 1, 1)
@@ -1217,6 +1224,7 @@ class Ui_MainWindow(object):
         self.actionConnect_to.setText(_translate("MainWindow", "Connect to...", None))
         self.actionHelp.setText(_translate("MainWindow", "Help", None))
         self.actionAbout.setText(_translate("MainWindow", "About", None))
+
 
 if __name__ == "__main__":
     import sys

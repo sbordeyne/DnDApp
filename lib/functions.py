@@ -47,3 +47,35 @@ def log(message, file_="log.txt", first_time=False):
             log_file.write(log_string.format(strftime("%A %d %B %Y %H:%M:%S")))
         else:
             log_file.write("\n[{}] {}".format(strftime("%H:%M:%S"), message))
+
+def get_monster_dict(environment_of_encounter):
+        """
+        Method to return a dict of all the available monsters. Reads the resource/cfg/monsters.cfg file to fill the dict.
+        
+        Formatted entry in monsters.cfg:
+        monster_name;environment_name{
+        life\n
+        ac\n
+        movement\n
+        attacks\n
+        damages\n
+        number_met\n
+        saves\n
+        moral\n
+        treasure\n
+        alignment\n
+        xp_value\n
+        }
+        """
+        return_dict=dict()
+        key={}
+        key["name"] = ""
+        key["environment"] = ""
+        value={}        
+        
+        stats=["life", "ac", "movement", "attacks", "damages", "number_met", "saves", "moral", "treasure", "alignment", "xp_value"]
+        for stat in stats:
+            value[stat] = ""
+        
+        with open("/resources/cfg/monster.cfg", "r") as monster_config:
+            for line in monster_config:

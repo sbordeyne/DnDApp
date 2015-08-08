@@ -1,5 +1,7 @@
 from PyQt4 import QtCore, QtGui
 import sys
+from random import choice, randint
+
 from lib import resources_rc
 from lib.main_window_ui import Ui_MainWindow
 from lib.host_window_ui import Ui_host_window
@@ -47,7 +49,15 @@ class main_window(Ui_MainWindow):
         ui = Ui_connect_window()
         ui.setupUi(connect_dialog)
         connect_dialog.exec_()
+            self.monster_dictionary = self.get_monster_dict()
+        self.environmentofencounter=""
 
+    def get_encounter_table(self): #should return a dict or whatevs to print with qt in the random encounters tab.
+        list_of_encounters=[]
+        for i in range(12):
+            list_of_encounters.append(self.monster_dictionary["id"])
+
+    
         
 app = QtGui.QApplication(sys.argv)
 MainWindow = QtGui.QMainWindow()
