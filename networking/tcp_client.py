@@ -21,8 +21,9 @@ class client_thread(threading.Thread):
     '''
     def __init__(self, host, port, in_queue, out_queue):
         threading.Thread.__init__(self)
-        # Create a UDP socket
+        # Create a TCP socket        
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.server_address = (host, port)
         self.input_queue = in_queue
         self.out_queue = out_queue
