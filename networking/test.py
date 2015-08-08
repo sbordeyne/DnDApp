@@ -10,7 +10,7 @@ class networking_tcp_client_Tests_with_server(unittest.TestCase):
         self.out_q = Queue()
         self.control_q = Queue()
         self.host = 'localhost'
-        self.port = 0
+        self.port = 10000
         # start a server to test client connection against
         self.server = server_thread(self.host,
             self.port, self.control_q)
