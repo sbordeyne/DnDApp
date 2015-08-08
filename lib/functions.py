@@ -34,19 +34,23 @@ def method_once(method): #http://code.activestate.com/recipes/425445-once-decora
             return getattr(self, attrname)
     return decorated
 
-def log(message, file_="log.txt", first_time=False):
+def log(message, first_time=False):
     """
-    Inits or writes log messages to log.txt(default)
+    Rewrites stdout and stderr to corresponding log files
     
     Use instead of print() for debug
     """
     message = str(message)
-    with open(file_, "a") as log_file:
+    with open("stdout.log", "a") as log_out:
         if first_time:
-            log_string = "\n--------------\n{0}\n--------------\n"
-            log_file.write(log_string.format(strftime("%A %d %B %Y %H:%M:%S")))
+            sys.stdout = log_out
+            log_err = open("stderr.log","a")
+            sys.stderr = log_err
+            log_string = "\n--------------\n{0}\n--------------\n".format(strftime("%A %d %B %Y %H:%M:%S"))
+            log_err.write(log_string)
+            print(log_string)
         else:
-            log_file.write("\n[{}] {}".format(strftime("%H:%M:%S"), message))
+            print("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
 
 def get_monster_dict(environment_of_encounter):
         """

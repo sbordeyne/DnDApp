@@ -7,6 +7,9 @@ from lib.main_window_ui import Ui_MainWindow
 from lib.host_window_ui import Ui_host_window
 from lib.connect_window_ui import Ui_connect_window
 
+from lib.functions import *
+
+log("",True)
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
