@@ -1,27 +1,23 @@
 import socketserver
+import threading
+from queue import Queue
 import sys
 
-
-class MyTCPHandler(socketserver.BaseRequestHandler):
-    """
-    The RequestHandler class 
-    
-    It is instantiated once per connection to the server, and must
-    override the handle() method to implement communication to the
-    client.
-    """
+class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
-        # self.request is the TCP socket connected to the client
-        self.data = self.request.recv(1024).strip()
-        print("{} wrote:".format(self.client_address[0]))
-        print(self.data)
-        # just send back the same data, but upper-cased
-        self.request.sendall(self.data.upper())
+        data = str(self.request.recv(1024), 'ascii')
+        cur_thread = threading.current_thread()
+        response = bytes("{}: {}".format(cur_thread.name, data), 'ascii')
+        self.request.sendall(response)
 
-class Host_Server(object):
+class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+    pass
     
-    def __init__(self, host, port):
+class server_thread(threading.Thread):
+    
+    def __init__(self, host, port, queue):
+        threading.Thread.__init__(self)
     
         if type(host) is not str:
             raise TypeError('host must be  string')
@@ -29,14 +25,33 @@ class Host_Server(object):
             raise TypeError('port must be type int')
         if port > 99999 or port < 0 :
             raise ValueError('port must be between 0 and 9999')
+        self.port = port
+        self.host = host
+        self.queue = queue
+        self.running = True
     
+    def run(self):
+        server = ThreadedTCPServer((self.host, self.port), ThreadedTCPRequestHandler)
+        ip, port = server.server_address
 
-        # Create the server
-        server = socketserver.TCPServer((host, port), MyTCPHandler)
+        # Start a thread with the server -- that thread will then start one
+        # more thread for each request
+        server_thread = threading.Thread(target=server.serve_forever)
+        # Exit the server thread when the main thread terminates
+        server_thread.daemon = True
+        server_thread.start()
+        print("Server loop running in thread:", server_thread.name)
+        
+        while self.running:
+            try:
+                data = self.queue.get()
+                if data == 'kill':
+                    self.running = False
+                else:
+                    pass
+            except Exception:
+                pass
 
-        # Activate the server; this will keep running until you
-        # interrupt the program with Ctrl-C
-        server.serve_forever()
-
-h = Host_Server('localhost', 10000)
-
+        print('server exiting')
+        server.shutdown()
+        server.server_close()
