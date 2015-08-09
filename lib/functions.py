@@ -181,4 +181,5 @@ def pick_magic_items(odds={"scroll":30,"weapons":5,"potions":50,"ring":10,"other
         else:
             has_item[key] = False
     
-    
+    if has_item["scroll"]:
+        scroll = rd.choice([])
