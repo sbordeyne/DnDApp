@@ -54,7 +54,7 @@ def log(message, first_time=False):
         else:
             print("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
 
-def get_monster_dict(environment_of_encounter):
+def get_monster_dict():
     """
     Method to return a dict of all the available monsters. Reads the resource/cfg/monsters.cfg file to fill the dict.
 
@@ -106,7 +106,11 @@ def get_random_encounters_table(monster_dict, environment):
         if stats["environment"] == environment:
             monsters_that_can_be_picked.append(name)
     for i in range(12):
-        list_encounters[i] = rd.choice(monsters_that_can_be_picked)
+        try:
+            list_encounters[i] = rd.choice(monsters_that_can_be_picked)
+            monsters_that_can_be_picked.pop(monsters_that_can_be_picked.index(list_encounters[i]))
+        except IndexError:
+            list_encounters[i] = "None"
     return list_encounters
 
 def get_a_monster(list_encounters, chance_encounter):
@@ -126,20 +130,38 @@ def get_a_monster_stats(monster_dict, name):
         return ("_")*15
     stats_of_monster = monster_dict[name]
     
-    #Getting the life points of monster : life => 3d6+-1 => (3 x 6-sided dices) minus 1
-    life = stats_of_monster["life"]
-    number_of_dices = int(life.split("d")[0])
-    sides_of_dice = int(life.split("d")[1].split("+")[0])
-    modifier_of_dice = int(life.split("d")[1].split("+")[1])
+    #Getting the life points of monster : life => 3d6-1 => (3 x 6-sided dices) minus 1
+    life = dice_roll(stats_of_monster["life"])
+    ac = stats_of_monster["ac"] #Getting the Armor Class (AC)
+    movement = stats_of_monster["movement"] #Getting the movement value
+    attacks = stats_of_monster["attacks"]
+    damages = stats_of_monster["damages"]
+    number_met = dice_roll(stats_of_monster["number_met"])
+    save_poison = stats_of_monster["saves"].split(";")[0]
+    save_wands = stats_of_monster["saves"].split(";")[1]
+    save_paralysis = stats_of_monster["saves"].split(";")[2]
+    save_dragon = stats_of_monster["saves"].split(";")[3]
+    save_spells = stats_of_monster["saves"].split(";")[4]
+    moral = stats_of_monster["moral"]
+    treasure = stats_of_monster["treasure"]
+    alignment = stats_of_monster["alignment"]
+    xp_value = stats_of_monster["xp_value"]
+    return life, ac, movement, attacks, damages, number_met, save_poison, save_wands, save_paralysis, save_dragon, save_spells, moral, treasure, alignment, xp_value
+
+def dice_roll(xdypz):
+    """returns the result of a roll of dices in the form of a string "xdy+z" or "xdy-z" or "xdy" """
+    number_of_dices = int(xdypz.split("d")[0])
+    if "+" in xdypz:
+        sides_of_dice = int(xdypz.split("d")[1].split("+")[0])
+        modifier_of_dice = int(xdypz.split("d")[1].split("+")[1])
+    elif "-" in xdypz:
+        sides_of_dice = int(xdypz.split("d")[1].split("-")[0])
+        modifier_of_dice = int(xdypz.split("d")[1].split("-")[1]) *(-1)
+    else:
+        sides_of_dice = int(xdypz.split("d")[1])
+        modifier_of_dice = 0
+
     temp=[]
     for i in range(number_of_dices):
         temp.append(rd.randint(1,sides_of_dice))
-    life=sum(temp)+modifier_of_dice
-    
-    #Getting the Armor Class (AC)
-    ac = stats_of_monster["ac"]
-    
-    #Getting the movement value
-    movement=stats_of_monster["movement"]
-    
-    return ("_")*15
+    return sum(temp)+modifier_of_dice

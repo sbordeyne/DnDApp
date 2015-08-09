@@ -40,6 +40,7 @@ class main_window(Ui_MainWindow):
         
         self.actionHost_Game.triggered.connect(self.launch_host_game)
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
+        self.button_rollatable.clicked.connect(self.set_encounter_table)
 
     def launch_host_game(self):
         '''
@@ -67,13 +68,23 @@ class main_window(Ui_MainWindow):
         port = self.ui_connect.line_port.text()
         name = self.ui_connect.line_name.text()
 
-    def set_encounter_table(self): #should return a dict or whatevs to print with qt in the random encounters tab.
-        list_of_encounters=[]
-        for i in range(12):
-            list_of_encounters.append(self.monster_dictionary["id"])
-
-    
+    def set_encounter_table(self):
+        environment=str(self.combo_environmentofencounter.currentText())
+        list_of_encounters=get_random_encounters_table(get_monster_dict(),environment)
+        self.label_nameofrolledmonster_1.setText(list_of_encounters[0])
+        self.label_nameofrolledmonster_2.setText(list_of_encounters[1])
+        self.label_nameofrolledmonster_3.setText(list_of_encounters[2])
+        self.label_nameofrolledmonster_4.setText(list_of_encounters[3])
+        self.label_nameofrolledmonster_5.setText(list_of_encounters[4])
+        self.label_nameofrolledmonster_6.setText(list_of_encounters[5])
+        self.label_nameofrolledmonster_7.setText(list_of_encounters[6])
+        self.label_nameofrolledmonster_8.setText(list_of_encounters[7])
+        self.label_nameofrolledmonster_9.setText(list_of_encounters[8])
+        self.label_nameofrolledmonster_10.setText(list_of_encounters[9])
+        self.label_nameofrolledmonster_11.setText(list_of_encounters[10])
+        self.label_nameofrolledmonster_12.setText(list_of_encounters[11])
         
+
 app = QtGui.QApplication(sys.argv)
 MainWindow = QtGui.QMainWindow()
 ui = main_window(MainWindow)
