@@ -75,7 +75,7 @@
      <item row="0" column="0">
       <widget class="QTabWidget" name="create_campain_tabs">
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="map_designer_tab">
         <attribute name="title">

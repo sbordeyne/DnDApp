@@ -146,7 +146,8 @@ def get_a_monster_stats(monster_dict, name):
     treasure = stats_of_monster["treasure"]
     alignment = stats_of_monster["alignment"]
     xp_value = stats_of_monster["xp_value"]
-    return life, ac, movement, attacks, damages, number_met, save_poison, save_wands, save_paralysis, save_dragon, save_spells, moral, treasure, alignment, xp_value
+    return life, ac, movement, attacks, damages, number_met, save_poison, save_wands,\
+    save_paralysis, save_dragon, save_spells, moral, treasure, alignment, xp_value
 
 def dice_roll(xdypz):
     """returns the result of a roll of dices in the form of a string "xdy+z" or "xdy-z" or "xdy" """
@@ -165,3 +166,19 @@ def dice_roll(xdypz):
     for i in range(number_of_dices):
         temp.append(rd.randint(1,sides_of_dice))
     return sum(temp)+modifier_of_dice
+
+def get_treasure(treasure_value, has_magic_items):
+    treasure_value = round(rd.gauss(treasure_value,treasure_value/(rd.rand()*10)), 2)
+    if has_magic_items:
+        magic_items = pick_magic_items()
+        
+
+def pick_magic_items(odds={"scroll":30,"weapons":5,"potions":50,"ring":10,"other":5,"wand":10}):
+    has_item={}    
+    for key, value in odds.items():    
+        if rd.randint(1,100)<=odds[key]:
+            has_item[key] = True
+        else:
+            has_item[key] = False
+    
+    

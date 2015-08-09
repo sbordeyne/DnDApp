@@ -42,6 +42,7 @@ class main_window(Ui_MainWindow):
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
         self.button_rollatable.clicked.connect(self.set_encounter_table)
 
+        self.list_of_encounters = ["_"]*12
     def launch_host_game(self):
         '''
         This method will launch the host window as a dialog.
@@ -70,6 +71,7 @@ class main_window(Ui_MainWindow):
 
     def set_encounter_table(self):
         environment=str(self.combo_environmentofencounter.currentText())
+        del list_of_encounters
         list_of_encounters=get_random_encounters_table(get_monster_dict(),environment)
         self.label_nameofrolledmonster_1.setText(list_of_encounters[0])
         self.label_nameofrolledmonster_2.setText(list_of_encounters[1])
@@ -83,7 +85,16 @@ class main_window(Ui_MainWindow):
         self.label_nameofrolledmonster_10.setText(list_of_encounters[9])
         self.label_nameofrolledmonster_11.setText(list_of_encounters[10])
         self.label_nameofrolledmonster_12.setText(list_of_encounters[11])
+
+    def set_monster_stats(self):
+        chance_of_encounter = self.slider_chanceofencounter.value()
+        chosen_monster = get_a_monster(self.list_of_encounters, chance_of_encounter)
+        life, ac, movement, attacks, damages, number_met, save_poison, save_wands,\
+        save_paralysis, save_dragon, save_spells, moral, treasure, alignment,\
+        xp_value = get_a_monster_stats(get_monster_dict(), chosen_monster)
         
+        self.group_statsofrolledmonster.setTitle("Stats of Rolled Monster : {0}".format(chosen_monster))
+        #self.label_statsofrolledmonster_ac
 
 app = QtGui.QApplication(sys.argv)
 MainWindow = QtGui.QMainWindow()
