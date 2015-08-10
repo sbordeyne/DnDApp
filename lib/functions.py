@@ -12,16 +12,20 @@ def read_config(file_name):
     """Function that reads the config of given filename, returns dict"""
     return_dict = dict()
     temp_list = list()
-    i = 0
-    with open("cfg/{}.cfg".format(file_name), "r") as file_:
-        for line in file_:
-            if line != "$":
-                splitted = line.split(";")
-                temp_list.append((splitted[0], splitted[1]))
-            else:
-                i += 1
-                return_dict["{}".format(i)] = temp_list
+    with open("/resources/cfg/{}".format(file_name), "r") as config_file:
+        for line in config_file:
+            if "{" in line:
+                name = line.split("{")[0]
+            elif "}" in line:
+                return_dict[name] = temp_list
                 temp_list = []
+            else:
+                if ";" in line:
+                    to_append = (line.split(";")[0],int(line.split(";")[1]))
+                else:
+                    to_append = line.split("\n"[0])
+                temp_list.append(to_append)
+                del to_append
     return return_dict
 
 def method_once(method): #http://code.activestate.com/recipes/425445-once-decorator/
@@ -94,7 +98,7 @@ def get_monster_dict():
                     value[stat] = ""
                 name = ""
             else:
-                line.strip("\n")
+                line.split("\n")[0]
                 value[stats[i]] = line
                 i += 1     
     return monster_dict
@@ -167,19 +171,61 @@ def dice_roll(xdypz):
         temp.append(rd.randint(1,sides_of_dice))
     return sum(temp)+modifier_of_dice
 
-def get_treasure(treasure_value, has_magic_items):
+def get_treasure(treasure_value, has_magic_items, has_gems, has_jewels):
     treasure_value = round(rd.gauss(treasure_value,treasure_value/(rd.rand()*10)), 2)
+    treasure = {}
     if has_magic_items:
-        magic_items = pick_magic_items()
-        
+        treasure["magic_items"] = pick_magic_items()
+        treasure_value = round(rd.rand()*treasure_value, 2)
+    if has_gems:
+        rand = rd.uniform(0.2, 0.5)
+        treasure["gems"] = pick_gems(treasure_value*rand)
+        treasure_value = (1 - rand) * treasure_value
+    if has_jewels:
+        rand = rd.uniform(0.1, 0.3)
+        treasure["jewels"] = pick_jewels(treasure_value*rand)
+        treasure_value = (1 - rand) * treasure_value
+    pp, gp, ep, sp, cp = get_treasure_coins(treasure_value)
+    treasure["pieces"] = [pp, gp, ep, sp, cp]
+    return treasure
+
+def get_treasure_coins(treasure_value):
+    float_part = (treasure_value-int(treasure_value))*100
+    int_part = int(treasure_value)
+    pp = int_part // 5
+    gp = int_part - pp
+    ep = float_part // 50
+    float_part -= ep
+    sp = float_part // 10
+    cp = float_part - sp
+    return pp, gp, ep, sp, cp
 
 def pick_magic_items(odds={"scroll":30,"weapons":5,"potions":50,"ring":10,"other":5,"wand":10}):
-    has_item={}    
+    has_item = {}
+    magic_items  = read_config("magic_items")
     for key, value in odds.items():    
         if rd.randint(1,100)<=odds[key]:
             has_item[key] = True
         else:
             has_item[key] = False
-    
+    temp_list = []
     if has_item["scroll"]:
-        scroll = rd.choice([])
+        temp_list.append(rd.choice(magic_items["scroll"]))
+    if has_item["weapons"]:
+        temp_list.append(rd.choice(magic_items["weapons"]))
+    if has_item["potions"]:
+        temp_list.append(rd.choice(magic_items["potions"]))
+    if has_item["ring"]:
+        temp_list.append(rd.choice(magic_items["ring"]))
+    if has_item["other"]:
+        temp_list.append(rd.choice(magic_items["other"]))
+    if has_item["wands"]:
+        temp_list.append(rd.choice(magic_items["wands"]))
+    return temp_list
+
+def pick_gems(treasure_value):
+    gems = read_config("gems")
+    pass
+
+def pick_jewels(treasure_value):
+    pass
