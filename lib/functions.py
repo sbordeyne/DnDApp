@@ -12,7 +12,7 @@ def read_config(file_name):
     """Function that reads the config of given filename, returns dict"""
     return_dict = dict()
     temp_list = list()
-    with open("/resources/cfg/{}".format(file_name), "r") as config_file:
+    with open("../resources/cfg/{}.cfg".format(file_name), "r") as config_file:
         for line in config_file:
             if "{" in line:
                 name = line.split("{")[0]
@@ -87,7 +87,7 @@ def get_monster_dict():
         value[stat] = ""
     i = 0
 
-    with open("/resources/cfg/monster.cfg", "r") as monster_config:
+    with open("../resources/cfg/monster.cfg", "r") as monster_config:
         for line in monster_config:
             if "{" in line:
                 name = line.strip("{")
@@ -225,6 +225,16 @@ def pick_magic_items(odds={"scroll":30,"weapons":5,"potions":50,"ring":10,"other
 
 def pick_gems(treasure_value):
     gems = read_config("gems")
+    gem_quality = []
+    gem_type = []
+    for i in range(treasure_value//300):
+        gem_quality.append(rd.choice(gems["gem_quality"]))
+        gem_type.append(rd.choice(gems["gem_type"]))
+    gems = []
+    assert len(gem_type) == len(gem_quality)
+    for i in range(len(gem_type)):
+        gems.append((gem_quality[i][0], gem_type[i][0], int(gem_quality[i][1]) + int(gem_type[i][1])))
+    return gems
     pass
 
 def pick_jewels(treasure_value):
