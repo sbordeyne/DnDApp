@@ -256,3 +256,84 @@ def pick_jewels(treasure_value):
         jewels.append((jewel_quality[i][0] + " " + jewel_material[i][0] + " " + jewel_type[i][0], int(jewel_material[i][1]) +\
         int(jewel_quality[i][1]) + int(jewel_type[i][1])))
     return jewels
+
+def class_differenciation(class_, race, characteristics):
+    base_xp = 0
+    main_char = {"class":0,"race":0}
+    if class_ == "Warrior":
+        base_xp += 2000
+        main_char["class"] = int(characteristics["str"])
+    elif class_ == "Wizard":
+        base_xp += 2500
+        main_char["class"] = int(characteristics["int"])
+    elif class_ == "Cleric":
+        base_xp += 1500
+        main_char["class"] = int(characteristics["wis"])
+    elif class_ == "Thief":
+        base_xp += 1200
+        main_char["class"] = int(characteristics["dex"])
+    else:
+        base_xp += 0
+    if race == "Human":
+        base_xp += 0
+        main_char["race"] = int(characteristics["cha"])
+    elif race == "Elf":
+        base_xp += 1500
+        main_char["race"] = int(characteristics["str"])
+    elif race == "Dwarf":
+        base_xp += 500
+        main_char["race"] = int(characteristics["con"])
+    elif race == "Halfelin":
+        base_xp += 800
+        main_char["race"] = int(characteristics["dex"])
+    return base_xp, main_char
+
+def get_remaining_xp(base_xp, level, xp_total):
+    return (int(base_xp) * int(level)) - int(xp_total)
+
+def get_bonus_xp(main_char):
+    bonus_percentage = 0
+    if 16 <= main_char["class"] <= 18:
+        bonus_percentage += 5
+    elif 13 <= main_char["class"] <= 15:
+        bonus_percentage += 0
+    elif 9 <= main_char["class"] <= 12:
+        bonus_percentage -= 5
+    elif 3 <= main_char["class"] <= 8:
+        bonus_percentage -= 10
+    else:
+        bonus_percentage = 0
+
+    if 16 <= main_char["race"] <= 18:
+        bonus_percentage += 5
+    elif 13 <= main_char["race"] <= 15:
+        bonus_percentage += 0
+    elif 9 <= main_char["race"] <= 12:
+        bonus_percentage -= 5
+    elif 3 <= main_char["race"] <= 8:
+        bonus_percentage -= 10
+    else:
+        bonus_percentage = 0
+    return bonus_percentage
+
+def add_xp(xp_to_add, class_, race, characteristics, level, current_xp):
+    base_xp, main_char = class_differenciation(class_, race, characteristics)
+    bonus = get_bonus_xp(main_char)
+    try:
+        xp_to_add = int(xp_to_add)
+    except ValueError:
+        xp_to_add = 0
+    finally:
+        xp_total = current_xp
+        xp_total += xp_to_add * (1 + bonus/100)
+        xp_to_add = 0
+        remaining_xp = get_remaining_xp(base_xp, level, xp_total)
+        if xp_total >= remaining_xp:
+            level += 1
+    return level, xp_total
+
+def roll_characteristics(characteristics, freeze=True):
+    if not freeze:
+        for char, value in characteristics.items():
+            value = rd.randint(1, 6) + rd.randint(1, 6) + rd.randint(1, 6)
+    return characteristics
