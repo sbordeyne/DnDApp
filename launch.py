@@ -9,7 +9,7 @@ from lib.connect_window_ui import Ui_connect_window
 
 from lib.functions import *
 
-#log("",True)
+log("",True)
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -31,9 +31,10 @@ class main_window(Ui_MainWindow):
     used to add bindings to launch the host/connect window dialog
     '''
     def __init__(self, MainWindow):
-        self.setupUi(MainWindow)
-        self.ui_connect = Ui_connect_window()        
-        MainWindow.resize(1280,720)
+        self.main_window = MainWindow
+        self.setupUi(self.main_window)
+        self.ui_connect = Ui_connect_window()
+        self.main_window.resize(1280,720)
         
         self.dock_campain.hide()
         self.dock_client.hide()
@@ -41,8 +42,13 @@ class main_window(Ui_MainWindow):
         self.actionHost_Game.triggered.connect(self.launch_host_game)
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
         self.button_rollatable.clicked.connect(self.set_encounter_table)
+        self.line_treasure_value.returnPressed.connect(self.set_treasure)
 
         self.list_of_encounters = ["_"]*12
+        self.treasure_value = self.line_treasure_value.text()
+        
+        
+
     def launch_host_game(self):
         '''
         This method will launch the host window as a dialog.
@@ -95,6 +101,38 @@ class main_window(Ui_MainWindow):
         
         self.group_statsofrolledmonster.setTitle("Stats of Rolled Monster : {0}".format(chosen_monster))
         #self.label_statsofrolledmonster_ac
+
+    def set_treasure(self):
+        print("treasure_set!")
+        try:
+            treasure_value = int(self.treasure_value)
+        except ValueError:
+            self.line_treasure_value.setText("")
+            pass
+        has_gems = self.check_gems.isChecked()
+        has_jewels = self.check_jewels.isChecked()
+        has_magic = self.check_magic_items.isChecked()
+        treasure = get_treasure(treasure_value, has_magic, has_gems, has_jewels)
+        
+        gem_string = ""
+        jewel_string = ""
+        magic_string = ""
+        
+        for gem_tuple in treasure["gems"]:
+            gem_string += "{0} : {1}\n".format(gem_tuple[0], gem_tuple[1])
+        for jewel_tuple in treasure["jewels"]:
+            jewel_string += "{0} : {1}\n".format(jewel_tuple[0], jewel_tuple[1])
+        for magic_item in treasure["magic_items"]:
+            magic_string += magic_item
+        self.display_gems.setPlainText(gem_string)
+        self.display_jewels.setPlainText(jewel_string)
+        self.display_magicitems.setPlainText(magic_string)
+        self.lineedit_numberofcoins_platinum.setText(treasure["pieces"][0])
+        self.lineedit_numberofcoins_gold.setText(treasure["pieces"][1])
+        self.lineedit_numberofcoins_electrum.setText(treasure["pieces"][2])
+        self.lineedit_numberofcoins_silver.setText(treasure["pieces"][3])
+        self.lineedit_numberofcoins_copper.setText(treasure["pieces"][4])
+        self.main_window.update()
 
 app = QtGui.QApplication(sys.argv)
 MainWindow = QtGui.QMainWindow()

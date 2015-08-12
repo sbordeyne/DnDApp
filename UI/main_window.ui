@@ -1011,7 +1011,31 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="line_treasure_value"/>
+            <widget class="QLineEdit" name="line_treasure_value">
+             <property name="placeholderText">
+              <string>Tap Enter to Generate a Random Treasure</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="check_gems">
+             <property name="text">
+              <string>Gems</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="check_jewels">
+             <property name="text">
+              <string>Jewels</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QCheckBox" name="check_magic_items">

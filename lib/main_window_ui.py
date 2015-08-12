@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\main_window.ui'
 #
-# Created: Sat Aug  8 22:25:12 2015
+# Created: Tue Aug 11 15:47:27 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,13 +26,13 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(767, 1471)
+        MainWindow.resize(888, 1471)
         MainWindow.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 767, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 888, 21))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
@@ -486,6 +486,14 @@ class Ui_MainWindow(object):
         self.line_treasure_value = QtGui.QLineEdit(self.treasure_generator_tab)
         self.line_treasure_value.setObjectName(_fromUtf8("line_treasure_value"))
         self.layout_treasure_value.addWidget(self.line_treasure_value)
+        self.check_gems = QtGui.QCheckBox(self.treasure_generator_tab)
+        self.check_gems.setChecked(True)
+        self.check_gems.setObjectName(_fromUtf8("check_gems"))
+        self.layout_treasure_value.addWidget(self.check_gems)
+        self.check_jewels = QtGui.QCheckBox(self.treasure_generator_tab)
+        self.check_jewels.setChecked(True)
+        self.check_jewels.setObjectName(_fromUtf8("check_jewels"))
+        self.layout_treasure_value.addWidget(self.check_jewels)
         self.check_magic_items = QtGui.QCheckBox(self.treasure_generator_tab)
         self.check_magic_items.setObjectName(_fromUtf8("check_magic_items"))
         self.layout_treasure_value.addWidget(self.check_magic_items)
@@ -1026,7 +1034,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.create_campain_tabs.setCurrentIndex(0)
-        self.toolbox_squared_tabs.setCurrentIndex(2)
+        self.toolbox_squared_tabs.setCurrentIndex(0)
         self.tab_character_sheets.setCurrentIndex(0)
         QtCore.QObject.connect(self.actionNew_Campain, QtCore.SIGNAL(_fromUtf8("activated()")), self.dock_campain.show)
         QtCore.QObject.connect(self.slider_levelofnpc, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.label_level_number.setNum)
@@ -1123,6 +1131,9 @@ class Ui_MainWindow(object):
         self.label_display_chanceofencounter.setText(_translate("MainWindow", "10", None))
         self.create_campain_tabs.setTabText(self.create_campain_tabs.indexOf(self.random_encounters_tab), _translate("MainWindow", "Random Encounters", None))
         self.label_treasure_value.setText(_translate("MainWindow", "Treasure Value :", None))
+        self.line_treasure_value.setPlaceholderText(_translate("MainWindow", "Tap Enter to Generate a Random Treasure", None))
+        self.check_gems.setText(_translate("MainWindow", "Gems", None))
+        self.check_jewels.setText(_translate("MainWindow", "Jewels", None))
         self.check_magic_items.setText(_translate("MainWindow", "Magic Items", None))
         self.label_copper.setText(_translate("MainWindow", "Copper Coins", None))
         self.label_silver.setText(_translate("MainWindow", "Silver Coins", None))

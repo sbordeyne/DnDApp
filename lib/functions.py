@@ -47,13 +47,17 @@ def log(message, first_time=False):
     Use instead of print() for debug
     """
     message = str(message)
-    with open("stdout.log", "a") as log_out:
+    try:
+        log_out = open("stdout.log", "a")
+    except FileNotFoundError:
+        pass
+    except IOError:
+        pass
+    finally:
         if first_time:
+            sys.stderr = log_out
             sys.stdout = log_out
-            log_err = open("stderr.log","a")
-            sys.stderr = log_err
             log_string = "\n--------------\n{0}\n--------------\n".format(strftime("%A %d %B %Y %H:%M:%S"))
-            log_err.write(log_string)
             print(log_string)
         else:
             print("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
@@ -171,12 +175,12 @@ def dice_roll(xdypz):
         temp.append(rd.randint(1,sides_of_dice))
     return sum(temp)+modifier_of_dice
 
-def get_treasure(treasure_value, has_magic_items, has_gems, has_jewels):
-    treasure_value = round(rd.gauss(treasure_value,treasure_value/(rd.rand()*10)), 2)
+def get_treasure(treasure_value, has_magic_items=False, has_gems=True, has_jewels=True):
+    treasure_value = round(rd.gauss(treasure_value,treasure_value/(rd.random()*10)), 2)
     treasure = {}
     if has_magic_items:
         treasure["magic_items"] = pick_magic_items()
-        treasure_value = round(rd.rand()*treasure_value, 2)
+        treasure_value = round(rd.random()*treasure_value, 2)
     if has_gems:
         rand = rd.uniform(0.2, 0.5)
         treasure["gems"] = pick_gems(treasure_value*rand)
@@ -185,6 +189,7 @@ def get_treasure(treasure_value, has_magic_items, has_gems, has_jewels):
         rand = rd.uniform(0.1, 0.3)
         treasure["jewels"] = pick_jewels(treasure_value*rand)
         treasure_value = (1 - rand) * treasure_value
+    treasure_value = rd.uniform(0.4, 0.6) * treasure_value
     pp, gp, ep, sp, cp = get_treasure_coins(treasure_value)
     treasure["pieces"] = [pp, gp, ep, sp, cp]
     return treasure
@@ -197,8 +202,8 @@ def get_treasure_coins(treasure_value):
     ep = float_part // 50
     float_part -= ep
     sp = float_part // 10
-    cp = float_part - sp
-    return pp, gp, ep, sp, cp
+    cp = round(float_part - sp, 0)
+    return int(pp), int(gp), int(ep), int(sp), int(cp)
 
 def pick_magic_items(odds={"scroll":30,"weapons":5,"potions":50,"ring":10,"other":5,"wand":10}):
     has_item = {}
@@ -227,15 +232,27 @@ def pick_gems(treasure_value):
     gems = read_config("gems")
     gem_quality = []
     gem_type = []
-    for i in range(treasure_value//300):
+    for i in range(int(treasure_value//300)):
         gem_quality.append(rd.choice(gems["gem_quality"]))
         gem_type.append(rd.choice(gems["gem_type"]))
     gems = []
     assert len(gem_type) == len(gem_quality)
     for i in range(len(gem_type)):
-        gems.append((gem_quality[i][0], gem_type[i][0], int(gem_quality[i][1]) + int(gem_type[i][1])))
+        gems.append((gem_quality[i][0] + " " + gem_type[i][0], int(gem_quality[i][1]) + int(gem_type[i][1])))
     return gems
-    pass
 
 def pick_jewels(treasure_value):
-    pass
+    jewels = read_config("jewels")
+    jewel_quality = []
+    jewel_material = []
+    jewel_type = []
+    for i in range(int(treasure_value // 250)):
+        jewel_quality.append(rd.choice(jewels["jewel_quality"]))
+        jewel_type.append(rd.choice(jewels["jewel_type"]))
+        jewel_material.append(rd.choice(jewels["jewel_material"]))
+    jewels = []
+    assert len(jewel_material) == len(jewel_quality) == len(jewel_type)
+    for i in range(len(jewel_type)):
+        jewels.append((jewel_quality[i][0] + " " + jewel_material[i][0] + " " + jewel_type[i][0], int(jewel_material[i][1]) +\
+        int(jewel_quality[i][1]) + int(jewel_type[i][1])))
+    return jewels
