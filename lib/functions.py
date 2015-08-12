@@ -332,8 +332,10 @@ def add_xp(xp_to_add, class_, race, characteristics, level, current_xp):
             level += 1
     return level, xp_total
 
-def roll_characteristics(characteristics, freeze=True):
+def roll_characteristics(freeze=True):
+    characteristics = {"str":0,"int":0,"wis":0,"dex":0,"con":0,"cha":0}
     if not freeze:
         for char, value in characteristics.items():
-            value = rd.randint(1, 6) + rd.randint(1, 6) + rd.randint(1, 6)
+            characteristics[char] = rd.randint(1, 6) + rd.randint(1, 6) + rd.randint(1, 6)
     return characteristics
+
