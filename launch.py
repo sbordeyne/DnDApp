@@ -108,6 +108,7 @@ class main_window(Ui_MainWindow):
             treasure_value = int(self.treasure_value)
         except ValueError:
             self.line_treasure_value.setText("")
+            treasure_value = 0
             pass
         has_gems = self.check_gems.isChecked()
         has_jewels = self.check_jewels.isChecked()
