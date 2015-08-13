@@ -470,8 +470,12 @@ def get_npc_beliefs(npc_dict, alignment):
         return rd.choice(neu_gods)
 
 def get_npc_motivation(npc_dict):
-    recent_past = ""
-    motivation = ""
+    recent_past = rd.choice(npc_dict["recent_past"])
+    motivation = rd.choice(npc_dict["motivations"])
+    if "[details]" in motivation:
+        details = rd.choice(npc_dict["details"])
+        details = rd.choice(npc_dict[details[1:-1]])
+            
     return recent_past, motivation
 
 def get_npc_belongings(npc_dict, level):
