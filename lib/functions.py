@@ -21,9 +21,10 @@ def read_config(file_name):
                 temp_list = []
             else:
                 if ";" in line:
-                    to_append = (line.split(";")[0],int(line.split(";")[1]))
+                    line = line.split("\n")[0]
+                    to_append = line.split(";")
                 else:
-                    to_append = line.split("\n"[0])
+                    to_append = line.split("\n")[0]
                 temp_list.append(to_append)
                 del to_append
     return return_dict
@@ -56,11 +57,10 @@ def log(message, first_time=False):
     finally:
         if first_time:
             sys.stderr = log_out
-            sys.stdout = log_out
             log_string = "\n--------------\n{0}\n--------------\n".format(strftime("%A %d %B %Y %H:%M:%S"))
-            print(log_string)
+            log_out.write(log_string)
         else:
-            print("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
+            log_out.write("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
 
 def get_monster_dict():
     """
@@ -341,8 +341,7 @@ def roll_characteristics(freeze=True):
 
 def generate_npc(alignment, gender, race, class_, level, stats):
     characteristics = {"str":0,"int":0,"wis":0,"dex":0,"con":0,"cha":0}
-    npc_dict = {} #read_config("npc-gen")
-
+    npc_dict = read_config("npc-gen")
     if "Any" in alignment:
         try:
             assert alignment != "Any"
@@ -376,7 +375,7 @@ def generate_npc(alignment, gender, race, class_, level, stats):
 
     name = get_npc_name(npc_dict, race, gender)
     languages = get_npc_languages(npc_dict, characteristics["int"], race, alignment)
-    beliefs = get_npc_beliefs(npc_dict, race, alignment)
+    beliefs = get_npc_beliefs(npc_dict, alignment)
     recent_past, motivation = get_npc_motivation(npc_dict)
     npc_ac, belongings = get_npc_belongings(npc_dict, level)
     life = dice_roll("{}d6+2".format(level))
@@ -384,7 +383,7 @@ def generate_npc(alignment, gender, race, class_, level, stats):
     string_to_return = \
     """{}, {} {} {}, level {}, {} HP, {} AC\n
     Alignment : {}, believes in : {}\n
-    Stats : STR : {}\n
+    Stats : \tSTR : {}\n
     \t\tINT : {}\n
     \t\tWIS : {}\n
     \t\tDEX : {}\n
@@ -398,23 +397,77 @@ def generate_npc(alignment, gender, race, class_, level, stats):
     Motivation : {}\n
     \n
     Recent Past : {}\n
-    """.format(name, gender, race, class_, level, life, npc_ac, alignment, beliefs,\
+    """.format(name.capitalize(), gender, class_, race, level, life, npc_ac, alignment, beliefs,\
     characteristics["str"], characteristics["int"], characteristics["wis"],\
     characteristics["dex"], characteristics["con"], characteristics["cha"],\
     languages, belongings, motivation, recent_past)
     return string_to_return
 
 def get_npc_name(npc_dict, race, gender):
-    name =""
-    return name
+    race = race.lower()
+    gender = gender.lower()
+    names = npc_dict["{}_names".format(race)]
+    preffixes = []
+    intermediate = []
+    suffixes = []
+    if gender is "male" or gender is "m":
+        gender = "m"
+    else:
+        gender = "f"
+    for value_lists in names:
+        if value_lists[0] == "{}pre".format(gender):
+            preffixes.append(value_lists[1])
+        else:
+            preffixes.append(value_lists[1])
+        if "{}suf".format(gender) == value_lists[0]:
+            suffixes.append(value_lists[1])
+        else:
+            suffixes.append(value_lists[1])
+        if "{}in".format(gender) == value_lists[0]:
+            intermediate.append(value_lists[1])
+        else:
+            intermediate.append("")
+    return rd.choice(preffixes) + rd.choice(intermediate) + rd.choice(suffixes)
 
 def get_npc_languages(npc_dict, intelligence, race, alignment):
-    languages = ""
+    languages = "Common, {}".format(alignment.capitalize())
+    available_languages = npc_dict["languages"]
+    nbr = 0
+    if intelligence >= 17:
+        nbr += 2
+    elif 17 > intelligence >= 14:
+        nbr += 1
+    elif 9 > intelligence >= 6:
+        return "Common spoken with difficulties"
+    elif 6 > intelligence >= 3:
+        return "Can't read common, speaks with a lot of trouble"
+    if race.lower() is not "human":
+        languages += ", {}".format(race.capitalize())
+        available_languages.remove(race.lower())
+    for i in range(nbr):
+        lang = rd.choice(available_languages)
+        available_languages.remove(lang)
+        languages += ", {}".format(lang.capitalize())
     return languages
 
-def get_npc_beliefs(npc_dict, race, alignment):
-    beliefs = ""
-    return beliefs
+def get_npc_beliefs(npc_dict, alignment):
+    gods = npc_dict["churches"]
+    law_gods = []
+    neu_gods = []
+    cha_gods = []
+    for god in gods:
+        if "on" in god or "or" in god:
+            law_gods.append(god)
+        elif "k" in god or "sh" in god or "x" in god or "y" in god:
+            cha_gods.append(god)
+        else:
+            neu_gods.append(god)
+    if "Lawful" in alignment:
+        return rd.choice(law_gods)
+    elif "Chaotic" in alignment:
+        return rd.choice(cha_gods)
+    else:
+        return rd.choice(neu_gods)
 
 def get_npc_motivation(npc_dict):
     recent_past = ""

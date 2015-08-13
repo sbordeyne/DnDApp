@@ -10,6 +10,7 @@ from lib.connect_window_ui import Ui_connect_window
 from lib.functions import *
 
 log("",True)
+print = log
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
