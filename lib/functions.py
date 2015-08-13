@@ -339,3 +339,89 @@ def roll_characteristics(freeze=True):
             characteristics[char] = rd.randint(1, 6) + rd.randint(1, 6) + rd.randint(1, 6)
     return characteristics
 
+def generate_npc(alignment, gender, race, class_, level, stats):
+    characteristics = {"str":0,"int":0,"wis":0,"dex":0,"con":0,"cha":0}
+    npc_dict = {} #read_config("npc-gen")
+
+    if "Any" in alignment:
+        try:
+            assert alignment != "Any"
+            alignment = alignment.split(" ")[1] + " " + rd.choice(["Good", "Neutral", "Evil"])
+        except AssertionError:
+            alignment = rd.choice(["Lawful", "Neutral", "Chaotic"]) + " " + rd.choice(["Good", "Neutral", "Evil"])
+    if gender == "Any":
+        gender = rd.choice(["Male", "Female"])
+    if race == "Any":
+        race = rd.choice(["Human", "Elf", "Dwarf", "Halfelin"])
+    if class_ == "Any":
+        class_ = rd.choice(["Warrior", "Wizard", "Thief", "Cleric"])
+    if stats == "Best 3 of 5d6":
+        for stat, stat_value in characteristics.items():
+            dice_rolls=[]
+            for i in range(5):
+                dice_rolls.append(rd.randint(1,6))
+            characteristics[stat] = sum(sorted(dice_rolls)[2:])
+    elif stats == "Low":
+        for stat, stat_value in characteristics.items():
+            dice_rolls=[]
+            dice_rolls.append(rd.randint(1,6))
+            dice_rolls.append(rd.randint(1,6))
+            characteristics[stat] = sum(dice_rolls)
+    elif stats == "Average":
+        for stat, stat_value in characteristics.items():
+            characteristics[stat] = 6 + rd.randint(1,8)
+    else:
+        for stat, stat_value in characteristics.items():
+            characteristics[stat] = 12 + rd.randint(1,6)
+
+    name = get_npc_name(npc_dict, race, gender)
+    languages = get_npc_languages(npc_dict, characteristics["int"], race, alignment)
+    beliefs = get_npc_beliefs(npc_dict, race, alignment)
+    recent_past, motivation = get_npc_motivation(npc_dict)
+    npc_ac, belongings = get_npc_belongings(npc_dict, level)
+    life = dice_roll("{}d6+2".format(level))
+
+    string_to_return = \
+    """{}, {} {} {}, level {}, {} HP, {} AC\n
+    Alignment : {}, believes in : {}\n
+    Stats : STR : {}\n
+    \t\tINT : {}\n
+    \t\tWIS : {}\n
+    \t\tDEX : {}\n
+    \t\tCON : {}\n
+    \t\tCHA : {}\n
+    \n
+    Language(s) spoken : {}\n
+    \n
+    Belongings : {}\n
+    \n
+    Motivation : {}\n
+    \n
+    Recent Past : {}\n
+    """.format(name, gender, race, class_, level, life, npc_ac, alignment, beliefs,\
+    characteristics["str"], characteristics["int"], characteristics["wis"],\
+    characteristics["dex"], characteristics["con"], characteristics["cha"],\
+    languages, belongings, motivation, recent_past)
+    return string_to_return
+
+def get_npc_name(npc_dict, race, gender):
+    name =""
+    return name
+
+def get_npc_languages(npc_dict, intelligence, race, alignment):
+    languages = ""
+    return languages
+
+def get_npc_beliefs(npc_dict, race, alignment):
+    beliefs = ""
+    return beliefs
+
+def get_npc_motivation(npc_dict):
+    recent_past = ""
+    motivation = ""
+    return recent_past, motivation
+
+def get_npc_belongings(npc_dict, level):
+    npc_ac = 9
+    npc_belongings = ""
+    return npc_ac, npc_belongings
