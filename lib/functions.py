@@ -9,7 +9,7 @@ import sys
 import random as rd
 
 if __name__ == "__main__":
-    current_folder = "../ressources/cfg"
+    current_folder = "../resources/cfg"
 else:
     current_folder = "resources/cfg"
 
@@ -19,19 +19,23 @@ def read_config(file_name):
     temp_list = list()
     with open("{}/{}.cfg".format(current_folder, file_name), "r") as config_file:
         for line in config_file:
-            if "{" in line:
-                name = line.split("{")[0]
-            elif "}" in line:
-                return_dict[name] = temp_list
-                temp_list = []
-            else:
-                if ";" in line:
-                    line = line.split("\n")[0]
-                    to_append = line.split(";")
+            try:
+                assert line != '\n', "line is empty, skipping line"
+                if "{" in line:
+                    name = line.split("{")[0]
+                elif "}" in line:
+                    return_dict[name] = temp_list
+                    temp_list = []
                 else:
-                    to_append = line.split("\n")[0]
-                temp_list.append(to_append)
-                del to_append
+                    if ";" in line:
+                        line = line.split("\n")[0]
+                        to_append = line.split(";")
+                    else:
+                        to_append = line.split("\n")[0]
+                    temp_list.append(to_append)
+                    del to_append
+            except AssertionError:
+                continue
     return return_dict
 
 def method_once(method): #http://code.activestate.com/recipes/425445-once-decorator/
@@ -481,7 +485,7 @@ def get_npc_motivation(npc_dict):
 def get_npc_belongings(npc_dict, level):
     npc_ac = 9
     npc_belongings_value = int(level) * 100 * rd.gauss(1,0.5)
-    npc_belongings = ""
+    weapons = rd.choice(npc_dict["weapons"])
     return npc_ac, npc_belongings
 
 def replace_bracket_words(sentence, npc_dict):
@@ -492,3 +496,40 @@ def replace_bracket_words(sentence, npc_dict):
         return replace_bracket_words(sentence, npc_dict)
     else:
         return sentence
+
+def generate_disease(source, climate, sequel): # change sex, breathing in combo box  scratch that, change every item
+    disease_dict = read_config("diseases")
+    name = rd.choice(disease_dict["preffix"]) + rd.choice(disease_dict["intermediary"]) + rd.choice(disease_dict["suffix"])
+    name = name.capitalize()
+    if climate == "Random":
+        climate = rd.choice(disease_dict["climates"])
+    if source == "Random":
+        source = rd.choice(disease_dict["source"])
+    if sequel == "Random":
+        sequel = rd.choice(disease_dict["sequels"])
+    incubation = str(dice_roll("{}d{}+{}".format(rd.randint(1, 3), rd.randint(2, 12), rd.randint(-2, 2)))) \
+    + " {}".format(rd.choice(disease_dict["incubation"]))
+    time_after_sequel = "{}d{}+{}".format(rd.randint(1, 3), rd.randint(2, 12), rd.randint(-2, 2))\
+    + " {}".format(rd.choice(disease_dict["incubation"]))
+
+    effect_immediate = rd.choice(disease_dict["sequels"])
+    if "stat" in effect_immediate:
+        stat = rd.choice(disease_dict["stats_loss"])
+        effect_immediate = effect_immediate.split("stat")[0]
+        effect_immediate += " " + stat[1] + " " + stat[0]
+    if "stat" in sequel:
+        stat = rd.choice(disease_dict["stats_loss"])
+        sequel = sequel.split("stat")[0]
+        sequel += " " + stat[1] + " " + stat[0]
+
+    string =\
+    """
+    {}, disease contracted by {}
+    
+    Incubation time : {}
+    
+    Effect : immediate {}, {}, {} later if not cured before.
+    """.format(name, source, incubation, effect_immediate, sequel, time_after_sequel)
+    return string
+
+    

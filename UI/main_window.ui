@@ -75,7 +75,7 @@
      <item row="0" column="0">
       <widget class="QTabWidget" name="create_campain_tabs">
        <property name="currentIndex">
-        <number>4</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="map_designer_tab">
         <attribute name="title">
@@ -93,16 +93,6 @@
            <layout class="QGridLayout" name="gridLayout_9">
             <item row="0" column="0">
              <layout class="QHBoxLayout" name="layout_type_graph_paper">
-              <item>
-               <widget class="QRadioButton" name="toolbox_radio_paper_empty">
-                <property name="text">
-                 <string>Empty</string>
-                </property>
-                <attribute name="buttonGroup">
-                 <string notr="true">buttonGroup</string>
-                </attribute>
-               </widget>
-              </item>
               <item>
                <widget class="QRadioButton" name="toolbox_radio_paper_square">
                 <property name="focusPolicy">
@@ -127,6 +117,13 @@
                 <attribute name="buttonGroup">
                  <string notr="true">buttonGroup</string>
                 </attribute>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="check_toolbox_sticktogrid">
+                <property name="text">
+                 <string>Stick to Grid</string>
+                </property>
                </widget>
               </item>
              </layout>
@@ -1138,8 +1135,314 @@
        </widget>
        <widget class="QWidget" name="disease_generator_tab">
         <attribute name="title">
-         <string>Disease Generator</string>
+         <string>Disease/Poison/Plant Generator</string>
         </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QGroupBox" name="group_disease_generator">
+           <property name="title">
+            <string>Diseases</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_17">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="layout_disease_options">
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_disease_regions">
+                <property name="text">
+                 <string>Regions :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="label_disease_source">
+                <property name="text">
+                 <string>Source :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="label_disease_sequels">
+                <property name="text">
+                 <string>Sequels :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QComboBox" name="combobox_disease_sequels">
+                <item>
+                 <property name="text">
+                  <string>Random</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Permanent Loss</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Relapses</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Another Disease</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Teeth Loss</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Nothing</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="combobox_disease_source">
+                <item>
+                 <property name="text">
+                  <string>Random</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Touch</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Saliva</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Aerial</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ingestion</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Injury</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Animal</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QComboBox" name="combobox_disease_region">
+                <item>
+                 <property name="text">
+                  <string>Random</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>All</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Mountain</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Continental</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Tropical</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Oceanic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>At Sea</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Cold Weather</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Desertic</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QPushButton" name="button_disease_generate">
+                <property name="text">
+                 <string>Generate</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <layout class="QGridLayout" name="gridLayout_16">
+              <item row="0" column="0">
+               <widget class="QTextBrowser" name="display_disease"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="group_poison_generator">
+           <property name="title">
+            <string>Poison</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_22">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="layout_poison_options">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_poison_type">
+                <property name="text">
+                 <string>Type :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_poison_category">
+                <property name="text">
+                 <string>Category :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_poison_price">
+                <property name="text">
+                 <string>Price :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="combobox_poison_category"/>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="combobox_poison_type"/>
+              </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="button_poison_generate">
+                <property name="text">
+                 <string>Generate</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineedit_poison_price"/>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <layout class="QGridLayout" name="layout_poison_display">
+              <item row="0" column="0">
+               <widget class="QTextBrowser" name="display_poison"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="group_plant_generator">
+           <property name="title">
+            <string>Plants</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_25">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="layou_plant_options">
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_plant_usage">
+                <property name="text">
+                 <string>Usage :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QComboBox" name="combobox_plant_usage"/>
+              </item>
+              <item row="4" column="1">
+               <widget class="QComboBox" name="combobox_plant_type"/>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="combobox_plant_rarity"/>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="combobox_plant_foundin"/>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="combobox_plant_season"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_plant_foundin">
+                <property name="text">
+                 <string>Found in :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_plant_season">
+                <property name="text">
+                 <string>Season :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_plant_rarity">
+                <property name="text">
+                 <string>Rarity :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_plant_type">
+                <property name="text">
+                 <string>Type :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QPushButton" name="button_plant_generate">
+                <property name="text">
+                 <string>Generate</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <layout class="QGridLayout" name="layout_display_plant">
+              <item row="0" column="0">
+               <widget class="QTextBrowser" name="display_plant"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
        </widget>
        <widget class="QWidget" name="npc_generator_tab">
         <attribute name="title">
@@ -1379,11 +1682,6 @@
                 <item>
                  <property name="text">
                   <string>High</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Hero</string>
                  </property>
                 </item>
                </widget>
