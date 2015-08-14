@@ -145,16 +145,6 @@ class main_window(Ui_MainWindow):
         self.lineedit_numberofcoins_electrum.setText(str(treasure["pieces"][2]))
         self.lineedit_numberofcoins_silver.setText(str(treasure["pieces"][3]))
         self.lineedit_numberofcoins_copper.setText(str(treasure["pieces"][4]))
-        #update, but doesn't work for some reason ?
-        self.display_gems.update()
-        self.display_jewels.update()
-        self.display_magicitems.update()
-        self.lineedit_numberofcoins_copper.update()
-        self.lineedit_numberofcoins_silver.update()
-        self.lineedit_numberofcoins_electrum.update()
-        self.lineedit_numberofcoins_gold.update()
-        self.lineedit_numberofcoins_platinum.update()
-        self.main_window.update()
         pass
 
     def set_npc(self):
