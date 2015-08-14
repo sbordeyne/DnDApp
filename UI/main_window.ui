@@ -75,7 +75,7 @@
      <item row="0" column="0">
       <widget class="QTabWidget" name="create_campain_tabs">
        <property name="currentIndex">
-        <number>0</number>
+        <number>4</number>
        </property>
        <widget class="QWidget" name="map_designer_tab">
         <attribute name="title">
@@ -1151,247 +1151,269 @@
            <property name="title">
             <string>Parameters of generation</string>
            </property>
-           <layout class="QGridLayout" name="gridLayout_19">
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_raceofnpc">
-              <property name="text">
-               <string>Race :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_genderofnpc">
-              <property name="text">
-               <string>Gender :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QComboBox" name="combobox_genderofnpc">
-              <item>
-               <property name="text">
-                <string>Any</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Male</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Female</string>
-               </property>
-              </item>
-             </widget>
-            </item>
+           <layout class="QGridLayout" name="gridLayout_13">
             <item row="0" column="0">
-             <widget class="QLabel" name="label_alignmentofnpc">
-              <property name="text">
-               <string>Alignment :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QComboBox" name="combobox_raceofnpc">
-              <item>
-               <property name="text">
-                <string>Any</string>
-               </property>
+             <layout class="QGridLayout" name="layout_parametersofgeneration">
+              <item row="0" column="3">
+               <widget class="QComboBox" name="combobox_classofnpc">
+                <item>
+                 <property name="text">
+                  <string>Any</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Warrior</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Wizard</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Thief</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Cleric</string>
+                 </property>
+                </item>
+               </widget>
               </item>
-              <item>
-               <property name="text">
-                <string>Human</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Elf</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Dwarf</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Halfelin</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QComboBox" name="combobox_alignmentofnpc">
-              <item>
-               <property name="text">
-                <string>Any</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Any Lawful</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Any Neutral</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Any Chaotic</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Lawful Good</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Lawful Neutral</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Lawful Evil</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Neutral Good</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Neutral Neutral</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Neutral Evil</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Chaotic Good</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Chaotic Neutral</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Chaotic Evil</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="0" column="2">
-             <widget class="QLabel" name="label_classofnpc">
-              <property name="text">
-               <string>Class :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="3">
-             <widget class="QComboBox" name="combobox_classofnpc">
-              <item>
-               <property name="text">
-                <string>Any</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Warrior</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Wizard</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Thief</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Cleric</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLabel" name="label_levelofnpc">
-              <property name="text">
-               <string>Level :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="3">
-             <layout class="QHBoxLayout" name="layout_levelofnpc">
-              <item>
-               <widget class="QSlider" name="slider_levelofnpc">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>20</number>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+              <item row="1" column="2">
+               <widget class="QLabel" name="label_levelofnpc">
+                <property name="text">
+                 <string>Level :</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="label_level_number">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_genderofnpc">
                 <property name="text">
-                 <string>1</string>
+                 <string>Gender :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_classofnpc">
+                <property name="text">
+                 <string>Class :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_raceofnpc">
+                <property name="text">
+                 <string>Race :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="combobox_alignmentofnpc">
+                <item>
+                 <property name="text">
+                  <string>Any</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Any Lawful</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Any Neutral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Any Chaotic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lawful Good</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lawful Neutral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lawful Evil</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Neutral Good</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Neutral Neutral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Neutral Evil</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Chaotic Good</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Chaotic Neutral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Chaotic Evil</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_alignmentofnpc">
+                <property name="text">
+                 <string>Alignment :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="combobox_genderofnpc">
+                <item>
+                 <property name="text">
+                  <string>Any</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Male</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Female</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="combobox_raceofnpc">
+                <item>
+                 <property name="text">
+                  <string>Any</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Human</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Elf</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Dwarf</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Halfelin</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <layout class="QHBoxLayout" name="layout_levelofnpc">
+                <item>
+                 <widget class="QSlider" name="slider_levelofnpc">
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>20</number>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_level_number">
+                  <property name="text">
+                   <string>1</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="2" column="3">
+               <widget class="QComboBox" name="combobox_statsofnpc">
+                <item>
+                 <property name="text">
+                  <string>Best 3 of 5d6</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Low</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Average</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>High</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Hero</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLabel" name="label_statsofnpc">
+                <property name="text">
+                 <string>Stats :</string>
                 </property>
                </widget>
               </item>
              </layout>
             </item>
-            <item row="2" column="2">
-             <widget class="QLabel" name="label_statsofnpc">
-              <property name="text">
-               <string>Stats :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="3">
-             <widget class="QComboBox" name="combobox_statsofnpc">
+            <item row="0" column="2">
+             <layout class="QVBoxLayout" name="layout_option_npc">
               <item>
-               <property name="text">
-                <string>Best 3 of 5d6</string>
-               </property>
+               <widget class="QPushButton" name="button_generate_npc">
+                <property name="text">
+                 <string>Generate</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <property name="text">
-                <string>Low</string>
-               </property>
+               <widget class="QPushButton" name="button_clear_text">
+                <property name="text">
+                 <string>Clear Text</string>
+                </property>
+               </widget>
               </item>
-              <item>
-               <property name="text">
-                <string>Average</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>High</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Hero</string>
-               </property>
-              </item>
-             </widget>
+             </layout>
             </item>
            </layout>
           </widget>
