@@ -8,11 +8,16 @@ from time import strftime
 import sys
 import random as rd
 
+if __name__ == "__main__":
+    current_folder = "../ressources/cfg"
+else:
+    current_folder = "resources/cfg"
+
 def read_config(file_name):
     """Function that reads the config of given filename, returns dict"""
     return_dict = dict()
     temp_list = list()
-    with open("../resources/cfg/{}.cfg".format(file_name), "r") as config_file:
+    with open("{}/{}.cfg".format(current_folder, file_name), "r") as config_file:
         for line in config_file:
             if "{" in line:
                 name = line.split("{")[0]
@@ -204,7 +209,7 @@ def get_treasure_coins(treasure_value):
     cp = round(float_part - sp, 0)
     return int(pp), int(gp), int(ep), int(sp), int(cp)
 
-def pick_magic_items(odds={"scroll":30,"weapons":5,"potions":50,"ring":10,"other":5,"wand":10}):
+def pick_magic_items(odds={"scroll":30,"weapons":5,"potions":50,"ring":10,"other":5,"wands":10}):
     has_item = {}
     magic_items  = read_config("magic_items")
     for key, value in odds.items():    

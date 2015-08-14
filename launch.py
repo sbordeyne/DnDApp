@@ -43,12 +43,12 @@ class main_window(Ui_MainWindow):
         self.actionHost_Game.triggered.connect(self.launch_host_game)
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
         self.button_rollatable.clicked.connect(self.set_encounter_table)
-        self.line_treasure_value.returnPressed.connect(self.set_treasure)
+        self.line_treasure_value.editingFinished.connect(self.set_treasure)
+        self.button_generate_npc.clicked.connect(self.set_npc)
+        self.button_clear_text.clicked.connect(self.clear_generated_npc)
 
         self.list_of_encounters = ["_"]*12
         self.treasure_value = self.line_treasure_value.text()
-        
-        
 
     def launch_host_game(self):
         '''
@@ -77,9 +77,8 @@ class main_window(Ui_MainWindow):
         name = self.ui_connect.line_name.text()
 
     def set_encounter_table(self):
-        environment=str(self.combo_environmentofencounter.currentText())
-        del list_of_encounters
-        list_of_encounters=get_random_encounters_table(get_monster_dict(),environment)
+        environment = str(self.combo_environmentofencounter.currentText())
+        list_of_encounters = get_random_encounters_table(get_monster_dict(),environment)
         self.label_nameofrolledmonster_1.setText(list_of_encounters[0])
         self.label_nameofrolledmonster_2.setText(list_of_encounters[1])
         self.label_nameofrolledmonster_3.setText(list_of_encounters[2])
@@ -104,37 +103,74 @@ class main_window(Ui_MainWindow):
         #self.label_statsofrolledmonster_ac
 
     def set_treasure(self):
-        print("treasure_set!")
+        #Variables used
+        self.treasure_value = self.line_treasure_value.text()
+        has_gems = self.check_gems.isChecked()
+        has_jewels = self.check_jewels.isChecked()
+        has_magic = self.check_magic_items.isChecked()
+        gem_string = ""
+        jewel_string = ""
+        magic_string = ""
+        #try to convert to an int, if it is a string, returns 0 and doesn't generate a treasure
         try:
             treasure_value = int(self.treasure_value)
         except ValueError:
             self.line_treasure_value.setText("")
             treasure_value = 0
             pass
-        has_gems = self.check_gems.isChecked()
-        has_jewels = self.check_jewels.isChecked()
-        has_magic = self.check_magic_items.isChecked()
+        #generate treasure, returns a dict where keys are "pieces", "jewels", "gems", "magic_items"
         treasure = get_treasure(treasure_value, has_magic, has_gems, has_jewels)
-        
-        gem_string = ""
-        jewel_string = ""
-        magic_string = ""
-        
-        for gem_tuple in treasure["gems"]:
-            gem_string += "{0} : {1}\n".format(gem_tuple[0], gem_tuple[1])
-        for jewel_tuple in treasure["jewels"]:
-            jewel_string += "{0} : {1}\n".format(jewel_tuple[0], jewel_tuple[1])
-        for magic_item in treasure["magic_items"]:
-            magic_string += magic_item
+        #formatting gems, magic items and jewels asserting we have all keys in the dict
+        try:        
+            for gem_tuple in treasure["gems"]:
+                gem_string += "{0} : {1}\n".format(gem_tuple[0], gem_tuple[1])
+            for jewel_tuple in treasure["jewels"]:
+                jewel_string += "{0} : {1}\n".format(jewel_tuple[0], jewel_tuple[1])
+            for magic_item in treasure["magic_items"]:
+                magic_string += magic_item + "\n"
+        except KeyError:
+            if not has_gems:
+                gem_string = ""
+            if not has_jewels:
+                jewel_string = ""
+            if not has_magic:
+                magic_string = ""
+
+        #sets the text in the lineedits and plaintextviewers
         self.display_gems.setPlainText(gem_string)
         self.display_jewels.setPlainText(jewel_string)
         self.display_magicitems.setPlainText(magic_string)
-        self.lineedit_numberofcoins_platinum.setText(treasure["pieces"][0])
-        self.lineedit_numberofcoins_gold.setText(treasure["pieces"][1])
-        self.lineedit_numberofcoins_electrum.setText(treasure["pieces"][2])
-        self.lineedit_numberofcoins_silver.setText(treasure["pieces"][3])
-        self.lineedit_numberofcoins_copper.setText(treasure["pieces"][4])
+        self.lineedit_numberofcoins_platinum.setText(str(treasure["pieces"][0]))
+        self.lineedit_numberofcoins_gold.setText(str(treasure["pieces"][1]))
+        self.lineedit_numberofcoins_electrum.setText(str(treasure["pieces"][2]))
+        self.lineedit_numberofcoins_silver.setText(str(treasure["pieces"][3]))
+        self.lineedit_numberofcoins_copper.setText(str(treasure["pieces"][4]))
+        #update, but doesn't work for some reason ?
+        self.display_gems.update()
+        self.display_jewels.update()
+        self.display_magicitems.update()
+        self.lineedit_numberofcoins_copper.update()
+        self.lineedit_numberofcoins_silver.update()
+        self.lineedit_numberofcoins_electrum.update()
+        self.lineedit_numberofcoins_gold.update()
+        self.lineedit_numberofcoins_platinum.update()
         self.main_window.update()
+        pass
+
+    def set_npc(self):
+        alignment = str(self.combobox_alignmentofnpc.currentText())
+        gender = str(self.combobox_genderofnpc.currentText())
+        race = str(self.combobox_raceofnpc.currentText())
+        class_ = str(self.combobox_classofnpc.currentText())
+        stats = str(self.combobox_statsofnpc.currentText())
+        level = int(self.slider_levelofnpc.value())
+        generated_npc = generate_npc(alignment, gender, race, class_, level, stats)
+        self.display_generated_npc.append(generated_npc + "\n")
+        pass
+
+    def clear_generated_npc(self):
+        self.display_generated_npc.clear()
+        pass
 
 app = QtGui.QApplication(sys.argv)
 MainWindow = QtGui.QMainWindow()
