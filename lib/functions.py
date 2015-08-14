@@ -169,7 +169,6 @@ def dice_roll(xdypz):
     else:
         sides_of_dice = int(xdypz.split("d")[1])
         modifier_of_dice = 0
-
     temp=[]
     for i in range(number_of_dices):
         temp.append(rd.randint(1,sides_of_dice))
@@ -470,15 +469,21 @@ def get_npc_beliefs(npc_dict, alignment):
         return rd.choice(neu_gods)
 
 def get_npc_motivation(npc_dict):
-    recent_past = rd.choice(npc_dict["recent_past"])
-    motivation = rd.choice(npc_dict["motivations"])
-    if "[details]" in motivation:
-        details = rd.choice(npc_dict["details"])
-        details = rd.choice(npc_dict[details[1:-1]])
-            
+    recent_past = replace_bracket_words(rd.choice(npc_dict["recent_past"]), npc_dict)
+    motivation = replace_bracket_words(rd.choice(npc_dict["motivations"]), npc_dict)
     return recent_past, motivation
 
 def get_npc_belongings(npc_dict, level):
     npc_ac = 9
+    npc_belongings_value = int(level) * 100 * rd.gauss(1,0.5)
     npc_belongings = ""
     return npc_ac, npc_belongings
+
+def replace_bracket_words(sentence, npc_dict):
+    word = ""
+    if "[" in sentence:
+        word = sentence[sentence.index("[")+1:sentence.index("]")]
+        sentence = sentence.replace("[{}]".format(word), rd.choice(npc_dict[word]), 1)
+        return replace_bracket_words(sentence, npc_dict)
+    else:
+        return sentence
