@@ -5,11 +5,12 @@ Created on Sat Apr  4 10:21:25 2015
 @author: Simon
 """
 from time import strftime
-import sys
 import random as rd
 
 if __name__ == "__main__":
     current_folder = "../resources/cfg"
+    def test():
+        print(generate_npc("Any", "Any", "Any", "Any", 10, "Best 3 of 5d6"))
 else:
     current_folder = "resources/cfg"
 
@@ -50,26 +51,12 @@ def method_once(method): #http://code.activestate.com/recipes/425445-once-decora
             return getattr(self, attrname)
     return decorated
 
-def log(message, first_time=False):
-    """
-    Rewrites stdout and stderr to corresponding log files
-    
-    Use instead of print() for debug
-    """
+def log(message):
+    """Rewrites stdout and stderr to corresponding log files"""
     message = str(message)
-    try:
-        log_out = open("stdout.log", "a")
-    except FileNotFoundError:
-        pass
-    except IOError:
-        pass
-    finally:
-        if first_time:
-            sys.stderr = log_out
-            log_string = "\n--------------\n{0}\n--------------\n".format(strftime("%A %d %B %Y %H:%M:%S"))
-            log_out.write(log_string)
-        else:
-            log_out.write("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
+    log_out = open("stdout.log", "a")
+    log_out.write("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
+    pass
 
 def get_monster_dict():
     """
@@ -438,7 +425,7 @@ def get_npc_name(npc_dict, race, gender):
     return rd.choice(preffixes) + rd.choice(intermediate) + rd.choice(suffixes)
 
 def get_npc_languages(npc_dict, intelligence, race, alignment):
-    languages = "Common, {}".format(alignment.capitalize())
+    languages = "Common, {}".format(alignment.split()[0].capitalize())
     available_languages = npc_dict["languages"]
     nbr = 0
     if intelligence >= 17:
@@ -485,7 +472,8 @@ def get_npc_motivation(npc_dict):
 def get_npc_belongings(npc_dict, level):
     npc_ac = 9
     npc_belongings_value = int(level) * 100 * rd.gauss(1,0.5)
-    weapons = rd.choice(npc_dict["weapons"])
+    #♠weapons = rd.choice(npc_dict["weapons"])
+    npc_belongings = ""
     return npc_ac, npc_belongings
 
 def replace_bracket_words(sentence, npc_dict):

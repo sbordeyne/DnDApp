@@ -1,6 +1,6 @@
 from PyQt4 import QtCore, QtGui
 import sys
-from random import choice, randint
+from time import strftime
 
 from lib import resources_rc
 from lib.main_window_ui import Ui_MainWindow
@@ -9,7 +9,9 @@ from lib.connect_window_ui import Ui_connect_window
 
 from lib.functions import *
 
-log("",True)
+log_out = open("stdout.log", "a")
+log_out.write("\n--------------\n{0}\n--------------\n".format(strftime("%A %d %B %Y %H:%M:%S")))
+sys.stderr = log_out
 print = log
 
 try:
@@ -148,13 +150,21 @@ class main_window(Ui_MainWindow):
         pass
 
     def set_npc(self):
+        print("set_npc")
         alignment = str(self.combobox_alignmentofnpc.currentText())
+        print(alignment)
         gender = str(self.combobox_genderofnpc.currentText())
+        print(gender)
         race = str(self.combobox_raceofnpc.currentText())
+        print(race)
         class_ = str(self.combobox_classofnpc.currentText())
+        print(class_)
         stats = str(self.combobox_statsofnpc.currentText())
+        print(stats)
         level = int(self.slider_levelofnpc.value())
+        print(level)
         generated_npc = generate_npc(alignment, gender, race, class_, level, stats)
+        print(generated_npc)
         self.display_generated_npc.append(generated_npc + "\n")
         pass
 
