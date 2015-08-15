@@ -44,7 +44,7 @@ class main_window(Ui_MainWindow):
         
         self.actionHost_Game.triggered.connect(self.launch_host_game)
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
-        self.actionNew_Campain.triggered.connect(self.new_camapain)
+        self.actionNew_Campain.triggered.connect(self.new_campain)
         self.button_rollatable.clicked.connect(self.set_encounter_table)
         self.line_treasure_value.editingFinished.connect(self.set_treasure)
         self.button_generate_npc.clicked.connect(self.set_npc)
