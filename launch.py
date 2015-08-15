@@ -40,9 +40,12 @@ class main_window(Ui_MainWindow):
         self.dock_campain.hide()
         self.dock_client.hide()
         
+        #  bind to host game button in menu
         self.actionHost_Game.triggered.connect(self.launch_host_game)
+        # bind to connect to button in menu
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
-        self.button_rollatable.clicked.connect(self.set_encounter_table)
+        # bind to 'roll table' button in random encounters tab
+        self.button_rollatable.clicked.connect(self.set_encounter_table_monkey)
         self.line_treasure_value.editingFinished.connect(self.set_treasure)
         self.button_generate_npc.clicked.connect(self.set_npc)
         self.button_clear_text.clicked.connect(self.clear_generated_npc)
@@ -75,8 +78,12 @@ class main_window(Ui_MainWindow):
         host_ip = self.ui_connect.line_host_ip.text()
         port = self.ui_connect.line_port.text()
         name = self.ui_connect.line_name.text()
+        
 
     def set_encounter_table(self):
+        '''
+        Triggered when roll table button is called in main UI.
+        '''
         environment = str(self.combo_environmentofencounter.currentText())
         list_of_encounters = get_random_encounters_table(get_monster_dict(),environment)
         self.label_nameofrolledmonster_1.setText(list_of_encounters[0])
@@ -91,6 +98,23 @@ class main_window(Ui_MainWindow):
         self.label_nameofrolledmonster_10.setText(list_of_encounters[9])
         self.label_nameofrolledmonster_11.setText(list_of_encounters[10])
         self.label_nameofrolledmonster_12.setText(list_of_encounters[11])
+
+    def set_encounter_table_monkey(self):
+        '''
+        Monkey function. Test updating UI. Will delete once this passes
+        '''
+        self.label_nameofrolledmonster_1.setText('test')
+        self.label_nameofrolledmonster_2.setText('test')
+        self.label_nameofrolledmonster_3.setText('test')
+        self.label_nameofrolledmonster_4.setText('test')
+        self.label_nameofrolledmonster_5.setText('test')
+        self.label_nameofrolledmonster_6.setText('test')
+        self.label_nameofrolledmonster_7.setText('test')
+        self.label_nameofrolledmonster_8.setText('test')
+        self.label_nameofrolledmonster_9.setText('test')
+        self.label_nameofrolledmonster_10.setText('test')
+        self.label_nameofrolledmonster_11.setText('test')
+        self.label_nameofrolledmonster_12.setText('test')
 
     def set_monster_stats(self):
         chance_of_encounter = self.slider_chanceofencounter.value()
