@@ -44,6 +44,7 @@ class main_window(Ui_MainWindow):
         
         self.actionHost_Game.triggered.connect(self.launch_host_game)
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
+        self.actionNew_Campain.triggered.connect(self.new_camapain)
         self.button_rollatable.clicked.connect(self.set_encounter_table)
         self.line_treasure_value.editingFinished.connect(self.set_treasure)
         self.button_generate_npc.clicked.connect(self.set_npc)
@@ -60,6 +61,38 @@ class main_window(Ui_MainWindow):
         ui = Ui_host_window()
         ui.setupUi(host_dialog)
         host_dialog.exec_()
+
+    def new_campain(self):
+        self.dock_campain.hide()        
+        
+        self.display_disease.clear()
+        self.display_generated_npc.clear()
+        self.display_gems.clear()
+        self.display_jewels.clear()
+        self.display_magicitems.clear()
+        self.display_plant.clear()
+        self.display_poison.clear()
+        
+        self.lineedit_numberofcoins_copper.clear()
+        self.lineedit_numberofcoins_silver.clear()
+        self.lineedit_numberofcoins_electrum.clear()
+        self.lineedit_numberofcoins_gold.clear()
+        self.lineedit_numberofcoins_platinum.clear()
+        
+        self.label_nameofrolledmonster_1.setText("_")
+        self.label_nameofrolledmonster_2.setText("_")
+        self.label_nameofrolledmonster_3.setText("_")
+        self.label_nameofrolledmonster_4.setText("_")
+        self.label_nameofrolledmonster_5.setText("_")
+        self.label_nameofrolledmonster_6.setText("_")
+        self.label_nameofrolledmonster_7.setText("_")
+        self.label_nameofrolledmonster_8.setText("_")
+        self.label_nameofrolledmonster_9.setText("_")
+        self.label_nameofrolledmonster_10.setText("_")
+        self.label_nameofrolledmonster_11.setText("_")
+        self.label_nameofrolledmonster_12.setText("_")
+        
+        self.dock_campain.show()
 
     def launch_connect_window(self):
         '''
