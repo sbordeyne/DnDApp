@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\connect_window.ui'
 #
-# Created: Sat Aug 15 09:18:32 2015
+# Created: Sat Aug 15 14:26:03 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
