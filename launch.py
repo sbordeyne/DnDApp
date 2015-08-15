@@ -45,7 +45,7 @@ class main_window(Ui_MainWindow):
         # bind to connect to button in menu
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
         # bind to 'roll table' button in random encounters tab
-        self.button_rollatable.clicked.connect(self.set_encounter_table_monkey)
+        self.button_rollatable.clicked.connect(self.set_encounter_table)
         self.line_treasure_value.editingFinished.connect(self.set_treasure)
         self.button_generate_npc.clicked.connect(self.set_npc)
         self.button_clear_text.clicked.connect(self.clear_generated_npc)
@@ -82,7 +82,7 @@ class main_window(Ui_MainWindow):
 
     def set_encounter_table(self):
         '''
-        Triggered when roll table button is called in main UI.
+        Triggered when 'roll table' button is called in main UI.
         '''
         environment = str(self.combo_environmentofencounter.currentText())
         list_of_encounters = get_random_encounters_table(get_monster_dict(),environment)
