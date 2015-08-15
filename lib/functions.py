@@ -100,7 +100,7 @@ def get_monster_dict():
         value[stat] = ""
     i = 0
 
-    with open("../resources/cfg/monster.cfg", "r") as monster_config:
+    with open("./resources/cfg/monsters.cfg", "r") as monster_config:
         for line in monster_config:
             if "{" in line:
                 name = line.strip("{")
