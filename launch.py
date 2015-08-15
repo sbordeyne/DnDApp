@@ -99,23 +99,6 @@ class main_window(Ui_MainWindow):
         self.label_nameofrolledmonster_11.setText(list_of_encounters[10])
         self.label_nameofrolledmonster_12.setText(list_of_encounters[11])
 
-    def set_encounter_table_monkey(self):
-        '''
-        Monkey function. Test updating UI. Will delete once this passes
-        '''
-        self.label_nameofrolledmonster_1.setText('test')
-        self.label_nameofrolledmonster_2.setText('test')
-        self.label_nameofrolledmonster_3.setText('test')
-        self.label_nameofrolledmonster_4.setText('test')
-        self.label_nameofrolledmonster_5.setText('test')
-        self.label_nameofrolledmonster_6.setText('test')
-        self.label_nameofrolledmonster_7.setText('test')
-        self.label_nameofrolledmonster_8.setText('test')
-        self.label_nameofrolledmonster_9.setText('test')
-        self.label_nameofrolledmonster_10.setText('test')
-        self.label_nameofrolledmonster_11.setText('test')
-        self.label_nameofrolledmonster_12.setText('test')
-
     def set_monster_stats(self):
         chance_of_encounter = self.slider_chanceofencounter.value()
         chosen_monster = get_a_monster(self.list_of_encounters, chance_of_encounter)
