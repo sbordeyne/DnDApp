@@ -485,7 +485,7 @@ def replace_bracket_words(sentence, npc_dict):
     else:
         return sentence
 
-def generate_disease(source, climate, sequel): # change sex, breathing in combo box  scratch that, change every item
+def generate_disease(source, climate, sequel):
     disease_dict = read_config("diseases")
     name = rd.choice(disease_dict["preffix"]) + rd.choice(disease_dict["intermediary"]) + rd.choice(disease_dict["suffix"])
     name = name.capitalize()
@@ -497,8 +497,16 @@ def generate_disease(source, climate, sequel): # change sex, breathing in combo 
         sequel = rd.choice(disease_dict["sequels"])
     incubation = str(dice_roll("{}d{}+{}".format(rd.randint(1, 3), rd.randint(2, 12), rd.randint(-2, 2)))) \
     + " {}".format(rd.choice(disease_dict["incubation"]))
-    time_after_sequel = "{}d{}+{}".format(rd.randint(1, 3), rd.randint(2, 12), rd.randint(-2, 2))\
-    + " {}".format(rd.choice(disease_dict["incubation"]))
+    mod = rd.randint(-2, 2)
+    if mod > 0:
+        time_after_sequel = "{}d{}+{}".format(rd.randint(1, 3), rd.randint(2, 12), mod)\
+        + " {}".format(rd.choice(disease_dict["incubation"]))
+    elif mod < 0:
+        time_after_sequel = "{}d{}-{}".format(rd.randint(1, 3), rd.randint(2, 12), abs(mod))\
+        + " {}".format(rd.choice(disease_dict["incubation"]))
+    else:
+        time_after_sequel = "{}d{}".format(rd.randint(1, 3), rd.randint(2, 12))\
+        + " {}".format(rd.choice(disease_dict["incubation"]))
 
     effect_immediate = rd.choice(disease_dict["sequels"])
     if "stat" in effect_immediate:
@@ -512,12 +520,15 @@ def generate_disease(source, climate, sequel): # change sex, breathing in combo 
 
     string =\
     """
-    {}, disease contracted by {}
+    {}, disease contracted by {} in {} regions.
     
     Incubation time : {}
     
-    Effect : immediate {}, {}, {} later if not cured before.
-    """.format(name, source, incubation, effect_immediate, sequel, time_after_sequel)
+    Effect : immediate {}
+    
+    Sequels : {}, {} later if {} is not cured before.
+    """.format(name.capitalize(), source.lower(), climate.lower(),\
+    incubation, effect_immediate, sequel, time_after_sequel, name)
     return string
 
     

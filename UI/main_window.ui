@@ -1176,7 +1176,7 @@
                 </item>
                 <item>
                  <property name="text">
-                  <string>Permanent Loss</string>
+                  <string>Permanent loss of stat</string>
                  </property>
                 </item>
                 <item>
@@ -1186,12 +1186,12 @@
                 </item>
                 <item>
                  <property name="text">
-                  <string>Another Disease</string>
+                  <string>Another disease</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Teeth Loss</string>
+                  <string>Teeth loss</string>
                  </property>
                 </item>
                 <item>
@@ -1215,12 +1215,12 @@
                 </item>
                 <item>
                  <property name="text">
-                  <string>Saliva</string>
+                  <string>Saliva Exchange</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Aerial</string>
+                  <string>Breathing</string>
                  </property>
                 </item>
                 <item>
@@ -1230,7 +1230,12 @@
                 </item>
                 <item>
                  <property name="text">
-                  <string>Injury</string>
+                  <string>Injuries</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Sex</string>
                  </property>
                 </item>
                 <item>
@@ -1274,12 +1279,12 @@
                 </item>
                 <item>
                  <property name="text">
-                  <string>At Sea</string>
+                  <string>At sea</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Cold Weather</string>
+                  <string>Cold</string>
                  </property>
                 </item>
                 <item>

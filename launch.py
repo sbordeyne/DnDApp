@@ -49,6 +49,7 @@ class main_window(Ui_MainWindow):
         self.line_treasure_value.returnPressed.connect(self.set_treasure)
         self.button_generate_npc.clicked.connect(self.set_npc)
         self.button_clear_text.clicked.connect(self.clear_generated_npc)
+        self.button_disease_generate.clicked.connect(self.set_disease)
 
         self.list_of_encounters = ["_"]*12
         self.treasure_value = self.line_treasure_value.text()
@@ -204,6 +205,15 @@ class main_window(Ui_MainWindow):
     def clear_generated_npc(self):
         self.display_generated_npc.clear()
         pass
+
+    def set_disease(self):
+        region = self.combobox_disease_region.currentText()
+        sequels = self.combobox_disease_sequels.currentText()
+        source = self.combobox_disease_source.currentText()
+        generated_disease = generate_disease(source, region, sequels)
+        self.display_disease.setText(generated_disease)
+        pass
+    
 
 app = QtGui.QApplication(sys.argv)
 MainWindow = QtGui.QMainWindow()

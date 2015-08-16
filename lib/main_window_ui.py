@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\main_window.ui'
 #
-# Created: Sat Aug 15 14:26:03 2015
+# Created: Sun Aug 16 13:00:46 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -582,6 +582,7 @@ class Ui_MainWindow(object):
         self.layout_disease_options.addWidget(self.combobox_disease_sequels, 2, 2, 1, 1)
         self.combobox_disease_source = QtGui.QComboBox(self.group_disease_generator)
         self.combobox_disease_source.setObjectName(_fromUtf8("combobox_disease_source"))
+        self.combobox_disease_source.addItem(_fromUtf8(""))
         self.combobox_disease_source.addItem(_fromUtf8(""))
         self.combobox_disease_source.addItem(_fromUtf8(""))
         self.combobox_disease_source.addItem(_fromUtf8(""))
@@ -1300,26 +1301,27 @@ class Ui_MainWindow(object):
         self.label_disease_source.setText(_translate("MainWindow", "Source :", None))
         self.label_disease_sequels.setText(_translate("MainWindow", "Sequels :", None))
         self.combobox_disease_sequels.setItemText(0, _translate("MainWindow", "Random", None))
-        self.combobox_disease_sequels.setItemText(1, _translate("MainWindow", "Permanent Loss", None))
+        self.combobox_disease_sequels.setItemText(1, _translate("MainWindow", "Permanent loss of stat", None))
         self.combobox_disease_sequels.setItemText(2, _translate("MainWindow", "Relapses", None))
-        self.combobox_disease_sequels.setItemText(3, _translate("MainWindow", "Another Disease", None))
-        self.combobox_disease_sequels.setItemText(4, _translate("MainWindow", "Teeth Loss", None))
+        self.combobox_disease_sequels.setItemText(3, _translate("MainWindow", "Another disease", None))
+        self.combobox_disease_sequels.setItemText(4, _translate("MainWindow", "Teeth loss", None))
         self.combobox_disease_sequels.setItemText(5, _translate("MainWindow", "Nothing", None))
         self.combobox_disease_source.setItemText(0, _translate("MainWindow", "Random", None))
         self.combobox_disease_source.setItemText(1, _translate("MainWindow", "Touch", None))
-        self.combobox_disease_source.setItemText(2, _translate("MainWindow", "Saliva", None))
-        self.combobox_disease_source.setItemText(3, _translate("MainWindow", "Aerial", None))
+        self.combobox_disease_source.setItemText(2, _translate("MainWindow", "Saliva Exchange", None))
+        self.combobox_disease_source.setItemText(3, _translate("MainWindow", "Breathing", None))
         self.combobox_disease_source.setItemText(4, _translate("MainWindow", "Ingestion", None))
-        self.combobox_disease_source.setItemText(5, _translate("MainWindow", "Injury", None))
-        self.combobox_disease_source.setItemText(6, _translate("MainWindow", "Animal", None))
+        self.combobox_disease_source.setItemText(5, _translate("MainWindow", "Injuries", None))
+        self.combobox_disease_source.setItemText(6, _translate("MainWindow", "Sex", None))
+        self.combobox_disease_source.setItemText(7, _translate("MainWindow", "Animal", None))
         self.combobox_disease_region.setItemText(0, _translate("MainWindow", "Random", None))
         self.combobox_disease_region.setItemText(1, _translate("MainWindow", "All", None))
         self.combobox_disease_region.setItemText(2, _translate("MainWindow", "Mountain", None))
         self.combobox_disease_region.setItemText(3, _translate("MainWindow", "Continental", None))
         self.combobox_disease_region.setItemText(4, _translate("MainWindow", "Tropical", None))
         self.combobox_disease_region.setItemText(5, _translate("MainWindow", "Oceanic", None))
-        self.combobox_disease_region.setItemText(6, _translate("MainWindow", "At Sea", None))
-        self.combobox_disease_region.setItemText(7, _translate("MainWindow", "Cold Weather", None))
+        self.combobox_disease_region.setItemText(6, _translate("MainWindow", "At sea", None))
+        self.combobox_disease_region.setItemText(7, _translate("MainWindow", "Cold", None))
         self.combobox_disease_region.setItemText(8, _translate("MainWindow", "Desertic", None))
         self.button_disease_generate.setText(_translate("MainWindow", "Generate", None))
         self.group_poison_generator.setTitle(_translate("MainWindow", "Poison", None))
