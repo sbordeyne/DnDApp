@@ -6,6 +6,7 @@ Created on Sat Apr  4 10:21:25 2015
 """
 from time import strftime
 import random as rd
+from xml.etree.ElementTree import ElementTree as ET
 
 if __name__ == "__main__":
     current_folder = "../resources/cfg"
@@ -58,57 +59,36 @@ def log(message):
     log_out.write("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
     pass
 
-def get_monster_dict():
-    """
-    Method to return a dict of all the available monsters. Reads the resource/cfg/monsters.cfg file to fill the dict.
+def get_monster_dict_xml():
+    '''
+    Parse the monsters.xml file. Returns a list of dictionaries of monster 
+    stats.
+    '''
 
-    Formatted entry in monsters.cfg:
-    monster_name{
-    environment_name\n
-    life\n
-    ac\n
-    movement\n
-    attacks\n
-    damages\n
-    number_met\n
-    saves\n
-    moral\n
-    treasure\n
-    alignment\n
-    xp_value\n
-    }
-    """
-    monster_dict={}
-    name=""
-    value={}        
+    # load and iterate through the monsters.xml file    
+    tree = ET()
+    tree.parse("../resources/cfg/monsters.xml")
+    root = tree.getroot()
+    monster_list = []
+    for monster in root.iter('monster'):
+        # create blank dictionary
+        monster_dict={}
+        # populate the dictionary with the key's, leave values blank
+        value={}
+        stats=["environment","life", "ac", "movement", "attacks", "damages", "number_met", "saves", "moral", "treasure", "alignment", "xp_value"]
+        for stat in stats:
+            value[stat] = ""
+            for item in monster:
+                monster_dict[item.tag] = item.text
+        monster_list.append(monster_dict)
+    return monster_list
 
-    stats=["environment","life", "ac", "movement", "attacks", "damages", "number_met", "saves", "moral", "treasure", "alignment", "xp_value"]
-    for stat in stats:
-        value[stat] = ""
-    i = 0
-
-    with open("../resources/cfg/monster.cfg", "r") as monster_config:
-        for line in monster_config:
-            if "{" in line:
-                name = line.strip("{")
-            elif "}" in line:
-                monster_dict[name]=value
-                i = 0
-                for stat in stats:
-                    value[stat] = ""
-                name = ""
-            else:
-                line.split("\n")[0]
-                value[stats[i]] = line
-                i += 1     
-    return monster_dict
-
-def get_random_encounters_table(monster_dict, environment):
+def get_random_encounters_table(monster_list, environment):
     list_encounters=[""]*12
     monsters_that_can_be_picked=[]
-    for name, stats in monster_dict.items():
+    for index, stats in enumerate(monster_list):
         if stats["environment"] == environment:
-            monsters_that_can_be_picked.append(name)
+            monsters_that_can_be_picked.append(stats["name"])
     for i in range(12):
         try:
             list_encounters[i] = rd.choice(monsters_that_can_be_picked)
