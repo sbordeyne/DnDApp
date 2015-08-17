@@ -29,3 +29,10 @@ For now it aims at dungeons and dragons but later on, will be adaptable to other
 - [ ] Error handling
 - [ ] In-app text, voice and video chat
 - [ ] Music streaming to players
+
+# Build from source instructions :
+
+- Clone the repo, or download the .zip in GitHub
+- Have python 3.4 or higher installed with PyQt4 and cx_Freeze installed.
+- Run the cx_Freeze_build.bat file located in the Scripts/.. folder.
+- If you need to package it into an installer, compile the DnDApp.nsi with NSIS.

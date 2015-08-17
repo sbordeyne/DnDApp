@@ -9,3 +9,4 @@ __pycache__/
 *.dndc
 DnDApp_OLD/
 build/
+Scripts/setup.exe
