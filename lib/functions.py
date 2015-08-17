@@ -70,6 +70,30 @@ def log(message, first_time=False):
             log_out.write(log_string)
         else:
             log_out.write("\n[{0}] {1}".format(strftime("%H:%M:%S"), message))
+            
+def get_monster_dict_xml():
+    '''
+    Parse the monster.xml file. Returns a list of dictionaries of monster 
+    stats.
+    '''
+
+    # load and iterate through the monsters.xml file    
+    tree = ET.parse("../resources/cfg/monsters.xml")
+    root = tree.getroot()
+    monster_list = []
+    for monster in root.iter('monster'):
+        # create blank dictionary
+        monster_dict={}
+        # populate the dictionary with the key's, leave values blank
+        value={}
+        stats=["environment","life", "ac", "movement", "attacks", "damages", "number_met", "saves", "moral", "treasure", "alignment", "xp_value"]
+        for stat in stats:
+            value[stat] = ""
+            for item in monster:
+                monster_dict[item.tag] = item.text
+        monster_list.append(monster_dict)
+    return monster_list
+
 
 def get_monster_dict():
     """
