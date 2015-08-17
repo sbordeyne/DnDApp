@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monsters>
+    <monster>
+        <name>Gobelin</name>
+        <environment_name>Lair (Gobelin)</environment_name>
+        <life>1d6</life>
+        <ac>7</ac>
+        <movement>30ft</movement>
+        <attacks>sword</attacks>
+        <damages>1d6</damages>
+        <numbers_met>1d4</numbers_met>
+        <saves>10;10;10;10;10</saves>
+        <moral>8</moral>
+        <treasure>50</treasure>
+        <alignment>chaotic evil</alignment>
+        <xp>25</xp>
+    </monster>
+    <monster>
+        <name>Gobelin2</name>
+        <environment_name>Lair (Gobelin)</environment_name>
+        <life>1d6</life>
+        <ac>7</ac>
+        <movement>30ft</movement>
+        <attacks>sword</attacks>
+        <damages>1d6</damages>
+        <numbers_met>1d4</numbers_met>
+        <saves>10;10;10;10;10</saves>
+        <moral>8</moral>
+        <treasure>50</treasure>
+        <alignment>chaotic evil</alignment>
+        <xp>25</xp>
+    </monster>
+</monsters>
