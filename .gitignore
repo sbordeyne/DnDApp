@@ -7,6 +7,6 @@ __pycache__/
 *.log
 *.dndcs
 *.dndc
-DnDApp_OLD/
-build/
+DnDApp_OLD**/
+build**/
 Scripts/setup.exe
