@@ -37,7 +37,7 @@ class main_window(Ui_MainWindow):
         self.main_window = MainWindow
         self.setupUi(self.main_window)
         self.ui_connect = Ui_connect_window()
-        self.main_window.resize(1280,720)
+        self.main_window.resize(1280, 720)
         
         self.dock_campain.hide()
         self.dock_client.hide()

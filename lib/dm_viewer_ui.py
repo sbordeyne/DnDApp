@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\dm_viewer.ui'
 #
-# Created: Sun Aug 16 13:00:46 2015
+# Created: Tue Aug 18 08:32:41 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
