@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\main_window.ui'
 #
-# Created: Tue Aug 18 08:32:41 2015
+# Created: Wed Aug 19 16:04:06 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,13 +26,13 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(888, 1471)
+        MainWindow.resize(887, 1471)
         MainWindow.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 888, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 887, 21))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
@@ -797,9 +797,11 @@ class Ui_MainWindow(object):
         self.layout_poison_options.addWidget(self.label_poison_price, 2, 0, 1, 1)
         self.combobox_poison_category = QtGui.QComboBox(self.group_poison_generator)
         self.combobox_poison_category.setObjectName(_fromUtf8("combobox_poison_category"))
+        self.combobox_poison_category.addItem(_fromUtf8(""))
         self.layout_poison_options.addWidget(self.combobox_poison_category, 1, 1, 1, 1)
         self.combobox_poison_type = QtGui.QComboBox(self.group_poison_generator)
         self.combobox_poison_type.setObjectName(_fromUtf8("combobox_poison_type"))
+        self.combobox_poison_type.addItem(_fromUtf8(""))
         self.layout_poison_options.addWidget(self.combobox_poison_type, 0, 1, 1, 1)
         self.button_poison_generate = QtGui.QPushButton(self.group_poison_generator)
         self.button_poison_generate.setObjectName(_fromUtf8("button_poison_generate"))
@@ -1449,7 +1451,7 @@ class Ui_MainWindow(object):
         self.label_display_chanceofencounter.setText(_translate("MainWindow", "10", None))
         self.create_campain_tabs.setTabText(self.create_campain_tabs.indexOf(self.random_encounters_tab), _translate("MainWindow", "Random Encounters", None))
         self.label_treasure_value.setText(_translate("MainWindow", "Treasure Value :", None))
-        self.line_treasure_value.setPlaceholderText(_translate("MainWindow", "Tap Enter to Generate a Random Treasure", None))
+        self.line_treasure_value.setPlaceholderText(_translate("MainWindow", "Enter treasure value or level:rarity (C, U, R, M, L)", None))
         self.check_gems.setText(_translate("MainWindow", "Gems", None))
         self.check_jewels.setText(_translate("MainWindow", "Jewels", None))
         self.check_magic_items.setText(_translate("MainWindow", "Magic Items", None))
@@ -1494,6 +1496,8 @@ class Ui_MainWindow(object):
         self.label_poison_type.setText(_translate("MainWindow", "Type :", None))
         self.label_poison_category.setText(_translate("MainWindow", "Category :", None))
         self.label_poison_price.setText(_translate("MainWindow", "Price :", None))
+        self.combobox_poison_category.setItemText(0, _translate("MainWindow", "Random", None))
+        self.combobox_poison_type.setItemText(0, _translate("MainWindow", "Random", None))
         self.button_poison_generate.setText(_translate("MainWindow", "Generate", None))
         self.group_plant_generator.setTitle(_translate("MainWindow", "Plants", None))
         self.label_plant_usage.setText(_translate("MainWindow", "Usage :", None))
