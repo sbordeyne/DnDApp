@@ -9,26 +9,32 @@ class networking_tcp_client_Tests_with_server(unittest.TestCase):
         self.in_q = Queue()
         self.out_q = Queue()
         self.control_q = Queue()
+        self.server_out = Queue()
         self.host = 'localhost'
-        self.port = 10000
+        self.port = 10001
         # start a server to test client connection against
         self.server = server_thread(self.host,
-            self.port, self.control_q)
+            self.port, self.control_q, self.server_out)
+        self.server.daemon = True
         self.server.start()
-        
+        waiting_on_server = True
+        while True:
+            try:
+                val = self.server_out.get()
+                if val == 'ready':
+                    break
+            except Exception:
+                pass
+
     def tearDown(self):
         print('killing test server')
         self.control_q.put('kill')
         self.server.join()
-        
-
 
     def test_client_sends_ping(self):
         '''
         Start the client and tell it to ping the host. Watch for errors.
         '''
-
-        
         client = client_thread(self.host,
             self.port, self.in_q, self.out_q)
         client.daemon = True
