@@ -37,7 +37,7 @@ class server_thread(threading.Thread):
             while True:
                 data = conn.recv(1024)
                 if not data: break
-                self.out_queue.put("{}:{}".format(addr, data))
+                self.out_queue.put("{}:{}".format(addr, data.decode()))
                 
             try:
                 # check for commands coming from ctl_queue
@@ -47,6 +47,7 @@ class server_thread(threading.Thread):
                     self.running = False
                 else:
                     pass
+                self.ctl_queue.task_done()
             except Exception:
                 print("Error")
             conn.close()
