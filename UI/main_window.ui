@@ -44,6 +44,45 @@
     <addaction name="separator"/>
     <addaction name="actionConnect_to"/>
    </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <widget class="QMenu" name="menuTreasure_Generator">
+     <property name="title">
+      <string>Treasure Generator</string>
+     </property>
+     <addaction name="actionAdd_Jewels"/>
+     <addaction name="actionAdd_Magic_Items"/>
+    </widget>
+    <widget class="QMenu" name="menuRandom_Encounters_Generator">
+     <property name="title">
+      <string>Random Encounters Generator</string>
+     </property>
+     <addaction name="actionAdd_Monsters_2"/>
+     <addaction name="actionAdd_Environments"/>
+    </widget>
+    <widget class="QMenu" name="menuNPC_Generator">
+     <property name="title">
+      <string>NPC Generator</string>
+     </property>
+     <addaction name="actionAdd_Motivations"/>
+     <addaction name="actionAdd_Classes_Races"/>
+    </widget>
+    <widget class="QMenu" name="menuDisease_Generator">
+     <property name="title">
+      <string>Disease Generator</string>
+     </property>
+     <addaction name="actionAdd_Names"/>
+     <addaction name="actionAdd_Effects_Sequels"/>
+    </widget>
+    <addaction name="menuTreasure_Generator"/>
+    <addaction name="menuRandom_Encounters_Generator"/>
+    <addaction name="menuNPC_Generator"/>
+    <addaction name="menuDisease_Generator"/>
+    <addaction name="actionPoison_Generator"/>
+    <addaction name="actionPlant_Generator"/>
+   </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
@@ -54,6 +93,7 @@
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuConnect"/>
+   <addaction name="menuOptions"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -2902,6 +2942,66 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionAdd_Monsters">
+   <property name="text">
+    <string>Add Monsters</string>
+   </property>
+  </action>
+  <action name="actionAdd_NPC_Characteristics">
+   <property name="text">
+    <string>Add NPC Characteristics</string>
+   </property>
+  </action>
+  <action name="actionAdd_Jewels">
+   <property name="text">
+    <string>Add Jewels</string>
+   </property>
+  </action>
+  <action name="actionAdd_Magic_Items">
+   <property name="text">
+    <string>Add Magic Items</string>
+   </property>
+  </action>
+  <action name="actionPoison_Generator">
+   <property name="text">
+    <string>Poison Generator</string>
+   </property>
+  </action>
+  <action name="actionPlant_Generator">
+   <property name="text">
+    <string>Plant Generator</string>
+   </property>
+  </action>
+  <action name="actionAdd_Monsters_2">
+   <property name="text">
+    <string>Add Monsters</string>
+   </property>
+  </action>
+  <action name="actionAdd_Environments">
+   <property name="text">
+    <string>Add Environments</string>
+   </property>
+  </action>
+  <action name="actionAdd_Motivations">
+   <property name="text">
+    <string>Add Motivations</string>
+   </property>
+  </action>
+  <action name="actionAdd_Classes_Races">
+   <property name="text">
+    <string>Add Classes / Races</string>
+   </property>
+  </action>
+  <action name="actionAdd_Names">
+   <property name="text">
+    <string>Add Names</string>
+   </property>
+  </action>
+  <action name="actionAdd_Effects_Sequels">
+   <property name="text">
+    <string>Add Effects / Sequels</string>
    </property>
   </action>
  </widget>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>monsters_options</class>
+ <widget class="QDialog" name="monsters_options">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>560</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Options - Add Monsters</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QListWidget" name="list_monsters"/>
+   </item>
+   <item row="0" column="1">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="line_monster_environment"/>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLineEdit" name="line_monster_alignment"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Name :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Environment :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Life :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>AC :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Movement :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Attacks :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Damages :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Number Met :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Saves :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Alignment :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>Moral :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>Treasure Value :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="line_monster_name"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="line_monster_life"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="line_monster_ac"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="line_monster_movement"/>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="line_monster_attacks"/>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="line_monster_damages"/>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="line_monster_numbermet"/>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="line_monster_saves"/>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLineEdit" name="line_monster_treasure"/>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>XP Value :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="line_monster_xp"/>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="line_monster_moral"/>
+     </item>
+     <item row="13" column="1">
+      <widget class="QPushButton" name="button_generate_monster">
+       <property name="text">
+        <string>Generate a Random Monster</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
