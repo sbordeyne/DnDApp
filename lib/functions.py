@@ -611,7 +611,11 @@ def generate_poison(type_, category, price):
     return string
 
 def get_poison_name(poison_dict):
-    return "poison"
+    prefix = rd.choice(poison_dict["prefix"])
+    sufix = rd.choice(poison_dict["sufix"])
+    return (prefix + sufix).capitalize()
 
 def get_poison_price(type_, category, effect):
+    if category.lower() == "toxin":
+        pass
     return 0
