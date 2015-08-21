@@ -586,4 +586,32 @@ def generate_disease(source, climate, sequel):
     incubation, effect_immediate, sequel, time_after_sequel, name)
     return string
 
+def generate_poison(type_, category, price):
+    poison_dict = read_config("poison")
+    if category == "Random":
+        category = rd.choice(poison_dict["category"])
+    if type_ == "Random":
+        type_ = rd.choice(poison_dict["type"])
+    effect = replace_bracket_words(rd.choice(poison_dict["effect"]), poison_dict)
+    secondary = replace_bracket_words(rd.choice(poison_dict["secondary"]), poison_dict)
+    name = get_poison_name(poison_dict)
+    try:
+        int(price)
+    except ValueError:
+        price = get_poison_price(type_, category, effect)
+    string =\
+    """
+    Name :\t{}
+    Price :\t{}
+    Type :\t{}
     
+    Effect :\t{}
+    Secondary Effect :\t{}
+    """.format(name, price, type_, effect, secondary)
+    return string
+
+def get_poison_name(poison_dict):
+    return "poison"
+
+def get_poison_price(type_, category, effect):
+    return 0
