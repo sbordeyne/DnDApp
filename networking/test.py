@@ -9,26 +9,35 @@ class networking_tcp_client_Tests_with_server(unittest.TestCase):
         self.in_q = Queue()
         self.out_q = Queue()
         self.control_q = Queue()
+        self.server_out = Queue()
         self.host = 'localhost'
-        self.port = 10000
+        self.port = 10003
         # start a server to test client connection against
         self.server = server_thread(self.host,
-            self.port, self.control_q)
+            self.port, self.control_q, self.server_out)
+        self.server.daemon = True
         self.server.start()
-        
+        # block until server is ready
+        waiting_on_server = True
+        while True:
+            try:
+                val = self.server_out.get()
+                if val == 'ready':
+                    break
+            except Exception:
+                pass
+
     def tearDown(self):
         print('killing test server')
         self.control_q.put('kill')
+        self.control_q.join()
+        self.control_q = None
         self.server.join()
-        
-
 
     def test_client_sends_ping(self):
         '''
         Start the client and tell it to ping the host. Watch for errors.
         '''
-
-        
         client = client_thread(self.host,
             self.port, self.in_q, self.out_q)
         client.daemon = True
@@ -40,6 +49,28 @@ class networking_tcp_client_Tests_with_server(unittest.TestCase):
         # now kill the client
         self.in_q.put('et tu, Brute?')
         client.join()
+        
+    def test_server_recieve_ping(self):
+        '''
+        Start the client and tell it to ping the host. 
+        Compare out queue from host to make sure data matches
+        '''
+        client = client_thread(self.host,
+            self.port, self.in_q, self.out_q)
+        client.daemon = True
+        client.start()
+        self.in_q.put('hello')
+        val = self.server_out.get()
+        addr, data = val.split(':')
+        #print(data)        
+        # join the queue
+        self.in_q.join()
+        # now kill the client
+        self.in_q.put('et tu, Brute?')
+        client.join()
+        print(data)
+        self.failUnless(data == 'hello')
+
 
 class networking_tcp_client_Tests_with_out_server(unittest.TestCase):
     def setUp(self):
