@@ -356,22 +356,24 @@ def generate_npc(alignment, gender, race, class_, level, stats):
     life = dice_roll("{}d6+2".format(level))
 
     string_to_return = \
-    """{}, {} {} {}, level {}, {} HP, {} AC\n
+    """
+    {}, {} {} {}, level {}, {} HP, {} AC\n
     Alignment : {}, believes in : {}\n
-    Stats : \tSTR : {}\n
-    \t\tINT : {}\n
-    \t\tWIS : {}\n
-    \t\tDEX : {}\n
-    \t\tCON : {}\n
-    \t\tCHA : {}\n
-    \n
-    Language(s) spoken : {}\n
-    \n
-    Belongings : {}\n
-    \n
-    {}\n
-    \n
-    Recent Past : {}\n
+    Stats : 
+    \tSTR : {}\n
+    \tINT : {}\n
+    \tWIS : {}\n
+    \tDEX : {}\n
+    \tCON : {}\n
+    \tCHA : {}\n
+
+    Language(s) spoken : {}
+
+    Belongings : {}
+
+    {}
+
+    Recent Past : {}
     """.format(name.capitalize(), gender, class_, race, level, life, npc_ac, alignment, beliefs,\
     characteristics["str"], characteristics["int"], characteristics["wis"],\
     characteristics["dex"], characteristics["con"], characteristics["cha"],\
@@ -445,7 +447,9 @@ def get_npc_beliefs(npc_dict, alignment):
         return rd.choice(neu_gods)
 
 def get_npc_motivation(npc_dict):
-    motiv_nb = rd.randint(1,5)
+    motiv_nb = abs(int(rd.gauss(2,1)))
+    if motiv_nb == 0:
+        motiv_nb = 1
     motivation = ""
     recent_past = replace_bracket_words(rd.choice(npc_dict["recent_past"]), npc_dict)
     for i in range(motiv_nb):
@@ -462,7 +466,7 @@ def get_npc_belongings(npc_dict, level, npc_class):
 
     try:
         assert npc_belongings_value >= 0
-        for i in range(level):
+        for i in range(int(level / 5) + 1):
             choose_weapon = rd.choice(npc_dict["weapon"])
             choose_armor = rd.choice(npc_dict["armor"])
             weapons.append(choose_weapon[0])
@@ -489,75 +493,41 @@ def get_npc_belongings(npc_dict, level, npc_class):
     belongings = belongings[:-2] + "\n"
     return get_npc_ac(armors, npc_class), belongings
 
-def get_npc_ac(armors, npc_class): #needs a fix, this is dependant of the order of the weapons list. Shouldn't be.
+def get_npc_ac(armors, npc_class):
+    possible_ac = []
+    owned_allowed_armors = []
     if "wizard" in npc_class.lower():
-        for armor in armors:
-            if "robe" in armor.lower():
-                try :
-                    return 9 - int(armor.lower().strip("robe +"))
-                except ValueError:
-                    return 9
-            else:
-                return 9
+        allowed_armors = ["robe"]
     elif "warrior" in npc_class.lower():
-        for armor in armors:
-            if "plate" in armor.lower():
-                try :
-                    return 3 - int(armor.lower().strip("plate armor +"))
-                except ValueError:
-                    return 3
-            elif "chainmail" in armor.lower():
-                try :
-                    return 5 - int(armor.lower().strip("chainmail armor +"))
-                except ValueError:
-                    return 5
-            elif "leather" in armor.lower():
-                try :
-                    return 7 - int(armor.lower().strip("leather armor +"))
-                except ValueError:
-                    return 7
-            elif "robe" in armor.lower():
-                try :
-                    return 9 - int(armor.lower().strip("robe +"))
-                except ValueError:
-                    return 9
-            else:
-                return 9
+        allowed_armors = ["robe", "leather armor", "chainmail armor", "plate armor"]
     elif  "thief" in npc_class.lower():
-        for armor in armors:
-            if "leather" in armor.lower():
-                try :
-                    return 7 - int(armor.lower().strip("leather armor +"))
-                except ValueError:
-                    return 7
-            elif "robe" in armor.lower():
-                try :
-                    return 9 - int(armor.lower().strip("robe +"))
-                except ValueError:
-                    return 9
-            else:
-                return 9
+        allowed_armors = ["robe", "leather armor"]
     elif "cleric" in npc_class.lower():
-        for armor in armors:
-            if "chainmail" in armor.lower():
-                try :
-                    return 5 - int(armor.lower().strip("chainmail armor +"))
-                except ValueError:
-                    return 5
-            elif "leather" in armor.lower():
-                try :
-                    return 7 - int(armor.lower().strip("leather armor +"))
-                except ValueError:
-                    return 7
-            elif "robe" in armor.lower():
-                try :
-                    return 9 - int(armor.lower().strip("robe +"))
-                except ValueError:
-                    return 9
-            else:
-                return 9
+        allowed_armors = ["robe", "leather armor", "chainmail armor"]
     else:
         return 9
+    for allowed_armor in allowed_armors:
+        for owned_armor in armors:
+            if allowed_armor in owned_armor:
+                owned_allowed_armors.append(owned_armor)
+    for armor in owned_allowed_armors:
+        try:
+            bonus = int(armor.strip(" abcdefghijklmnopqrstuvwxyz+-*/."))
+        except ValueError:
+            bonus = 0
+        if "robe" in armor:
+            base_ac = 9
+        elif "leather" in armor:
+            base_ac = 7
+        elif "chainmail" in armor:
+            base_ac = 5
+        elif "plate" in armor:
+            base_ac = 3
+        else:
+            base_ac = 9
+        possible_ac.append(base_ac - bonus)
+    return min(possible_ac)
+        
 
 def replace_bracket_words(sentence, npc_dict):
     word = ""
