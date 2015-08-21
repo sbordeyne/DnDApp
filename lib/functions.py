@@ -562,6 +562,8 @@ def generate_disease(source, climate, sequel):
         + " {}".format(rd.choice(disease_dict["incubation"]))
 
     effect_immediate = rd.choice(disease_dict["sequels"])
+    if "permanent" in effect_immediate:
+            effect_immediate.replace("permanent", "temporary")
     if "stat" in effect_immediate:
         stat = rd.choice(disease_dict["stats_loss"])
         effect_immediate = effect_immediate.split("stat")[0]
