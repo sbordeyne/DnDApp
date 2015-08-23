@@ -67,7 +67,7 @@ def get_monster_dict_xml():
 
     # load and iterate through the monsters.xml file    
     tree = ET()
-    tree.parse("../resources/cfg/monsters.xml")
+    tree.parse("./resources/cfg/monsters.xml")
     root = tree.getroot()
     monster_list = []
     for monster in root.iter('monster'):
@@ -87,7 +87,7 @@ def get_random_encounters_table(monster_list, environment):
     list_encounters=[""]*12
     monsters_that_can_be_picked=[]
     for index, stats in enumerate(monster_list):
-        if stats["environment"] == environment:
+        if stats["environment_name"] == environment:
             monsters_that_can_be_picked.append(stats["name"])
     for i in range(12):
         try:
@@ -99,7 +99,7 @@ def get_random_encounters_table(monster_list, environment):
 
 def get_a_monster(list_encounters, chance_encounter):
     dice = rd.randint(1,12)
-    chance = rd.randint(1,100)
+    chance = rd.randint(1,90)
     if chance <= chance_encounter:
         return list_encounters[dice]
     else:
@@ -112,7 +112,12 @@ def get_a_monster_stats(monster_dict, name):
         assert name != "No Monster Met", "no monster met, no stat to retrieve"
     except AssertionError:
         return ("_")*15
-    stats_of_monster = monster_dict[name]
+        
+    stats_of_monster = None
+    for diction in monster_dict:
+        if diction['name'] == name:
+            stats_of_monster = diction
+        
     
     #Getting the life points of monster : life => 3d6-1 => (3 x 6-sided dices) minus 1
     life = dice_roll(stats_of_monster["life"])
@@ -120,7 +125,8 @@ def get_a_monster_stats(monster_dict, name):
     movement = stats_of_monster["movement"] #Getting the movement value
     attacks = stats_of_monster["attacks"]
     damages = stats_of_monster["damages"]
-    number_met = dice_roll(stats_of_monster["number_met"])
+    #number_met = dice_roll(stats_of_monster["number_met"])
+    number_met = 0
     save_poison = stats_of_monster["saves"].split(";")[0]
     save_wands = stats_of_monster["saves"].split(";")[1]
     save_paralysis = stats_of_monster["saves"].split(";")[2]
@@ -129,7 +135,7 @@ def get_a_monster_stats(monster_dict, name):
     moral = stats_of_monster["moral"]
     treasure = stats_of_monster["treasure"]
     alignment = stats_of_monster["alignment"]
-    xp_value = stats_of_monster["xp_value"]
+    xp_value = stats_of_monster["xp"]
     return life, ac, movement, attacks, damages, number_met, save_poison, save_wands,\
     save_paralysis, save_dragon, save_spells, moral, treasure, alignment, xp_value
 
