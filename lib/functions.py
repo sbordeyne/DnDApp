@@ -13,7 +13,7 @@ if __name__ == "__main__":
     def test():
         print(generate_npc("Any", "Any", "Any", "Any", 10, "Best 3 of 5d6"))
 else:
-    current_folder = "resources/cfg"
+    current_folder = "./resources/cfg"
 
 def read_config(file_name):
     """Function that reads the config of given filename, returns dict"""
@@ -67,7 +67,7 @@ def get_monster_dict_xml():
 
     # load and iterate through the monsters.xml file    
     tree = ET()
-    tree.parse("./resources/cfg/monsters.xml")
+    tree.parse("{}/monsters.xml".format(current_folder))
     root = tree.getroot()
     monster_list = []
     for monster in root.iter('monster'):
