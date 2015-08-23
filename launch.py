@@ -114,7 +114,7 @@ class main_window(Ui_MainWindow):
 
     def set_encounter_table(self):
         environment = str(self.combo_environmentofencounter.currentText())
-        list_of_encounters = get_random_encounters_table(get_monster_dict(),environment)
+        list_of_encounters = get_random_encounters_table(get_monster_dict_xml(),environment)
         self.label_nameofrolledmonster_1.setText(list_of_encounters[0])
         self.label_nameofrolledmonster_2.setText(list_of_encounters[1])
         self.label_nameofrolledmonster_3.setText(list_of_encounters[2])
