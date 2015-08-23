@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI\main_window.ui'
 #
-# Created: Sun Aug 23 08:50:30 2015
+# Created: Sun Aug 23 12:21:01 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -964,9 +964,17 @@ class Ui_MainWindow(object):
         self.combobox_poison_category = QtGui.QComboBox(self.group_poison_generator)
         self.combobox_poison_category.setObjectName(_fromUtf8("combobox_poison_category"))
         self.combobox_poison_category.addItem(_fromUtf8(""))
+        self.combobox_poison_category.addItem(_fromUtf8(""))
+        self.combobox_poison_category.addItem(_fromUtf8(""))
+        self.combobox_poison_category.addItem(_fromUtf8(""))
+        self.combobox_poison_category.addItem(_fromUtf8(""))
         self.layout_poison_options.addWidget(self.combobox_poison_category, 1, 1, 1, 1)
         self.combobox_poison_type = QtGui.QComboBox(self.group_poison_generator)
         self.combobox_poison_type.setObjectName(_fromUtf8("combobox_poison_type"))
+        self.combobox_poison_type.addItem(_fromUtf8(""))
+        self.combobox_poison_type.addItem(_fromUtf8(""))
+        self.combobox_poison_type.addItem(_fromUtf8(""))
+        self.combobox_poison_type.addItem(_fromUtf8(""))
         self.combobox_poison_type.addItem(_fromUtf8(""))
         self.layout_poison_options.addWidget(self.combobox_poison_type, 0, 1, 1, 1)
         self.button_poison_generate = QtGui.QPushButton(self.group_poison_generator)
@@ -1715,7 +1723,15 @@ class Ui_MainWindow(object):
         self.label_poison_category.setText(_translate("MainWindow", "Category :", None))
         self.label_poison_price.setText(_translate("MainWindow", "Price :", None))
         self.combobox_poison_category.setItemText(0, _translate("MainWindow", "Random", None))
+        self.combobox_poison_category.setItemText(1, _translate("MainWindow", "Vegetal", None))
+        self.combobox_poison_category.setItemText(2, _translate("MainWindow", "Mixture", None))
+        self.combobox_poison_category.setItemText(3, _translate("MainWindow", "Venom", None))
+        self.combobox_poison_category.setItemText(4, _translate("MainWindow", "Toxin", None))
         self.combobox_poison_type.setItemText(0, _translate("MainWindow", "Random", None))
+        self.combobox_poison_type.setItemText(1, _translate("MainWindow", "Wound", None))
+        self.combobox_poison_type.setItemText(2, _translate("MainWindow", "Contact", None))
+        self.combobox_poison_type.setItemText(3, _translate("MainWindow", "Breathing", None))
+        self.combobox_poison_type.setItemText(4, _translate("MainWindow", "Ingestion", None))
         self.button_poison_generate.setText(_translate("MainWindow", "Generate", None))
         self.group_plant_generator.setTitle(_translate("MainWindow", "Plants", None))
         self.label_plant_usage.setText(_translate("MainWindow", "Usage :", None))
