@@ -144,7 +144,20 @@ class main_window(Ui_MainWindow):
         xp_value = get_a_monster_stats(get_monster_dict_xml(), chosen_monster)
         
         self.group_statsofrolledmonster.setTitle("Stats of Rolled Monster : {0}".format(chosen_monster))
-        #self.label_statsofrolledmonster_ac
+        self.monster_ac_value.setText(ac)
+        self.monster_movement_value.setText(movement)
+        self.monster_attack_value.setText(attacks)
+        self.monster_damages_value.setText(damages)
+        self.monster_moral_value.setText(moral)
+        self.monster_treasure_value.setText(treasure)
+        self.monster_alignment_value.setText(alignment)
+        self.monster_xp_value.setText(xp_value)
+        self.monster_saves_poison_value.setText(save_poison)
+        self.monster_saves_wands_value.setText(save_wands)
+        self.monster_saves_paralysis_value.setText(save_paralysis)
+        self.monster_saves_dragonbreath_value.setText(save_dragon)
+        self.monster_saves_spells_value.setText(save_spells)
+
 
     def set_treasure(self):
         #Variables used
