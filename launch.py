@@ -6,6 +6,7 @@ from lib import resources_rc
 from lib.main_window_ui import Ui_MainWindow
 from lib.host_window_ui import Ui_host_window
 from lib.connect_window_ui import Ui_connect_window
+from lib.options_add_monster_ui import Ui_monsters_options
 
 from lib.functions import *
 
@@ -37,6 +38,7 @@ class main_window(Ui_MainWindow):
         self.main_window = MainWindow
         self.setupUi(self.main_window)
         self.ui_connect = Ui_connect_window()
+        self.ui_add_monster = Ui_monsters_options()
         self.main_window.resize(1280, 720)
         
         self.dock_campain.hide()
@@ -46,12 +48,15 @@ class main_window(Ui_MainWindow):
         self.actionHost_Game.triggered.connect(self.launch_host_game)
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
         self.actionNew_Campain.triggered.connect(self.new_campain)
+        self.actionAdd_Monsters.triggered.connect(self.add_monsters)        
+        
         self.button_rollatable.clicked.connect(self.set_encounter_table)
         self.button_rollamonster.clicked.connect(self.set_monster_stats)
         self.line_treasure_value.returnPressed.connect(self.set_treasure)
         self.button_generate_npc.clicked.connect(self.set_npc)
         self.button_clear_text.clicked.connect(self.clear_generated_npc)
         self.button_disease_generate.clicked.connect(self.set_disease)
+        self.button_poison_generate.clicked.connect(self.set_poison)
 
         self.list_of_encounters = ["_"]*12
         self.treasure_value = self.line_treasure_value.text()
@@ -235,7 +240,22 @@ class main_window(Ui_MainWindow):
         generated_disease = generate_disease(source, region, sequels)
         self.display_disease.setText(generated_disease)
         pass
-    
+
+    def set_poison(self):
+        type_ = self.combobox_poison_type.currentText()
+        category = self.combobox_poison_category.currentText()
+        price = self.lineedit_poison_price.text()
+        generated_poison = generate_poison(type_, category, price)
+        self.display_poison.setText(generated_poison)
+        pass
+
+    def add_monsters(self):
+        '''
+        This method will launch the add monsters window dialog
+        '''
+        add_monster_dialog = QtGui.QDialog()
+        self.ui_add_monster.setupUi(add_monster_dialog)
+        add_monster_dialog.exec_()
 
 app = QtGui.QApplication(sys.argv)
 MainWindow = QtGui.QMainWindow()

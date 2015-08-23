@@ -599,8 +599,8 @@ def generate_poison(type_, category, price):
     if type_ == "Random":
         type_ = rd.choice(poison_dict["type"])
     effect = replace_bracket_words(rd.choice(poison_dict["effect"]), poison_dict)
-    secondary = replace_bracket_words(rd.choice(poison_dict["secondary"]), poison_dict)
-    name = get_poison_name(poison_dict)
+    secondary = replace_bracket_words(rd.choice(poison_dict["effect"]), poison_dict)
+    name = get_poison_name(poison_dict, type_)
     try:
         int(price)
     except ValueError:
@@ -610,10 +610,11 @@ def generate_poison(type_, category, price):
     Name :\t{}
     Price :\t{}
     Type :\t{}
+    Category :\t{}
     
     Effect :\t{}
     Secondary Effect :\t{}
-    """.format(name, price, type_, effect, secondary)
+    """.format(name, price, type_, category, effect, secondary)
     return string
 
 def get_poison_name(poison_dict, type_):
@@ -646,27 +647,27 @@ def get_poison_price(type_, category, effect):
         factor += 0.8
     else:
         min_price += 100
-    if type_ == "ingestion":
+    if type_ == "ingestion": #common
         min_price += 100
         factor += 0.5
-    elif type_ == "breathing":
+    elif type_ == "breathing":#uncommon
         min_price += 300
         factor += 1.2
-    elif type_ == "wound":
+    elif type_ == "wound":#rare
         min_price += 500
         factor += 1.8
-    elif type_ == "contact":
+    elif type_ == "contact":#super rare
         min_price += 1000
         factor += 2.5
     else:
         min_price += 100
-    if "con" in effect:
+    if "con" in effect:# con = 0 > dead
         min_price += 800
         factor += 2
-    elif "str" in effect or "dex" in effect:
+    elif "str" in effect or "dex" in effect: # str or dex = 0 > paralysed
         min_price += 500
         factor += 1.5
     else:
-        min_price += 300
+        min_price += 300 #int, cha, wis = 0 > inconscious
         factor += 1
     return rd.randint(min_price, min_price * factor)
