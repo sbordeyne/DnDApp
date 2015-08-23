@@ -41,6 +41,7 @@ class main_window(Ui_MainWindow):
         
         self.dock_campain.hide()
         self.dock_client.hide()
+        self.toolbox_hexa_tabs.hide()
         
         self.actionHost_Game.triggered.connect(self.launch_host_game)
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
