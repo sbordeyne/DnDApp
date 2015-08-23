@@ -16,7 +16,9 @@
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_24"/>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -112,7 +114,7 @@
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0">
+     <item row="0" column="1">
       <widget class="QTabWidget" name="create_campain_tabs">
        <property name="currentIndex">
         <number>0</number>
@@ -123,6 +125,9 @@
         </attribute>
         <layout class="QGridLayout" name="gridLayout_6">
          <item row="0" column="1">
+          <widget class="QGraphicsView" name="graphicsView"/>
+         </item>
+         <item row="0" column="2">
           <widget class="QGroupBox" name="groubox_toolbox">
            <property name="focusPolicy">
             <enum>Qt::TabFocus</enum>
@@ -164,692 +169,1009 @@
                 <property name="text">
                  <string>Stick to Grid</string>
                 </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
              </layout>
             </item>
-            <item row="3" column="0">
-             <widget class="QTabWidget" name="toolbox_squared_tabs">
-              <property name="tabPosition">
-               <enum>QTabWidget::East</enum>
-              </property>
-              <property name="currentIndex">
-               <number>0</number>
-              </property>
-              <widget class="QWidget" name="tab_walls">
-               <attribute name="title">
-                <string>Walls</string>
-               </attribute>
-               <layout class="QGridLayout" name="gridLayout_5">
-                <item row="2" column="0">
-                 <widget class="QRadioButton" name="radioButton_6">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_window.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_window.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QRadioButton" name="radioButton_2">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_rock.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_rock.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QRadioButton" name="radioButton_5">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_arrow_slit.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_arrow_slit.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QRadioButton" name="radioButton">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_normal.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_normal.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QRadioButton" name="radioButton_3">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_illusion.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_illusion.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QRadioButton" name="radioButton_4">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_bars.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_bars.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QRadioButton" name="radioButton_7">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_ramp.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_ramp.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QRadioButton" name="radioButton_8">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/walls/walls_curtain.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_curtain.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_doors">
-               <attribute name="title">
-                <string>Doors</string>
-               </attribute>
-               <layout class="QGridLayout" name="gridLayout_8">
-                <item row="1" column="1">
-                 <widget class="QRadioButton" name="tool_door_secret">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_secret.png</normaloff>:/images/images/tiles/squared_tileset/door/door_secret.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QRadioButton" name="tool_door_double">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_double.png</normaloff>:/images/images/tiles/squared_tileset/door/door_double.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QRadioButton" name="tool_door_concealed">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_concealed.png</normaloff>:/images/images/tiles/squared_tileset/door/door_concealed.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QRadioButton" name="tool_door_fake">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_fake.png</normaloff>:/images/images/tiles/squared_tileset/door/door_fake.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QRadioButton" name="tool_door_oneway">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_oneway.png</normaloff>:/images/images/tiles/squared_tileset/door/door_oneway.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QRadioButton" name="tool_door_simple">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_simple.png</normaloff>:/images/images/tiles/squared_tileset/door/door_simple.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QRadioButton" name="tool_door_open">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_open.png</normaloff>:/images/images/tiles/squared_tileset/door/door_open.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QRadioButton" name="tool_door_rotating">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_rotating.png</normaloff>:/images/images/tiles/squared_tileset/door/door_rotating.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QRadioButton" name="tool_door_secretoneway">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/door/door_secretoneway.png</normaloff>:/images/images/tiles/squared_tileset/door/door_secretoneway.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_utilities_trapdoor">
-               <attribute name="title">
-                <string>Utilities / Trapdoors</string>
-               </attribute>
-               <layout class="QGridLayout" name="gridLayout_15">
-                <item row="0" column="1">
-                 <widget class="QRadioButton" name="radioButton_12">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_chest.png</normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_chest.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>128</width>
-                    <height>128</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QRadioButton" name="radioButton_11">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_table.png</normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_table.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QRadioButton" name="radioButton_10">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_trap.png</normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_trap.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_stairs">
-               <attribute name="title">
-                <string>Stairs</string>
-               </attribute>
-               <layout class="QGridLayout" name="gridLayout_19">
-                <item row="0" column="0">
-                 <widget class="QRadioButton" name="radioButton_9">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/stair/stair_straight.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_straight.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QRadioButton" name="radioButton_13">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/stair/stair_ladder.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_ladder.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QRadioButton" name="radioButton_14">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/stair/stair_squarespiral.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_squarespiral.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QRadioButton" name="radioButton_15">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/stair/stair_roundspiral.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_roundspiral.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QRadioButton" name="radioButton_16">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/stair/stair_stairslide.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_stairslide.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QRadioButton" name="radioButton_17">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/stair/stair_slide.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_slide.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_deco">
-               <attribute name="title">
-                <string>Decorations</string>
-               </attribute>
-               <layout class="QGridLayout" name="gridLayout_21">
-                <item row="1" column="0">
-                 <widget class="QRadioButton" name="radioButton_19">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_bed.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_bed.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QRadioButton" name="radioButton_24">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_wellcovered.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_wellcovered.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QRadioButton" name="radioButton_23">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_pillar.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_pillar.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="0">
-                 <widget class="QRadioButton" name="radioButton_21">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_well.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_well.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QRadioButton" name="radioButton_20">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_foutain.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_foutain.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QRadioButton" name="radioButton_18">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_statue.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_statue.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QRadioButton" name="radioButton_28">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_chimney.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_chimney.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QRadioButton" name="radioButton_29">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_altar.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_altar.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QRadioButton" name="radioButton_30">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_welluncovered.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_welluncovered.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QRadioButton" name="radioButton_31">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_basin.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_basin.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="1">
-                 <widget class="QRadioButton" name="radioButton_25">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/images/tiles/squared_tileset/deco/deco_arches.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_arches.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
+            <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QTabWidget" name="toolbox_squared_tabs">
+                <property name="tabPosition">
+                 <enum>QTabWidget::East</enum>
+                </property>
+                <property name="currentIndex">
+                 <number>4</number>
+                </property>
+                <widget class="QWidget" name="tab_walls">
+                 <attribute name="title">
+                  <string>Walls</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_5">
+                  <item row="2" column="0">
+                   <widget class="QRadioButton" name="radioButton_6">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/walls/walls_window.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_window.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QRadioButton" name="radioButton_2">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/walls/walls_rock.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_rock.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QRadioButton" name="radioButton_5">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/walls/walls_arrow_slit.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_arrow_slit.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QRadioButton" name="radioButton">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/walls/walls_normal.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_normal.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QRadioButton" name="radioButton_4">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/walls/walls_bars.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_bars.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QRadioButton" name="radioButton_7">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/walls/walls_ramp.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_ramp.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QRadioButton" name="radioButton_8">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/walls/walls_curtain.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_curtain.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QRadioButton" name="radioButton_3">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/walls/walls_illusion.png</normaloff>:/images/images/tiles/squared_tileset/walls/walls_illusion.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_doors">
+                 <attribute name="title">
+                  <string>Doors</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_8">
+                  <item row="1" column="1">
+                   <widget class="QRadioButton" name="tool_door_secret">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_secret.png</normaloff>:/images/images/tiles/squared_tileset/door/door_secret.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QRadioButton" name="tool_door_double">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_double.png</normaloff>:/images/images/tiles/squared_tileset/door/door_double.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QRadioButton" name="tool_door_concealed">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_concealed.png</normaloff>:/images/images/tiles/squared_tileset/door/door_concealed.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QRadioButton" name="tool_door_fake">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_fake.png</normaloff>:/images/images/tiles/squared_tileset/door/door_fake.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QRadioButton" name="tool_door_oneway">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_oneway.png</normaloff>:/images/images/tiles/squared_tileset/door/door_oneway.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QRadioButton" name="tool_door_simple">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_simple.png</normaloff>:/images/images/tiles/squared_tileset/door/door_simple.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QRadioButton" name="tool_door_open">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_open.png</normaloff>:/images/images/tiles/squared_tileset/door/door_open.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QRadioButton" name="tool_door_rotating">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_rotating.png</normaloff>:/images/images/tiles/squared_tileset/door/door_rotating.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QRadioButton" name="tool_door_secretoneway">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/door/door_secretoneway.png</normaloff>:/images/images/tiles/squared_tileset/door/door_secretoneway.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_utilities_trapdoor">
+                 <attribute name="title">
+                  <string>Utilities / Trapdoors</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_15">
+                  <item row="0" column="1">
+                   <widget class="QRadioButton" name="radioButton_12">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_chest.png</normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_chest.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>128</width>
+                      <height>128</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QRadioButton" name="radioButton_11">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_table.png</normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_table.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QRadioButton" name="radioButton_10">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_trap.png</normaloff>:/images/images/tiles/squared_tileset/utilities/utilities_trap.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_stairs">
+                 <attribute name="title">
+                  <string>Stairs</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_19">
+                  <item row="0" column="0">
+                   <widget class="QRadioButton" name="radioButton_9">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/stair/stair_straight.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_straight.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QRadioButton" name="radioButton_13">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/stair/stair_ladder.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_ladder.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QRadioButton" name="radioButton_14">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/stair/stair_squarespiral.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_squarespiral.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QRadioButton" name="radioButton_15">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/stair/stair_roundspiral.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_roundspiral.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QRadioButton" name="radioButton_16">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/stair/stair_stairslide.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_stairslide.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QRadioButton" name="radioButton_17">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/stair/stair_slide.png</normaloff>:/images/images/tiles/squared_tileset/stair/stair_slide.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_deco">
+                 <attribute name="title">
+                  <string>Decorations</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_21">
+                  <item row="1" column="0">
+                   <widget class="QRadioButton" name="radioButton_19">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_bed.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_bed.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QRadioButton" name="radioButton_24">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_wellcovered.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_wellcovered.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QRadioButton" name="radioButton_23">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_pillar.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_pillar.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QRadioButton" name="radioButton_21">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_well.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_well.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QRadioButton" name="radioButton_20">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_foutain.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_foutain.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QRadioButton" name="radioButton_18">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_statue.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_statue.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QRadioButton" name="radioButton_28">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_chimney.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_chimney.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QRadioButton" name="radioButton_29">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_altar.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_altar.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QRadioButton" name="radioButton_30">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_welluncovered.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_welluncovered.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QRadioButton" name="radioButton_31">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_basin.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_basin.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QRadioButton" name="radioButton_25">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/squared_tileset/deco/deco_arches.png</normaloff>:/images/images/tiles/squared_tileset/deco/deco_arches.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTabWidget" name="toolbox_hexa_tabs">
+                <property name="tabPosition">
+                 <enum>QTabWidget::East</enum>
+                </property>
+                <property name="currentIndex">
+                 <number>1</number>
+                </property>
+                <widget class="QWidget" name="toolbox_hexa_tab_land">
+                 <attribute name="title">
+                  <string>Land</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_23">
+                  <item row="0" column="0">
+                   <widget class="QRadioButton" name="radioButton_22">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_meadow.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_meadow.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QRadioButton" name="radioButton_26">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_forest.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_forest.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QRadioButton" name="radioButton_27">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_hills.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_hills.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QRadioButton" name="radioButton_32">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_jungle.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_jungle.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QRadioButton" name="radioButton_33">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_moutains.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_moutains.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QRadioButton" name="radioButton_36">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_volcano.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_volcano.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QRadioButton" name="radioButton_35">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_rocky.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_rocky.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QRadioButton" name="radioButton_34">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_desert.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_desert.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QRadioButton" name="radioButton_37">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_swamp.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_swamp.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QRadioButton" name="radioButton_38">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_water.png</normaloff>:/images/images/tiles/hexagonal_tileset/lands/lands_water.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="toolbox_hexa_tab_construction">
+                 <attribute name="title">
+                  <string>Constructions</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_26">
+                  <item row="3" column="1">
+                   <widget class="QRadioButton" name="radioButton_42">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_ruins.png</normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_ruins.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QRadioButton" name="radioButton_40">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_estate.png</normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_estate.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QRadioButton" name="radioButton_41">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_castle.png</normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_castle.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QRadioButton" name="radioButton_39">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_city.png</normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_city.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QRadioButton" name="radioButton_44">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_town.png</normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_town.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QRadioButton" name="radioButton_43">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_capital.png</normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_capital.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QRadioButton" name="radioButton_45">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_quests.png</normaloff>:/images/images/tiles/hexagonal_tileset/constructions/constructions_quests.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>64</width>
+                      <height>64</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QGraphicsView" name="graphicsView"/>
          </item>
         </layout>
        </widget>
@@ -2146,6 +2468,9 @@
        </widget>
       </widget>
      </item>
+     <item row="0" column="0">
+      <widget class="QTreeView" name="tree_view_campain"/>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -3032,12 +3357,12 @@
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>709</x>
-     <y>203</y>
+     <x>757</x>
+     <y>152</y>
     </hint>
     <hint type="destinationlabel">
-     <x>875</x>
-     <y>209</y>
+     <x>769</x>
+     <y>152</y>
     </hint>
    </hints>
   </connection>
@@ -3048,12 +3373,12 @@
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>861</x>
-     <y>165</y>
+     <x>845</x>
+     <y>195</y>
     </hint>
     <hint type="destinationlabel">
-     <x>883</x>
-     <y>167</y>
+     <x>863</x>
+     <y>231</y>
     </hint>
    </hints>
   </connection>
@@ -3086,6 +3411,38 @@
     <hint type="destinationlabel">
      <x>412</x>
      <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolbox_radio_paper_square</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolbox_squared_tabs</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>545</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>542</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolbox_radio_paper_hexagonal</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolbox_hexa_tabs</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>649</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>841</x>
+     <y>223</y>
     </hint>
    </hints>
   </connection>
