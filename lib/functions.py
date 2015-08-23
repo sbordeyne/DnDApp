@@ -99,7 +99,7 @@ def get_random_encounters_table(monster_list, environment):
 
 def get_a_monster(list_encounters, chance_encounter):
     dice = rd.randint(1,12)
-    chance = rd.randint(1,90)
+    chance = rd.randint(0,chance_encounter)
     if chance <= chance_encounter:
         return list_encounters[dice]
     else:

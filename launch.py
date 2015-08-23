@@ -137,8 +137,8 @@ class main_window(Ui_MainWindow):
         self.label_nameofrolledmonster_12.setText(self.list_of_encounters[11])
 
     def set_monster_stats(self):
-        chance_of_encounter = self.slider_chanceofencounter.value()
-        chosen_monster = get_a_monster(self.list_of_encounters, self.slider_value)
+        chance_of_encounter = self.slider_value
+        chosen_monster = get_a_monster(self.list_of_encounters, chance_of_encounter)
         life, ac, movement, attacks, damages, number_met, save_poison, save_wands,\
         save_paralysis, save_dragon, save_spells, moral, treasure, alignment,\
         xp_value = get_a_monster_stats(get_monster_dict_xml(), chosen_monster)
