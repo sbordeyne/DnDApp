@@ -67,7 +67,7 @@ def get_monster_dict_xml():
 
     # load and iterate through the monsters.xml file    
     tree = ET()
-    tree.parse("../resources/cfg/monsters.xml")
+    tree.parse("./resources/cfg/monsters.xml")
     root = tree.getroot()
     monster_list = []
     for monster in root.iter('monster'):
@@ -87,7 +87,7 @@ def get_random_encounters_table(monster_list, environment):
     list_encounters=[""]*12
     monsters_that_can_be_picked=[]
     for index, stats in enumerate(monster_list):
-        if stats["environment"] == environment:
+        if stats["environment_name"] == environment:
             monsters_that_can_be_picked.append(stats["name"])
     for i in range(12):
         try:
