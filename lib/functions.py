@@ -616,12 +616,57 @@ def generate_poison(type_, category, price):
     """.format(name, price, type_, effect, secondary)
     return string
 
-def get_poison_name(poison_dict):
-    prefix = rd.choice(poison_dict["prefix"])
-    sufix = rd.choice(poison_dict["sufix"])
+def get_poison_name(poison_dict, type_):
+    if type_.lower() == "venom":
+        return "Venom of {}".format(rd.choice(poison_dict["monsters"]))
+    else:
+        prefix = rd.choice(poison_dict["preffix"])
+        sufix = rd.choice(poison_dict["suffix"])
     return (prefix + sufix).capitalize()
 
 def get_poison_price(type_, category, effect):
-    if category.lower() == "toxin":
-        pass
-    return 0
+    type_ = type_.lower()
+    category = category.lower()
+    effect = effect.lower()
+
+    min_price = 0
+    factor = 1
+
+    if category == "toxin": # super hard to get, not natural
+        min_price += 1000
+        factor += 2
+    elif category == "vegetal":# easy to get, hunters use it, comes from plants
+        min_price += 200
+        factor += 0.2
+    elif category == "venom":# hard to get, you have to kill a creature and succesfully get the glands
+        min_price += 500
+        factor += 1.5
+    elif category == "mixture":# Not natural brewed magical poisons
+        min_price += 300
+        factor += 0.8
+    else:
+        min_price += 100
+    if type_ == "ingestion":
+        min_price += 100
+        factor += 0.5
+    elif type_ == "breathing":
+        min_price += 300
+        factor += 1.2
+    elif type_ == "wound":
+        min_price += 500
+        factor += 1.8
+    elif type_ == "contact":
+        min_price += 1000
+        factor += 2.5
+    else:
+        min_price += 100
+    if "con" in effect:
+        min_price += 800
+        factor += 2
+    elif "str" in effect or "dex" in effect:
+        min_price += 500
+        factor += 1.5
+    else:
+        min_price += 300
+        factor += 1
+    return rd.randint(min_price, min_price * factor)
