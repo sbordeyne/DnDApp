@@ -46,6 +46,7 @@ class main_window(Ui_MainWindow):
         self.actionConnect_to.triggered.connect(self.launch_connect_window)
         self.actionNew_Campain.triggered.connect(self.new_campain)
         self.button_rollatable.clicked.connect(self.set_encounter_table)
+        self.button_rollamonster.clicked.connect(self.set_monster_stats)
         self.line_treasure_value.returnPressed.connect(self.set_treasure)
         self.button_generate_npc.clicked.connect(self.set_npc)
         self.button_clear_text.clicked.connect(self.clear_generated_npc)
@@ -53,6 +54,13 @@ class main_window(Ui_MainWindow):
 
         self.list_of_encounters = ["_"]*12
         self.treasure_value = self.line_treasure_value.text()
+        # slider for chance encounters on encounters tab
+        self.slider_value = 10
+        # hook up slider change to setter functions
+        self.slider_chanceofencounter.valueChanged[int].connect(self.changevalue)
+    
+    def changevalue(self, value):
+        self.slider_value = value
 
     def launch_host_game(self):
         '''
@@ -114,26 +122,26 @@ class main_window(Ui_MainWindow):
 
     def set_encounter_table(self):
         environment = str(self.combo_environmentofencounter.currentText())
-        list_of_encounters = get_random_encounters_table(get_monster_dict_xml(),environment)
-        self.label_nameofrolledmonster_1.setText(list_of_encounters[0])
-        self.label_nameofrolledmonster_2.setText(list_of_encounters[1])
-        self.label_nameofrolledmonster_3.setText(list_of_encounters[2])
-        self.label_nameofrolledmonster_4.setText(list_of_encounters[3])
-        self.label_nameofrolledmonster_5.setText(list_of_encounters[4])
-        self.label_nameofrolledmonster_6.setText(list_of_encounters[5])
-        self.label_nameofrolledmonster_7.setText(list_of_encounters[6])
-        self.label_nameofrolledmonster_8.setText(list_of_encounters[7])
-        self.label_nameofrolledmonster_9.setText(list_of_encounters[8])
-        self.label_nameofrolledmonster_10.setText(list_of_encounters[9])
-        self.label_nameofrolledmonster_11.setText(list_of_encounters[10])
-        self.label_nameofrolledmonster_12.setText(list_of_encounters[11])
+        self.list_of_encounters = get_random_encounters_table(get_monster_dict_xml(),environment)
+        self.label_nameofrolledmonster_1.setText(self.list_of_encounters[0])
+        self.label_nameofrolledmonster_2.setText(self.list_of_encounters[1])
+        self.label_nameofrolledmonster_3.setText(self.list_of_encounters[2])
+        self.label_nameofrolledmonster_4.setText(self.list_of_encounters[3])
+        self.label_nameofrolledmonster_5.setText(self.list_of_encounters[4])
+        self.label_nameofrolledmonster_6.setText(self.list_of_encounters[5])
+        self.label_nameofrolledmonster_7.setText(self.list_of_encounters[6])
+        self.label_nameofrolledmonster_8.setText(self.list_of_encounters[7])
+        self.label_nameofrolledmonster_9.setText(self.list_of_encounters[8])
+        self.label_nameofrolledmonster_10.setText(self.list_of_encounters[9])
+        self.label_nameofrolledmonster_11.setText(self.list_of_encounters[10])
+        self.label_nameofrolledmonster_12.setText(self.list_of_encounters[11])
 
     def set_monster_stats(self):
         chance_of_encounter = self.slider_chanceofencounter.value()
-        chosen_monster = get_a_monster(self.list_of_encounters, chance_of_encounter)
+        chosen_monster = get_a_monster(self.list_of_encounters, self.slider_value)
         life, ac, movement, attacks, damages, number_met, save_poison, save_wands,\
         save_paralysis, save_dragon, save_spells, moral, treasure, alignment,\
-        xp_value = get_a_monster_stats(get_monster_dict(), chosen_monster)
+        xp_value = get_a_monster_stats(get_monster_dict_xml(), chosen_monster)
         
         self.group_statsofrolledmonster.setTitle("Stats of Rolled Monster : {0}".format(chosen_monster))
         #self.label_statsofrolledmonster_ac
