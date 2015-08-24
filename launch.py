@@ -166,6 +166,9 @@ class main_window(Ui_MainWindow):
 
 
     def set_treasure(self):
+        """
+        This method sets up the generated treasure
+        """
         #Variables used
         self.treasure_value = self.line_treasure_value.text()
         has_gems = self.check_gems.isChecked()
@@ -211,6 +214,9 @@ class main_window(Ui_MainWindow):
         pass
 
     def set_npc(self):
+        """
+        This method adds generated npcs
+        """
         print("set_npc")
         alignment = str(self.combobox_alignmentofnpc.currentText())
         print(alignment)
@@ -230,10 +236,16 @@ class main_window(Ui_MainWindow):
         pass
 
     def clear_generated_npc(self):
+        """
+        This method clears the generated npcs
+        """
         self.display_generated_npc.clear()
         pass
 
     def set_disease(self):
+        """
+        This method sets up the generated disease
+        """
         region = self.combobox_disease_region.currentText()
         sequels = self.combobox_disease_sequels.currentText()
         source = self.combobox_disease_source.currentText()
@@ -242,6 +254,9 @@ class main_window(Ui_MainWindow):
         pass
 
     def set_poison(self):
+        """
+        This method sets up the generated poison
+        """
         type_ = self.combobox_poison_type.currentText()
         category = self.combobox_poison_category.currentText()
         price = self.lineedit_poison_price.text()
@@ -250,9 +265,9 @@ class main_window(Ui_MainWindow):
         pass
 
     def add_monsters(self):
-        '''
+        """
         This method will launch the add monsters window dialog
-        '''
+        """
         add_monster_dialog = QtGui.QDialog()
         self.ui_add_monster.setupUi(add_monster_dialog)
         add_monster_dialog.exec_()
