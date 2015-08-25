@@ -469,7 +469,6 @@ def get_npc_belongings(npc_dict, level, npc_class):
     weapons = []
     armors = []
     belongings = ""
-
     try:
         assert npc_belongings_value >= 0
         for i in range(int(level / 5) + 1):
@@ -671,3 +670,4 @@ def get_poison_price(type_, category, effect):
         min_price += 300 #int, cha, wis = 0 > inconscious
         factor += 1
     return rd.randint(min_price, min_price * factor)
+
