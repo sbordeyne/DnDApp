@@ -1,3 +1,6 @@
+# /!\ WARNING /!\
+The code will need some heavy refactoring. Make use of classes instead of dicts, get all of this more pythonic, more readable
+
 # DnDApp
 The GitHub repository for DnDApp
 
